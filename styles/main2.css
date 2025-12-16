@@ -142,10 +142,7 @@ hr {
 
 .dashboard-button:hover {
   background-color: #03915f;
-  border-top-left-radius: 23px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius:23px;
+  
 }
 
 .dashboard-button2 {
