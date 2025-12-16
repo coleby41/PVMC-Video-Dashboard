@@ -49,6 +49,10 @@ body {
 
 .nav-links a.active {
   background-color: #04AA6D;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 0px;
   color: white;
   font-weight: 600;
 }
