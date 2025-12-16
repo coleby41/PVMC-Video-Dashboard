@@ -5,8 +5,7 @@ async function checkCampus() {
     const res = await fetch('https://api.ipify.org?format=json');
     const { ip } = await res.json();
 
-    // CHANGE to your real campus IP(s)
-    const campusIPs = ["98.101.68.66"];
+    const campusIPs = ["98.101.68.66","98.121.160.220"];
 
     const onCampus = campusIPs.includes(ip);
 
