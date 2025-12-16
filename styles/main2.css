@@ -1,39 +1,45 @@
+/* Base reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
+/* Root font sizing */
+html {
+  font-size: 16px;
+}
+
+/* Page body */
+body {
+  background-color: #ecdcc5;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
   background-color: #1e293b;
   padding: 14px 24px;
-  color: white;
-  border-top-left-radius: 12px;     /* top-left corner square */
-  border-top-right-radius: 12px;    /* top-right corner square */
-  border-bottom-left-radius: 0px;  /* bottom-left rounded */
-  border-bottom-right-radius: 0px; /* bottom-right rounded */
-}
-
-.nav-brand {
-  font-size: 1.3rem;
-  font-weight: bold;
+  border-radius: 12px 12px 0 0;
 }
 
 .nav-links {
   list-style: none;
-  display: flex;       /* horizontal */
+  display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 6px;
+  font-size: 1rem;
   transition: background 0.3s;
 }
 
@@ -41,38 +47,48 @@
   background-color: #334155;
 }
 
-.nav-brand a:active {
-  background-color: #04AA6D;
+/* Main content */
+main {
+  margin-top: 20px;
 }
 
-
-body {
-    background-color: #ecdcc5;
-    margin: 20px;
-}   
+/* Typography */
 h1 {
-    color: #333;
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    text-align: center;
-}
-
-p {
-    color: #333;
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    text-align: center;
-}
-
-hr {
-    margin: 20px 0;
-    border: 5px solid #000000;
-    border-radius: 5px;
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 16px;
 }
 
 h2 {
-    color: #333;
-    font-family: Arial, sans-serif;
-    font-size: 20px;
-    text-align: center;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+p {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Divider */
+hr {
+  margin: 24px 0;
+  border: 4px solid #000;
+  border-radius: 4px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  body {
+    margin: 12px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
 }

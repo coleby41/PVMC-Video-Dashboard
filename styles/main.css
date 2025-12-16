@@ -1,27 +1,26 @@
 .banner {
-  box-sizing: border-box;
   width: 100%;
   padding: 16px 24px;
-  border-top-left-radius: 0;    
-  border-top-right-radius: 0;   
-  border-bottom-left-radius: 12px;  
-  border-bottom-right-radius: 12px; 
+  background-color: #444;
+  color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 20px;
+  font-size: 1.1rem;
+  text-align: center;
+
   position: sticky;
   top: 0;
   z-index: 1000;
-  text-align: center;
+
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .banner.red {
   background-color: #c40000;
-  color: white;
 }
 
 .banner.green {
   background-color: #0f7b0f;
-  color: white;
 }
 
 .banner.hidden {
@@ -29,5 +28,14 @@
 }
 
 .banner .icon {
-  font-size: 20px;
+  font-size: 1.2rem;
+  margin-right: 6px;
+}
+
+/* Mobile tuning */
+@media (max-width: 600px) {
+  .banner {
+    font-size: 1rem;
+    padding: 14px 16px;
+  }
 }
