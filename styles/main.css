@@ -31,30 +31,3 @@
 .banner .icon {
   font-size: 20px;
 }
-
-/* styles for phone screens */
-
-@media (max-width: 600px) {
-  .banner {
-    gap: 10px;
-  }
-}
-
-@media (max-width: 600px) {
-  .banner {
-    flex-direction: row;
-    align-items: flex-start;
-    font-size: 14px;
-    padding: 12px 16px;
-    border-radius: 10px;
-  }
-
-  .banner .icon {
-    margin-top: 2px;
-    font-size: 18px;
-  }
-
-  .banner {
-    line-height: 1.4;
-  }
-}
