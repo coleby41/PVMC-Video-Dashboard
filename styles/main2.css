@@ -110,6 +110,7 @@ hr {
 
 .dashboard-links {
   text-decoration: underline;
+  font-weight: bold;
 }
 
 /* Container controls layout */
@@ -136,8 +137,36 @@ hr {
     position: static;
   width: 100%;
   margin: 0;
+  font-weight: bold;
 }
 
 .dashboard-button:hover {
   background-color: #03915f;
+  border-top-left-radius: 23px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius:23px;
+}
+
+.dashboard-button2 {
+  background-color: #aa0404;
+  color: white;
+  padding: 12px 20px;
+  border-top-left-radius: 123px;
+  border-top-right-radius: 123px;
+  border-bottom-left-radius: 123px;
+  border-bottom-right-radius: 123px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center; 
+    position: static;
+  width: 100%;
+  margin: 0;
+    font-weight: bold;
+}
+
+.dashboard-button2:hover {
+  background-color: #910303;
 }
