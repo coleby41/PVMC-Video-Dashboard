@@ -45,6 +45,10 @@ body {
 
 .nav-links a:hover {
   background-color: #334155;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 12px;
 }
 
 .nav-links a.active {
@@ -55,6 +59,7 @@ body {
   border-bottom-right-radius: 0px;
   color: white;
   font-weight: 600;
+  box-shadow: 0 4px 8px rgba(174, 169, 169, 0.401);
 }
 
 /* Main content */
