@@ -47,6 +47,12 @@ body {
   background-color: #334155;
 }
 
+.nav-links a.active {
+  background-color: #04AA6D;
+  color: white;
+  font-weight: 600;
+}
+
 /* Main content */
 main {
   margin-top: 20px;

@@ -1,7 +1,7 @@
 .banner {
   width: 100%;
   padding: 16px 24px;
-  background-color: #444;
+  background-color: #444; /* solid color prevents status bar issues */
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.1rem;
@@ -11,8 +11,14 @@
   top: 0;
   z-index: 1000;
 
+  /* Keep only the bottom corners rounded */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+
+  /* Optional: add a subtle shadow to separate from content */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .banner.red {
