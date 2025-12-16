@@ -8,7 +8,7 @@
   text-align: center;
 
   position: sticky;
-  top: 0;
+  top: 55px;
   z-index: 1000;
 
   /* Keep only the bottom corners rounded */
@@ -45,3 +45,5 @@
     padding: 14px 16px;
   }
 }
+
+
