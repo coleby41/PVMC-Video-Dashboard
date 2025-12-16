@@ -107,3 +107,37 @@ hr {
     font-size: 1.1rem;
   }
 }
+
+.dashboard-links {
+  text-decoration: underline;
+}
+
+/* Container controls layout */
+.dashboard-container {
+  display: flex ;
+  flex-direction: column ;
+  gap: 14px ;
+}
+
+/* Button styling */
+.dashboard-button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border-top-left-radius: 123px;
+  border-top-right-radius: 123px;
+  border-bottom-left-radius: 123px;
+  border-bottom-right-radius: 123px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center; 
+    position: static;
+  width: 100%;
+  margin: 0;
+}
+
+.dashboard-button:hover {
+  background-color: #03915f;
+}
