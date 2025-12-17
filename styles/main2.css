@@ -138,6 +138,7 @@ hr {
   width: 100%;
   margin: 0;
   font-weight: bold;
+  border: #000 solid 3.5px;
 }
 
 .dashboard-button:hover {
@@ -162,6 +163,7 @@ hr {
   width: 100%;
   margin: 0;
     font-weight: bold;
+    border: 3.5px solid rgb(0, 0, 0);
 }
 
 .dashboard-button2:hover {
