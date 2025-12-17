@@ -44,4 +44,15 @@
   }
 }
 
-
+.hr-pro {
+border: none;
+  height: 3px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #000 0,
+    #000 20px,
+    transparent 20px,
+    transparent 35px
+  );
+  margin: 20px 0;
+}   
