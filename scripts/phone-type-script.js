@@ -1,4 +1,3 @@
-<script>
 function downloadApp() {
   const ua = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -10,4 +9,3 @@ function downloadApp() {
     alert("Please visit the App Store or Google Play on your mobile device.");
   }
 }
-</script>
