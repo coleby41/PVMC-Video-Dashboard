@@ -169,3 +169,16 @@ hr {
 .dashboard-button2:hover {
   background-color: #910303;
 }
+
+.smart-download {
+  width: 100%;
+  max-width: 320px;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  background: #04AA6D;
+  color: white;
+  cursor: pointer;
+}

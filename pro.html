@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#444">
-  <title>PVMC Tech Dashboard: Home</title>
+  <title>PVMC Tech Dashboard: Pro Information</title>
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles/main.css">
@@ -34,7 +34,25 @@
   <main>
     <h1>Propresenter Information</h1>
     <p>Welcome to the Pro Information page. This is where you can find information about the propresenter</p>
-    </main>
+    <hr>
+    <h2 class="dashboard-links"> ProPresenter Links:</h2>
+    <br>
+    <div class="dashboard-container">
+    <button class="dashboard-button" onclick="window.open('https://www.renewedvision.com/propresenter', '_blank')">
+  Propresenter Offcical Website!
+</button>
+<button class="dashboard-button" onclick="window.open('https://www.youtube.com/renewedvisionllc', '_blank')">
+  propresenter YouTube Tutorials!
+</button>
+<hr>
+    <h2 class="dashboard-links"> NEW - Propresenter Remote</h2> 
+    <br>
+    <p> You can now control propresenter remotely from your device! Click the button below that corresponds to your device type to get started!</p>
+  <button class="smart-download" onclick="downloadApp()">
+  Download the App
+</button>  
+  </main>
     <script src="scripts/campus-check.js"></script>
+    <script src="scripts/phone-type-script.js"></script>
 </body>
 </html>           
