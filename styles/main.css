@@ -20,7 +20,10 @@
 }
 
 .banner.red {
-  background-color: #c40000;
+  background-color: #fcd4da;
+  border-left: 4px solid #f44336;
+  color: #c62828;
+
 }
 
 .banner.green {
