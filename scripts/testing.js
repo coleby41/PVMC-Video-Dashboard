@@ -1,8 +1,3 @@
-/* ==================== CONFIGURATION ==================== */
-const CORRECT_PASSWORD = '3788';
-const PROXY_URL = 'http://192.168.20.100:3001/api/companion/variables';
-const VARIABLE_NAME = 'CS_Projector:projectorInput';
-
 /* ==================== INITIALIZATION ==================== */
 // Check if already authenticated
 if (sessionStorage.getItem('authenticated') === 'true') {
@@ -58,40 +53,3 @@ function hideBanner() {
     document.getElementById('bannerText').textContent = 'Companion Connection Active';
 }
 
-/* ==================== COMPANION DATA FETCHING ==================== */
-async function fetchCompanionData() {
-    try {
-        const response = await fetch(PROXY_URL);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        // Get the projector input variable
-        const projectorInput = data[VARIABLE_NAME];
-        
-        // Update UI
-        document.getElementById('projectorInput').textContent = projectorInput || 'Not Available';
-        document.getElementById('connectionStatus').textContent = 'Connected';
-        document.getElementById('connectionStatus').className = 'status connected';
-        
-        // Show success banner
-        showBanner('Companion Connection Active', 'green');
-        
-        // Update last update time
-        const now = new Date().toLocaleTimeString();
-        document.getElementById('lastUpdate').textContent = `Last updated: ${now}`;
-        
-    } catch (error) {
-        console.error('Error fetching Companion data:', error);
-        
-        // Show error banner
-        showBanner('Unable to connect to Companion proxy. Make sure the proxy server is running on your Pi.', 'red');
-        
-        document.getElementById('connectionStatus').textContent = 'Disconnected';
-        document.getElementById('connectionStatus').className = 'status disconnected';
-        document.getElementById('projectorInput').textContent = 'Error';
-    }
-}

@@ -13,75 +13,7 @@
     <link rel="icon" type="image/png" href="media/PVMC-logo.png">
 </head>
 <body>
-    <!-- Password Screen -->
-    <div id="passwordScreen" style="
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #ecdcc5, #d6c2a8);
-    ">
-        <div style="
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1.5px solid rgba(255, 255, 255, 0.35);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-        ">
-            <h2 style="margin-bottom: 20px;">🔒 Restricted Access</h2>
-            <p style="margin-bottom: 20px; color: #444;">
-                Enter the password to continue
-            </p>
-            <input
-                type="password"
-                id="passwordInput"
-                placeholder="Enter password"
-                style="
-                    width: 100%;
-                    padding: 12px;
-                    font-size: 1rem;
-                    border-radius: 10px;
-                    margin-bottom: 10px;
-                    border: 1px solid rgba(255,255,255,0.5);
-                    background: rgba(255,255,255,0.6);
-                    outline: none;
-                "
-            >
-            <div id="passwordError" style="
-                color: #b71c1c;
-                margin-bottom: 10px;
-                display: none;
-                font-size: 0.9rem;
-            ">
-                Incorrect password. Please try again.
-            </div>
-            <button
-                onclick="checkPassword()"
-                class="dashboard-button"
-                style="
-                    margin: 0;
-                    padding: 12px 20px;
-                    border-radius: 12px;
-                    border: none;
-                    background: rgba(0, 0, 0, 0.8);
-                    color: white;
-                    cursor: pointer;
-                "
-            >
-                Access Dashboard
-            </button>
-            <p style="margin-top: 20px; font-size: 0.85rem;">
-                <a href="index.html" style="color: #041dff; text-decoration: underline;">
-                    Go back
-                </a>
-            </p>
-        </div>
-    </div>
+    
 
         <!-- 3. CAMPUS/NETWORK BANNER (red - controlled by campus-check.js) -->
     <div id="network-banner" class="banner2 hidden"></div>
@@ -92,81 +24,54 @@
             <div class="hr-pro"></div>
 
             <div class="dashboard-wrapper">
-                <h1 style="width: 100%; text-align: center; margin-bottom: 20px;">
-                    SR Projector Status
-                </h1>
-                <div class="dashboard-container">
-                    
-                    <div class="card">
-                        <div class="card-title">Projector Input</div>
-                        <div class="card-value" id="projectorInput">--</div>
-                        <div class="card-label">Current Source</div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-title">Connection Status</div>
-                        <div class="card-value">
-                            <span class="status disconnected" id="connectionStatus">Checking...</span>
-                        </div>
-                        <div class="card-label">Companion Link</div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-title">Projector Device</div>
-                        <div class="card-value" id="projectorName">JBMIA</div>
-                        <div class="card-label">PJLink Device</div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-title">Projector Input</div>
-                        <div class="card-value" id="projectorInput">--</div>
-                        <div class="card-label">Current Source</div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-title">Connection Status</div>
-                        <div class="card-value">
-                            <span class="status disconnected" id="connectionStatus">Checking...</span>
-                        </div>
-                        <div class="card-label">Companion Link</div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-title">Projector Device</div>
-                        <div class="card-value" id="projectorName">JBMIA</div>
-                        <div class="card-label">PJLink Device</div>
-                    </div>
-                </div>
-              <p class="card-label" style="padding-top: 20px;">Note: ‘Stage right’ refers to stage right (the performer’s right), not the audience’s.</p>
+    <h1 style="width: 100%; text-align: center; margin-bottom: 10px;">
+        SR Projector Status
+    </h1>
+    <p class="card-label" style="margin-bottom: 10px;">IP ADDRESS: 192.168.20.34</p>
+    <div class="dashboard-container">
+        
+        <div class="card">
+            <div class="card-title">INPUT STATUS</div>
+            <div class="card-value" id="projectorInput">--</div>
+            <div class="card-label">SR INPUT STATUS</div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Power Status</div>
+            <div class="card-value">
+                <span class="status disconnected" id="powerStatus">OFF</span>
             </div>
+            <div class="card-label">SR Projector Power</div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">LIGHTBULB HOURS</div>
+            <div class="card-value" id="lamp1Hrs">--</div>
+            <div class="card-label">SR LIGHTBULB HOURS</div>
+        </div>
 
-            <div class="dashboard-wrapper">
-                <h1 style="width: 100%; text-align: center; margin-bottom: 20px;">
-                    Projector Status
-                </h1>
-                <div class="dashboard-container">
-                    
-                    <div class="card">
-                        <div class="card-title">Projector Input</div>
-                        <div class="card-value" id="projectorInput">--</div>
-                        <div class="card-label">Current Source</div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-title">Connection Status</div>
-                        <div class="card-value">
-                            <span class="status disconnected" id="connectionStatus">Checking...</span>
-                        </div>
-                        <div class="card-label">Companion Link</div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-title">Projector Device</div>
-                        <div class="card-value" id="projectorName">JBMIA</div>
-                        <div class="card-label">PJLink Device</div>
-                    </div>
-                </div>
-            </div>
+        <div class="card">
+            <div class="card-title">MUTE STATUS</div>
+            <div class="card-value" id="muteState">--</div>
+            <div class="card-label">SR MUTE STATUS</div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">PROJECTOR NAME</div>
+            <div class="card-value" id="projectorName">--</div>
+            <div class="card-label">SR NAME</div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">PROJECTOR PRODUCT NAME</div>
+            <div class="card-value" id="projectorModel">--</div>
+            <div class="card-label">SR PROJECTOR MODEL</div>
+        </div>
+    </div>
+    <p class="card-label" style="padding-top: 20px;">Note: 'Stage right' refers to stage right (the performer's right), not the audience's.</p>
+</div>
+
+            
 
             <button class="dashboard-button" onclick="fetchCompanionData()">🔄 Refresh Now</button>
 
@@ -182,5 +87,6 @@
     <script src="scripts/testing.js"></script>
     <script src="scripts/campus-check2.js"></script>
     <script src="scripts/theme-switcher.js"></script>
+    <script src="scripts/sr-projector.js"></script>
 </body>
 </html>
