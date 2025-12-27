@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            background-color: #ecdcc5;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .error-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #1e293b;
+            line-height: 1;
+            margin-bottom: 20px;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 123px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .dashboard-button:hover {
+            background-color: #03915f;
+            transform: translateY(-2px);
+        }
+
+        .verse-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #954535;
+            margin: 30px 0;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .verse {
+            font-style: italic;
+            color: #334155;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .verse-reference {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .error-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-card">
+            <div class="icon">🕊️</div>
+            <div class="error-code">404</div>
+            <h1>Page Not Found</h1>
+            <p>The page you're looking for seems to have wandered off. Don't worry, we'll help you find your way back.</p>
+            <div class="verse-container">
+                <div class="verse">
+                    "Serve wholeheartedly, as if you were serving the Lord, not people."
+                </div>
+                <div class="verse-reference">— Ephesians 6:7</div>
+            </div>
+            <a href="/" class="dashboard-button">Return to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
