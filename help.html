@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wi-Fi Instructions</title>
+<style>
+/* Your existing CSS goes here */
+
+/* Glass-style container for instructions */
+.wifi-card {
+  backdrop-filter: blur(12px) brightness(1.2);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 24px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  text-align: left;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.wifi-card h2 {
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.wifi-card ol {
+  padding-left: 20px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+body {
+  background-color: #ecdcc5;
+  font-family: Arial, sans-serif;
+}
+
+.banner {
+  width: 100%;
+  background-color: #444;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: calc(env(safe-area-inset-top) + 16px) 24px 16px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.banner .icon {
+  font-size: 1.2rem;
+  margin-right: 6px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .wifi-card {
+    margin: 12px;
+    padding: 16px;
+  }
+
+  .wifi-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .wifi-card ol {
+    font-size: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <span class="icon">📶</span> How to Join Wi-Fi
+</div>
+
+<main>
+  <div class="wifi-card">
+    <h2>Wi-Fi Connection Instructions</h2>
+    <ol>
+      <li>Open your device's Wi-Fi settings.</li>
+      <li>Select the network you want to join from the available list.</li>
+      <li>Enter the password if prompted.</li>
+      <li>Wait a few seconds for the device to connect.</li>
+      <li>Once connected, you should see a Wi-Fi icon in your device’s status bar.</li>
+    </ol>
+  </div>
+</main>
+
+</body>
+</html>
