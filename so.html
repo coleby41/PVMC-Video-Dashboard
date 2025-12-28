@@ -15,19 +15,17 @@
     </div>
 
     <script>
-        async function updateDashboard() {
+       async function getFader() {
     try {
+        // Use the exact URL that gave you the '0'
         const response = await fetch('http://192.168.20.100:8000/api/variable/CR_BM_Switcher/audio_input_1_faderGain/value');
-        const data = await response.json();
         
-        console.log(data); // This will show you the exact structure in the browser console
-
-        // If the API returns { "value": "some-text" }, use data.value
-        // If it returns a simple string, just use data
-        document.getElementById('fader1').innerText = data.value !== undefined ? data.value : data;
+        // Use .text() because the response is just the number 0
+        const data = await response.text();
+        
+        document.getElementById('fader1').innerText = data;
     } catch (err) {
-        document.getElementById('fader1').innerText = "Error Connecting";
-        console.error("Fetch error:", err);
+        console.error("Connection failed. Check if CORS is enabled in Protocols tab.", err);
     }
 }
     </script>
