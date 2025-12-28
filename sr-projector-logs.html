@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SR Projector Error Log</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/theme-switcher.css">
+    <link rel="stylesheet" href="styles/projector-log.css">
+    <link rel="stylesheet" href="styles/testing.css">
+</head>
+<body>
+    <div id="network-banner" class="banner2 hidden"></div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <h1>📋 SR Projector Error Log</h1>
+        
+        <div class="hr-pro"></div>
+
+        <div class="log-sheet">
+            <div class="log-header">
+                <h2>System Diagnostic Report</h2>
+                <div class="log-info">
+                    <div><strong>Device:</strong> SR Projector (Stage Right)</div>
+                    <div><strong>IP Address:</strong> 192.168.20.127</div>
+                </div>
+                <div class="log-info">
+
+                    <div><strong>Last Updated:</strong> <span id="lastUpdate">Never</span></div>
+                </div>
+            </div>
+
+            <table class="error-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Error Type</th>
+                        <th style="width: 20%;">Status</th>
+                        <th style="width: 50%;">Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cover Error</strong></td>
+                        <td>
+                            <div class="status-indicator">
+                                <span class="status-dot unknown" id="errorCoverDot"></span>
+                                <span class="status-text unknown" id="errorCoverStatus">Loading...</span>
+                            </div>
+                        </td>
+                        <td id="errorCoverDetails">Checking projector cover status...</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fan Error</strong></td>
+                        <td>
+                            <div class="status-indicator">
+                                <span class="status-dot unknown" id="errorFanDot"></span>
+                                <span class="status-text unknown" id="errorFanStatus">Loading...</span>
+                            </div>
+                        </td>
+                        <td id="errorFanDetails">Checking cooling fan status...</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Filter Error</strong></td>
+                        <td>
+                            <div class="status-indicator">
+                                <span class="status-dot unknown" id="errorFilterDot"></span>
+                                <span class="status-text unknown" id="errorFilterStatus">Loading...</span>
+                            </div>
+                        </td>
+                        <td id="errorFilterDetails">Checking air filter status...</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lamp Error</strong></td>
+                        <td>
+                            <div class="status-indicator">
+                                <span class="status-dot unknown" id="errorLampDot"></span>
+                                <span class="status-text unknown" id="errorLampStatus">Loading...</span>
+                            </div>
+                        </td>
+                        <td id="errorLampDetails">Checking lamp status...</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Temperature Error</strong></td>
+                        <td>
+                            <div class="status-indicator">
+                                <span class="status-dot unknown" id="errorTempDot"></span>
+                                <span class="status-text unknown" id="errorTempStatus">Loading...</span>
+                            </div>
+                        </td>
+                        <td id="errorTempDetails">Checking temperature sensors...</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="dashboard-button" onclick="fetchErrorData()">🔄 Refresh Log</button>
+
+            <div class="log-footer">
+                <strong>Legend:</strong> 🟢 Green = No Error Detected | 🔴 Red = Error Present | ⚪ Gray = Unknown/Connecting
+                <br><br>
+                <em>Note: This log updates automatically every 5 seconds. Manual refresh available above.</em>
+                <br><br>
+                <a href="testing.html">Go Back to Live Status Monitor</a> 
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/testing.js"></script>
+    <script src="scripts/campus-check2.js"></script>
+    <script src="scripts/theme-switcher.js"></script>
+    <script src="scripts/sr-projector-log.js"></script>
+</body>
+</html>
