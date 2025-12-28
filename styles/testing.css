@@ -126,8 +126,10 @@ body {
 }
 
 .banner2.green {
-    background-color: #0f7b0f;
+    background-color: #D1FFBD;
     border-radius: 12px 12px 12px 12px;
+    border-left: 6px solid #4CAF50;
+    color: #226226;
 }
 
 .banner2.hidden {

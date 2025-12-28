@@ -21,13 +21,15 @@
 
 .banner.red {
   background-color: #fcd4da;
-  border-left: 4px solid #f44336;
+  border-left: 6px solid #f44336;
   color: #c62828;
 
 }
 
 .banner.green {
-  background-color: #0f7b0f;
+  background-color: #D1FFBD;
+  border-left: 6px solid #4CAF50;
+  color: #226226;
 }
 
 .banner.hidden {

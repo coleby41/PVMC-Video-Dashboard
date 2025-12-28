@@ -52,7 +52,7 @@ async function fetchErrorData() {
         const now = new Date().toLocaleTimeString();
         document.getElementById('lastUpdate').textContent = now;
         
-        // Optional: Log to console for debugging
+        
         console.log('SR Projector error log updated successfully');
         
     } catch (error) {
