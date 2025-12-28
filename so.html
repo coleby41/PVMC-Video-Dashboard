@@ -16,21 +16,20 @@
 
     <script>
         async function updateDashboard() {
-            try {
-                // Change 'audio_input_1_faderGain' to any variable from your list
-                const response = await fetch('http://192.168.20.100:8000/api/variable/CR_BM_Switcher/audio_input_1_faderGain/value');
-                const data = await response.json();
-                
-                // Update the text on the page
-                document.getElementById('fader1').innerText = data.value;
-            } catch (err) {
-                console.error("Fetch error:", err);
-            }
-        }
+    try {
+        const response = await fetch('http://192.168.20.100:8000/api/variable/CR_BM_Switcher/audio_input_1_faderGain/value');
+        const data = await response.json();
+        
+        console.log(data); // This will show you the exact structure in the browser console
 
-        // Run once on load and then every 2 seconds
-        updateDashboard();
-        setInterval(updateDashboard, 2000);
+        // If the API returns { "value": "some-text" }, use data.value
+        // If it returns a simple string, just use data
+        document.getElementById('fader1').innerText = data.value !== undefined ? data.value : data;
+    } catch (err) {
+        document.getElementById('fader1').innerText = "Error Connecting";
+        console.error("Fetch error:", err);
+    }
+}
     </script>
 </body>
 </html>
