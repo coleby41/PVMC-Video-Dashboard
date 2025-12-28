@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Companion Live Dashboard</title>
+    <style>
+        body { font-family: sans-serif; background: #222; color: white; padding: 20px; }
+        .data-box { border: 1px solid #444; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+        .value { color: #00ff00; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="data-box">
+        Input 1 Fader: <span id="fader1" class="value">Loading...</span>
+    </div>
+
+    <script>
+        async function updateDashboard() {
+            try {
+                // Change 'audio_input_1_faderGain' to any variable from your list
+                const response = await fetch('http://192.168.20.100:8000/api/variable/CR_BM_Switcher/audio_input_1_faderGain/value');
+                const data = await response.json();
+                
+                // Update the text on the page
+                document.getElementById('fader1').innerText = data.value;
+            } catch (err) {
+                console.error("Fetch error:", err);
+            }
+        }
+
+        // Run once on load and then every 2 seconds
+        updateDashboard();
+        setInterval(updateDashboard, 2000);
+    </script>
+</body>
+</html>

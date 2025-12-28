@@ -23,7 +23,7 @@ async function checkCampus() {
       banner.className = 'banner red';
       banner.innerHTML = `
         <span class="icon">✖</span>
-        You have left campus. This dashboard only works on the campus network. <a href="404.html">Click here to get help</a>
+        You have left campus. This dashboard only works on the campus network. <a href="help.html">Click here to get help</a>
       `;
     }
 
