@@ -4,86 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Church Dashboard - Testing Page</title>
-    
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles/theme-switcher.css">
     <link rel="stylesheet" href="styles/testing.css">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="media/PVMC-logo.png">
 </head>
 <body>
-    
 
-        <!-- 3. CAMPUS/NETWORK BANNER (red - controlled by campus-check.js) -->
+    <!-- Network Banner -->
     <div id="network-banner" class="banner2 hidden"></div>
-        <!-- Main Content -->
-        <div class="container">
-            <h1>Live Status Monitor</h1>
 
-            <div class="dashboard-wrapper">
-    <h1 style="width: 100%; text-align: center; margin-bottom: 10px;">
-        SR Projector Status
-    </h1>
-    <p class="card-label" style="margin-bottom: 10px;">IP ADDRESS: 192.168.20.127</p>
-    <div class="dashboard-container">
-        
-        <div class="card">
-            <div class="card-title">INPUT STATUS</div>
-            <div class="card-value" id="projectorInput">--</div>
-            <div class="card-label">SR INPUT STATUS</div>
-        </div>
-        
-        <div class="card">
-            <div class="card-title">Power Status</div>
-            <div class="card-value">
-                <span class="status disconnected" id="powerStatus">OFF</span>
+    <div class="container">
+        <h1>Live Status Monitor</h1>
+
+        <!-- ================= SR PROJECTOR ================= -->
+        <div class="dashboard-wrapper">
+            <h1 style="text-align:center;">SR Projector Status</h1>
+            <p class="card-label">IP ADDRESS: 192.168.20.127</p>
+
+            <div class="dashboard-container">
+                <div class="card">
+                    <div class="card-title">INPUT STATUS</div>
+                    <div class="card-value" id="srprojectorInput">--</div>
+                    <div class="card-label">SR INPUT STATUS</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">POWER STATUS</div>
+                    <span class="status disconnected" id="srpowerStatus">--</span>
+                    <div class="card-label">SR POWER STATUS</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">LIGHTBULB HOURS</div>
+                    <div class="card-value" id="srlamp1Hrs">--</div>
+                    <div class="card-label">SR POWER STATUS</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">MUTE STATUS</div>
+                    <div class="card-value" id="srmuteState">--</div>
+                    <div class="card-label">SR POWER STATUS</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">PROJECTOR NAME</div>
+                    <div class="card-value" id="srprojectorName">--</div>
+                    <div class="card-label">SR POWER STATUS</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">PROJECTOR MODEL</div>
+                    <div class="card-value" id="srprojectorModel">--</div>
+                    <div class="card-label">SR POWER STATUS</div>
+                </div>
             </div>
-            <div class="card-label">SR Projector Power</div>
-        </div>
-        
-        <div class="card">
-            <div class="card-title">LIGHTBULB HOURS</div>
-            <div class="card-value" id="lamp1Hrs">--</div>
-            <div class="card-label">SR LIGHTBULB HOURS</div>
         </div>
 
-        <div class="card">
-            <div class="card-title">MUTE STATUS</div>
-            <div class="card-value" id="muteState">--</div>
-            <div class="card-label">SR MUTE STATUS</div>
-        </div>
-        
-        <div class="card">
-            <div class="card-title">PROJECTOR NAME</div>
-            <div class="card-value" id="projectorName">--</div>
-            <div class="card-label">SR NAME</div>
-        </div>
-        
-        <div class="card">
-            <div class="card-title">PROJECTOR PRODUCT NAME</div>
-            <div class="card-value" id="projectorModel">--</div>
-            <div class="card-label">SR PROJECTOR MODEL</div>
-        </div>
-    </div>
-    <p class="card-label" style="padding-top: 20px;">Note: 'Stage right' refers to stage right (the performer's right), not the audience's.</p>
-<a href="404.html" style="display: block; text-align: center; padding-top: 10px;">
-  Check Log Here!
-</a>
-</div>
+        <!-- ================= CS PROJECTOR ================= -->
+        <div class="dashboard-wrapper">
+            <h1 style="text-align:center;">CS Projector Status</h1>
+            <p class="card-label">IP ADDRESS: 192.168.20.125</p>
 
-            
+            <div class="dashboard-container">
+                <div class="card">
+                    <div class="card-title">INPUT STATUS</div>
+                    <div class="card-value" id="csprojectorInput">--</div>
+                </div>
 
-<button class="dashboard-button" onclick="window.location.href='projectors.html'">
-  Go Back!
-</button>
+                <div class="card">
+                    <div class="card-title">POWER STATUS</div>
+                    <span class="status disconnected" id="cspowerStatus">OFF</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">LIGHTBULB HOURS</div>
+                    <div class="card-value" id="cslamp1Hrs">--</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">MUTE STATUS</div>
+                    <div class="card-value" id="csmuteState">--</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">PROJECTOR NAME</div>
+                    <div class="card-value" id="csprojectorName">--</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">PROJECTOR MODEL</div>
+                    <div class="card-value" id="csprojectorModel">--</div>
+                </div>
+            </div>
         </div>
+
+        <button class="dashboard-button" onclick="window.location.href='projectors.html'">
+            Go Back
+        </button>
     </div>
 
     <!-- Scripts -->
-    <script src="scripts/testing.js"></script>
+    <script src="scripts/projectors/sr-projector.js"></script>
+    <script src="scripts/projectors/cs-projector.js"></script>
     <script src="scripts/campus-check2.js"></script>
     <script src="scripts/theme-switcher.js"></script>
-    <script src="scripts/projectors/sr-projector.js"></script>
 </body>
 </html>

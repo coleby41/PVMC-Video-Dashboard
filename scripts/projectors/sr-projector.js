@@ -1,7 +1,6 @@
-const BASE_URL = 'http://192.168.20.100:8000/api/variable/SR_Projector';
+const SR_BASE_URL = 'http://192.168.20.100:8000/api/variable/SR_Projector';
 
-// Variable names (note: you had a typo "Peojector" - keeping it as is)
-const VARIABLES = {
+const SR_VARIABLES = {
     powerState: 'powerState',
     muteState: 'muteState',
     projectorInput: 'projectorInput',
@@ -10,59 +9,50 @@ const VARIABLES = {
     projectorModel: 'projectorModel'
 };
 
-async function fetchCompanionData() {
+async function fetchSRCompanionData() {
     try {
-        // Fetch all variables individually using direct API
-        const [powerState, muteState, projectorInput, projectorName, lamp1Hrs, projectorModel] = await Promise.all([
-            fetch(`${BASE_URL}/${VARIABLES.powerState}/value`).then(r => r.text()),
-            fetch(`${BASE_URL}/${VARIABLES.muteState}/value`).then(r => r.text()),
-            fetch(`${BASE_URL}/${VARIABLES.projectorInput}/value`).then(r => r.text()),
-            fetch(`${BASE_URL}/${VARIABLES.projectorName}/value`).then(r => r.text()),
-            fetch(`${BASE_URL}/${VARIABLES.lamp1Hrs}/value`).then(r => r.text()),
-            fetch(`${BASE_URL}/${VARIABLES.projectorModel}/value`).then(r => r.text())
+        const [
+            powerState,
+            muteState,
+            projectorInput,
+            projectorName,
+            lamp1Hrs,
+            projectorModel
+        ] = await Promise.all([
+            fetch(`${SR_BASE_URL}/${SR_VARIABLES.powerState}/value`).then(r => r.text()),
+            fetch(`${SR_BASE_URL}/${SR_VARIABLES.muteState}/value`).then(r => r.text()),
+            fetch(`${SR_BASE_URL}/${SR_VARIABLES.projectorInput}/value`).then(r => r.text()),
+            fetch(`${SR_BASE_URL}/${SR_VARIABLES.projectorName}/value`).then(r => r.text()),
+            fetch(`${SR_BASE_URL}/${SR_VARIABLES.lamp1Hrs}/value`).then(r => r.text()),
+            fetch(`${SR_BASE_URL}/${SR_VARIABLES.projectorModel}/value`).then(r => r.text())
         ]);
-        
-        // Update HTML elements
-        document.getElementById('projectorInput').textContent = projectorInput || 'N/A';
-        document.getElementById('lamp1Hrs').textContent = lamp1Hrs || '--';
-        document.getElementById('muteState').textContent = muteState || '--';
-        document.getElementById('projectorName').textContent = projectorName || '--';
-        document.getElementById('projectorModel').textContent = projectorModel || '--';
-        
-        // Update power status with color
-        const powerElement = document.getElementById('powerStatus');
-        if (powerState) {
-            const isOn = powerState.toString().toLowerCase().includes('on') || 
-                         powerState === '1' || 
-                         powerState === '1';
-            powerElement.textContent = isOn ? 'ON' : 'OFF';
-            powerElement.className = isOn ? 'status connected' : 'status disconnected';
-        } else {
-            powerElement.textContent = 'Unknown';
-            powerElement.className = 'status disconnected';
-        }
-        
-        // Optional: Log to console for debugging
-        console.log('SR Projector data updated successfully');
-        
+
+        document.getElementById('srprojectorInput').textContent = projectorInput || 'N/A';
+        document.getElementById('srlamp1Hrs').textContent = lamp1Hrs || '--';
+        document.getElementById('srmuteState').textContent = muteState || '--';
+        document.getElementById('srprojectorName').textContent = projectorName || '--';
+        document.getElementById('srprojectorModel').textContent = projectorModel || '--';
+
+        const powerElement = document.getElementById('srpowerStatus');
+        const isOn = powerState?.toLowerCase().includes('on') || powerState === '1';
+
+        powerElement.textContent = isOn ? 'ON' : 'OFF';
+        powerElement.className = isOn ? 'status connected' : 'status disconnected';
+
     } catch (error) {
-        console.error('Error fetching Companion data:', error);
-        
-        // Set error states on all elements
-        document.getElementById('projectorInput').textContent = 'Error';
-        document.getElementById('lamp1Hrs').textContent = 'Error';
-        document.getElementById('muteState').textContent = 'Error';
-        document.getElementById('projectorName').textContent = 'Error';
-        document.getElementById('projectorModel').textContent = 'Error';
-        
-        const powerElement = document.getElementById('powerStatus');
-        powerElement.textContent = 'Error';
+        console.error('SR Projector error:', error);
+
+        document.getElementById('srprojectorInput').textContent = 'ERR';
+        document.getElementById('srlamp1Hrs').textContent = '--';
+        document.getElementById('srmuteState').textContent = '--';
+        document.getElementById('srprojectorName').textContent = '--';
+        document.getElementById('srprojectorModel').textContent = '--';
+
+        const powerElement = document.getElementById('srpowerStatus');
+        powerElement.textContent = 'OFF';
         powerElement.className = 'status disconnected';
     }
 }
 
-// Fetch on load
-fetchCompanionData();
-
-// Auto-refresh every 5 seconds
-setInterval(fetchCompanionData, 5000);
+fetchSRCompanionData();
+setInterval(fetchSRCompanionData, 5000);
