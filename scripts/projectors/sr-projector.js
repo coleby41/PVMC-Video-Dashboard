@@ -1,32 +1,26 @@
-const PROXY_URL = 'http://192.168.20.100:3001/api/companion/variables';
+const BASE_URL = 'http://192.168.20.100:8000/api/variable/SR_Projector';
 
-// Variable names
+// Variable names (note: you had a typo "Peojector" - keeping it as is)
 const VARIABLES = {
-    powerState: 'SR_Peojector:powerState',
-    muteState: 'SR_Peojector:muteState',
-    projectorInput: 'SR_Peojector:projectorInput',
-    projectorName: 'SR_Peojector:projectorName',
-    lamp1Hrs: 'SR_Peojector:lamp1Hrs',
-    projectorModel: 'SR_Peojector:projectorModel'
+    powerState: 'powerState',
+    muteState: 'muteState',
+    projectorInput: 'projectorInput',
+    projectorName: 'projectorName',
+    lamp1Hrs: 'lamp1Hrs',
+    projectorModel: 'projectorModel'
 };
 
 async function fetchCompanionData() {
     try {
-        const response = await fetch(PROXY_URL);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        // Extract all variables
-        const powerState = data[VARIABLES.powerState];
-        const muteState = data[VARIABLES.muteState];
-        const projectorInput = data[VARIABLES.projectorInput];
-        const projectorName = data[VARIABLES.projectorName];
-        const lamp1Hrs = data[VARIABLES.lamp1Hrs];
-        const projectorModel = data[VARIABLES.projectorModel];
+        // Fetch all variables individually using direct API
+        const [powerState, muteState, projectorInput, projectorName, lamp1Hrs, projectorModel] = await Promise.all([
+            fetch(`${BASE_URL}/${VARIABLES.powerState}/value`).then(r => r.text()),
+            fetch(`${BASE_URL}/${VARIABLES.muteState}/value`).then(r => r.text()),
+            fetch(`${BASE_URL}/${VARIABLES.projectorInput}/value`).then(r => r.text()),
+            fetch(`${BASE_URL}/${VARIABLES.projectorName}/value`).then(r => r.text()),
+            fetch(`${BASE_URL}/${VARIABLES.lamp1Hrs}/value`).then(r => r.text()),
+            fetch(`${BASE_URL}/${VARIABLES.projectorModel}/value`).then(r => r.text())
+        ]);
         
         // Update HTML elements
         document.getElementById('projectorInput').textContent = projectorInput || 'N/A';
@@ -40,7 +34,7 @@ async function fetchCompanionData() {
         if (powerState) {
             const isOn = powerState.toString().toLowerCase().includes('on') || 
                          powerState === '1' || 
-                         powerState === 1;
+                         powerState === '1';
             powerElement.textContent = isOn ? 'ON' : 'OFF';
             powerElement.className = isOn ? 'status connected' : 'status disconnected';
         } else {
