@@ -249,6 +249,12 @@ hr {
     margin-bottom: 10px;
 }
 
+.card-note{
+    color:gray;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
 /* ==================== STATUS BADGE ==================== */
 .status {
     display: block;
