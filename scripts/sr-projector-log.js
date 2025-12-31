@@ -1,7 +1,6 @@
-const BASE_URL = 'http://192.168.20.127:8000/api/variable/SR_Projector';
+const SR_BASE_URL = 'http://192.168.20.100:8000/api/variable/SR_Projector';
 
-// Variable names for error states
-const ERROR_VARIABLES = {
+const SR_VARIABLES = {
     errorCover: 'errorCover',
     errorFan: 'errorFan',
     errorFilter: 'errorFilter',
@@ -11,97 +10,63 @@ const ERROR_VARIABLES = {
 
 async function fetchErrorData() {
     try {
-        // Fetch all error variables individually using direct API
         const [errorCover, errorFan, errorFilter, errorLamp, errorTemp] = await Promise.all([
-            fetch(`${BASE_URL}/${ERROR_VARIABLES.errorCover}/value`).then(r => r.text()),
-            fetch(`${BASE_URL}/${ERROR_VARIABLES.errorFan}/value`).then(r => r.text()),
-            fetch(`${BASE_URL}/${ERROR_VARIABLES.errorFilter}/value`).then(r => r.text()),
-            fetch(`${BASE_URL}/${ERROR_VARIABLES.errorLamp}/value`).then(r => r.text()),
-            fetch(`${BASE_URL}/${ERROR_VARIABLES.errorTemp}/value`).then(r => r.text())
+            fetch(`${SR_BASE_URL}/${SR_VARIABLES.errorCover}/value`).then(r => r.text()),
+            fetch(`${SR_BASE_URL}/${SR_VARIABLES.errorFan}/value`).then(r => r.text()),
+            fetch(`${SR_BASE_URL}/${SR_VARIABLES.errorFilter}/value`).then(r => r.text()),
+            fetch(`${SR_BASE_URL}/${SR_VARIABLES.errorLamp}/value`).then(r => r.text()),
+            fetch(`${SR_BASE_URL}/${SR_VARIABLES.errorTemp}/value`).then(r => r.text())
         ]);
-        
-        // Update HTML elements with status rows
-        updateErrorRow('errorCover', errorCover, 'Projector cover is properly closed and secured.');
-        updateErrorRow('errorFan', errorFan, 'Cooling fans operating within normal parameters.');
-        updateErrorRow('errorFilter', errorFilter, 'Air filter is clean and functioning properly.');
-        updateErrorRow('errorLamp', errorLamp, 'Lamp is operational with no detected issues.');
-        updateErrorRow('errorTemp', errorTemp, 'Temperature is within acceptable operating range.');
-        
-        // Update last update time
-        const now = new Date().toLocaleTimeString();
-        const lastUpdateElement = document.getElementById('lastUpdate');
-        if (lastUpdateElement) {
-            lastUpdateElement.textContent = now;
-        }
-        
-        // Hide banner on success (if showBanner exists from campus-check2.js)
-        if (typeof hideBanner === 'function') {
-            hideBanner();
-        }
-        
-        // Optional: Log to console for debugging
-        console.log('SR Projector error log updated successfully');
-        
+
+        updateErrorDisplay('errorCover', errorCover, 'Projector cover');
+        updateErrorDisplay('errorFan', errorFan, 'Cooling fan');
+        updateErrorDisplay('errorFilter', errorFilter, 'Air filter');
+        updateErrorDisplay('errorLamp', errorLamp, 'Lamp');
+        updateErrorDisplay('errorTemp', errorTemp, 'Temperature');
+
+        // Update last updated timestamp
+        document.getElementById('lastUpdate').textContent = new Date().toLocaleString('en-US', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        });
+
     } catch (error) {
-        console.error('Error fetching Companion data:', error);
+        console.error('SR Projector error:', error);
         
-        // Show error banner (if showBanner exists from campus-check2.js)
-        if (typeof showBanner === 'function') {
-            showBanner('Unable to connect to SR Projector. Check network connection.', 'red');
-        }
-        
-        // Set connection error states
-        updateErrorRow('errorCover', null, 'Unable to retrieve status - check connection.');
-        updateErrorRow('errorFan', null, 'Unable to retrieve status - check connection.');
-        updateErrorRow('errorFilter', null, 'Unable to retrieve status - check connection.');
-        updateErrorRow('errorLamp', null, 'Unable to retrieve status - check connection.');
-        updateErrorRow('errorTemp', null, 'Unable to retrieve status - check connection.');
+        ['errorCover', 'errorFan', 'errorFilter', 'errorLamp', 'errorTemp'].forEach(errorType => {
+            document.getElementById(`${errorType}Dot`).className = 'status-dot unknown';
+            document.getElementById(`${errorType}Status`).textContent = 'Connection Error';
+            document.getElementById(`${errorType}Status`).className = 'status-text unknown';
+            document.getElementById(`${errorType}Details`).textContent = 'Unable to retrieve data';
+        });
     }
 }
 
-// Helper function to update error row with dot, status, and details
-function updateErrorRow(errorType, value, okMessage) {
-    const dotElement = document.getElementById(`${errorType}Dot`);
-    const statusElement = document.getElementById(`${errorType}Status`);
-    const detailsElement = document.getElementById(`${errorType}Details`);
+function updateErrorDisplay(errorType, value, componentName) {
+    const dot = document.getElementById(`${errorType}Dot`);
+    const status = document.getElementById(`${errorType}Status`);
+    const details = document.getElementById(`${errorType}Details`);
     
-    if (!dotElement || !statusElement || !detailsElement) return;
-    
-    if (value === null || value === undefined || value === '') {
-        // Connection error
-        dotElement.className = 'status-dot unknown';
-        statusElement.className = 'status-text unknown';
-        statusElement.textContent = 'Connection Error';
-        detailsElement.textContent = 'Unable to retrieve status - check connection.';
-        return;
-    }
-    
-    // Convert value to string and check for error conditions
-    const valueStr = value.toString().toLowerCase().trim();
-    const hasError = valueStr.includes('error') || 
-                     valueStr.includes('fail') || 
-                     valueStr.includes('warning') ||
-                     valueStr === '1' ||
-                     valueStr === 'true' ||
-                     valueStr === 'yes';
+    // Check if error is present (assuming '1' or 'true' means error, '0' or 'false' means no error)
+    const hasError = value === '1' || value?.toLowerCase() === 'true' || value?.toLowerCase() === 'error';
     
     if (hasError) {
-        // Error detected
-        dotElement.className = 'status-dot error';
-        statusElement.className = 'status-text error';
-        statusElement.textContent = 'ERROR';
-        detailsElement.textContent = `⚠️ Error detected: ${value}`;
+        dot.className = 'status-dot error';
+        status.textContent = 'ERROR';
+        status.className = 'status-text error';
+        details.textContent = `${componentName} has detected an error condition.`;
     } else {
-        // No error
-        dotElement.className = 'status-dot ok';
-        statusElement.className = 'status-text ok';
-        statusElement.textContent = 'OK';
-        detailsElement.textContent = `✓ ${okMessage}`;
+        dot.className = 'status-dot ok';
+        status.textContent = 'OK';
+        status.className = 'status-text ok';
+        details.textContent = `${componentName} is operating normally.`;
     }
 }
 
-// Fetch on page load
+// Initial fetch and auto-refresh every 5 seconds
 fetchErrorData();
-
-// Auto-refresh error data every 5 seconds
-setInterval(fetchErrorData, 5000);
+setInterval(fetchErrorData, 300000);
