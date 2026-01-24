@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,97 +15,98 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="media/PVMC-logo.png">
 
+  <!--
   <style>
     /* Cookie Popup - Matches main popup style */
-:root {
-    --primary-color: #0D47A1;
-    --secondary-color: #1976D2;
-    --accent-color: #42A5F5;
-    --text-dark: #212121;
-    --text-light: #757575;
-    --bg-light: #F5F5F5;
-    --white: #FFFFFF;
-    --border-color: #E0E0E0;
-    --success-color: #4CAF50;
-    --warning-color: #FF9800;
-    --danger-color: #F44336;
-    --sidebar-width: 220px;
-}
+    :root {
+      --primary-color: #0D47A1;
+      --secondary-color: #1976D2;
+      --accent-color: #42A5F5;
+      --text-dark: #212121;
+      --text-light: #757575;
+      --bg-light: #F5F5F5;
+      --white: #FFFFFF;
+      --border-color: #E0E0E0;
+      --success-color: #4CAF50;
+      --warning-color: #FF9800;
+      --danger-color: #F44336;
+      --sidebar-width: 220px;
+    }
 
-body.cookie-popup-active {
-    overflow: hidden;
-}
+    body.cookie-popup-active {
+      overflow: hidden;
+    }
 
-.cookie-popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
+    .cookie-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
 
-.cookie-popup-overlay.hidden {
-    display: none;
-}
+    .cookie-popup-overlay.hidden {
+      display: none;
+    }
 
-.cookie-popup {
-    background: var(--white);
-    border-radius: 8px;
-    padding: 2rem;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    text-align: center;
-    position: relative;
-}
+    .cookie-popup {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      text-align: center;
+      position: relative;
+    }
 
-.cookie-popup h2 {
-    margin: 0 0 1rem 0;
-    color: var(--text-dark);
-    font-size: 1.5rem;
-    font-weight: 600;
-}
+    .cookie-popup h2 {
+      margin: 0 0 1rem 0;
+      color: var(--text-dark);
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
 
-.cookie-popup p {
-    margin: 0 0 1.5rem 0;
-    color: var(--text-light);
-    line-height: 1.6;
-}
+    .cookie-popup p {
+      margin: 0 0 1.5rem 0;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
 
-.cookie-popup-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
+    .cookie-popup-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
 
-.cookie-popup-button {
-    background: var(--primary-color);
-    color: var(--white);
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: background 0.3s;
-    font-weight: 500;
-}
+    .cookie-popup-button {
+      background: var(--primary-color);
+      color: var(--white);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.3s;
+      font-weight: 500;
+    }
 
-.cookie-popup-button:hover {
-    background: var(--secondary-color);
-}
+    .cookie-popup-button:hover {
+      background: var(--secondary-color);
+    }
 
-.cookie-popup-button.secondary {
-    background-color: var(--text-light);
-}
+    .cookie-popup-button.secondary {
+      background-color: var(--text-light);
+    }
 
-.cookie-popup-button.secondary:hover {
-    background-color: #616161;
-}
+    .cookie-popup-button.secondary:hover {
+      background-color: #616161;
+    }
   </style>
 </head>
 
@@ -112,14 +114,16 @@ body.cookie-popup-active {
   <div class="cookie-popup-overlay hidden" id="cookiePopup">
     <div class="cookie-popup">
       <h2>NEW DASHBOARD!</h2>
-      <p>The new PVMC TECH Dashboard is now live! You can continue to use the old dashboard or try the new one. NOTE: The new dashboard is still in development and may not be fully functional.</p>
+      <p>The new PVMC TECH Dashboard is now live! You can continue to use the old dashboard or try the new one. NOTE:
+        The new dashboard is still in development and may not be fully functional.</p>
 
       <div class="cookie-popup-buttons">
         <button class="cookie-popup-button" onclick="hideCookiePopup()">Continue To Old</button>
-        <button class="cookie-popup-button secondary" onclick="window.location.href='NEW VERSION/index.html'">Continue To New</button>
+        <button class="cookie-popup-button secondary" onclick="window.location.href='NEW VERSION/index.html'">Continue
+          To New</button>
       </div>
     </div>
-</div>
+  </div> -->
 
   <!-- Navigation -->
   <nav class="navbar">
@@ -202,4 +206,5 @@ body.cookie-popup-active {
   <script src="scripts/campus-check.js"></script>
   <script src="scripts/theme-switcher.js"></script>
 </body>
+
 </html>
