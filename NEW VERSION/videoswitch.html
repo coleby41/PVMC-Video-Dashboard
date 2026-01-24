@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Switching - PVMC Tech Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text">BETA - PVMC</span>
+            </div>
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </div>
+        <div class="header-center">
+            <span class="logo-text">Video Switching</span>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">Quick Apps</div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="https://pvmc.life" class="nav-item" target="_blank">
+                <span class="nav-icon">🌐</span>
+                <span class="nav-text">Church Website</span>
+            </a>
+            <a href="projectors.html" class="nav-item">
+                <span class="nav-icon">📅</span>
+                <span class="nav-text">Projectors</span>
+            </a>
+            <a href="video-switch.html" class="nav-item active">
+                <span class="nav-icon">✉️</span>
+                <span class="nav-text">Video Switching</span>
+            </a>
+            <a href="doc.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span class="nav-text">Helpful Docs</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            PVMC Tech Department
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="card" style="max-width: 900px; margin: 0 auto;">
+            <h2 class="card-title">Video Switching Controls</h2>
+            <div class="video-item" style="margin-bottom: 2rem;">
+                <p>Welcome to the video switching page. This is where you can control the video switching system.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item" style="cursor: pointer;" onclick="window.open('http://192.168.20.100:8000/emulator/A6EsFVZ8eb6ti0HoheNQW', '_blank')">
+                    <div class="stat-number" style="font-size: 3rem;">🎬</div>
+                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Video Switching Control</div>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Click to open control panel</p>
+                </div>
+
+                <div class="stat-item" style="cursor: pointer;" onclick="window.open('http://192.168.20.126:8002/emulator/Rt3GN3wv2mGBe_IXDtWir', '_blank')">
+                    <div class="stat-number" style="font-size: 3rem;">📹</div>
+                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">IMAG Control</div>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Click to open IMAG panel</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Sidebar toggle functionality
+        const menuBtn = document.getElementById('menuBtn');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.querySelector('.main-content');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+            mainContent.classList.toggle('expanded');
+        });
+    </script>
+</body>
+</html>
