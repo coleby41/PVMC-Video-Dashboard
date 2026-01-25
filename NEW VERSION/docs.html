@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,16 +36,20 @@
                 <span class="nav-text">Church Website</span>
             </a>
             <a href="projectors.html" class="nav-item">
-                <span class="nav-icon">📅</span>
+                <span class="nav-icon">📽️</span>
                 <span class="nav-text">Projectors</span>
             </a>
-            <a href="video-switch.html" class="nav-item">
-                <span class="nav-icon">✉️</span>
+            <a href="videoswitch.html" class="nav-item">
+                <span class="nav-icon">📽️</span>
                 <span class="nav-text">Video Switching</span>
             </a>
-            <a href="doc.html" class="nav-item active">
-                <span class="nav-icon">👥</span>
+            <a href="docs.html" class="nav-item active">
+                <span class="nav-icon">📑</span>
                 <span class="nav-text">Helpful Docs</span>
+            </a>
+            <a href="update.home.html" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-text">Updates - Home</span>
             </a>
         </nav>
         <div class="sidebar-footer">
@@ -59,9 +64,10 @@
         <div class="card" style="max-width: 1000px; margin: 0 auto;">
             <h2 class="announcement-list">Helpful Documentation</h2>
             <div class="announcement-item" style="margin-bottom: 2rem;">
-                <p>Welcome to the helpful docs page. This is where you can find documentation and resources for the video systems.</p>
+                <p>Welcome to the helpful docs page. This is where you can find documentation and resources for the
+                    video systems.</p>
             </div>
-            
+
             <div class="content-grid" style="grid-template-columns: 1fr;">
                 <div class="card">
                     <h2 class="card-title">Official Equipment Manuals</h2>
@@ -69,78 +75,85 @@
                         <!-- Visible manuals (always shown) -->
                         <div class="prayer-item">
                             <h3>📘 CR Encoder Manual</h3>
-                            <p>Complete guide for operating and maintaining the sanctuary projectors.</p>
-                            <a href="docs/UltraEncodeAIO-UserManual_en_US.pdf" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
+                            <p>Complete guide for operating and maintaining the CR encoder.</p>
+                            <a href="docs/UltraEncodeAIO-UserManual_en_US.pdf" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
                         </div>
                         <div class="prayer-item">
                             <h3>📗 BM Video Switcher Manual</h3>
-                            <p>Step-by-step instructions for using the video switching system.</p>
-                            <a href="docs/user-manual-atem-constellation_Engels.pdf" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
+                            <p>Complete guide for operating and maintaining the BM video switcher.</p>
+                            <a href="docs/user-manual-atem-constellation_Engels.pdf" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
                         </div>
                         <div class="prayer-item">
-                            <h3>📙 Camera Operation Manual</h3>
-                            <p>How to operate and control the PTZ cameras in the sanctuary.</p>
-                            <a href="docs/camera-manual.pdf" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
+                            <h3>📙 Echo Express SE I Manual</h3>
+                            <p>Complete guide for operating and maintaining the Echo Express SE I.</p>
+                            <a href="docs/echo_express_se_i_tb3_ug.pdf" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
                         </div>
-                        
+
                         <!-- Hidden manuals (shown after clicking "See More") -->
                         <div class="prayer-item hidden-manual" style="display: none;">
-                            <h3>📕 Audio Mixer Manual</h3>
-                            <p>Guide for operating the sanctuary audio mixing console.</p>
-                            <a href="docs/audio-mixer-manual.pdf" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
+                            <h3>📕 Decklink Quad 2 Mapping Manual</h3>
+                            <p>Complete guide for operating and maintaining the Decklink Quad 2 Mapping.</p>
+                            <a href="docs/8 SDI Port Mapping.pdf" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
                         </div>
                         <div class="prayer-item hidden-manual" style="display: none;">
-                            <h3>📔 Lighting Control Manual</h3>
-                            <p>Instructions for controlling stage and sanctuary lighting.</p>
-                            <a href="docs/lighting-manual.pdf" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
+                            <h3>📔 NO MANUAL</h3>
+                            <p>Coming Soon</p>
+                            <a href="docs/lighting-manual.pdf" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
                         </div>
-                        <div class="prayer-item hidden-manual" style="display: none;">
-                            <h3>📓 Wireless Microphone System</h3>
-                            <p>Setup and operation guide for wireless microphone systems.</p>
-                            <a href="docs/wireless-mic-manual.pdf" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
-                        </div>
-                        <div class="prayer-item hidden-manual" style="display: none;">
-                            <h3>📒 Streaming Encoder Guide</h3>
-                            <p>Configuration and troubleshooting for live streaming equipment.</p>
-                            <a href="docs/streaming-encoder.pdf" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Download PDF</a>
-                        </div>
-                    </div>
-                    <button class="btn-doc" id="seeMoreBtn" style="margin-top: 1rem;">See More Manuals</button>
-                </div>
 
-                <div class="card">
-                    <h2 class="card-title">Quick Reference Guides</h2>
-                    <div class="prayer-list">
-                        <div class="prayer-item">
-                            <h3>⚡ Sunday Service Setup Checklist</h3>
-                            <p>Quick checklist to ensure all systems are ready for Sunday services.</p>
-                            <a href="docs/sunday-checklist.pdf" target="_blank" style="color: var(--primary-color); text-decoration: underline;">View Checklist</a>
-                        </div>
-                        <div class="prayer-item">
-                            <h3>🔧 Troubleshooting Common Issues</h3>
-                            <p>Solutions to the most common technical problems and how to fix them.</p>
-                            <a href="docs/troubleshooting.pdf" target="_blank" style="color: var(--primary-color); text-decoration: underline;">View Guide</a>
-                        </div>
-                        <div class="prayer-item">
-                            <h3>📡 Network and IP Address Reference</h3>
-                            <p>Complete list of all equipment IP addresses and network configuration.</p>
-                            <a href="docs/network-reference.pdf" target="_blank" style="color: var(--primary-color); text-decoration: underline;">View Reference</a>
+                        <div style="text-align: center;">
+                            <button class="popup-button" id="seeMoreBtn" style="margin-top: 1rem;">See More
+                                Official Equipment Manuals</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="card">
-                    <h2 class="card-title">Training Videos</h2>
+                    <h2 class="card-title">PVMC Official Manuals</h2>
                     <div class="prayer-list">
                         <div class="prayer-item">
-                            <h3>🎥 ProPresenter Basics</h3>
+                            <h3>NO MANUAL FOUND</h3>
+                            <p>COMING SOON</p>
+                            <a href="404.html" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">NO LINK</a>
+                        </div>
+                        <div class="prayer-item">
+                        <h3>NO MANUAL FOUND</h3>
+                            <p>COMING SOON</p>
+                            <a href="404.html" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">NO LINK</a>
+                        </div>
+                        <div class="prayer-item">
+                            <h3>NO MANUAL FOUND</h3>
+                            <p>COMING SOON</p>
+                            <a href="docs/network-reference.pdf" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">View Reference</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">Helpful Videos</h2>
+                    <div class="prayer-list">
+                        <div class="prayer-item">
+                            <h3>🎥 ProPresenter Interface Overview</h3>
                             <p>Introduction to using ProPresenter for worship services.</p>
-                            <a href="https://youtube.com/example" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Watch Video</a>
+                            <a href="https://www.youtube.com/watch?v=g2aJU3uLQio" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">Watch Video</a>
                         </div>
                         <div class="prayer-item">
-                            <h3>🎥 Live Streaming Setup</h3>
-                            <p>Complete walkthrough of the live streaming process from start to finish.</p>
-                            <a href="https://youtube.com/example" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Watch Video</a>
+                            <h3>🎥 ProPresenter Remote Walkthrough</h3>
+                            <p>Complete walkthrough of the remote control setup and usage.</p>
+                            <a href="https://youtube.com/example" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">Watch Part 1</a>
+                                |
+                                <a href="https://youtube.com/example" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">Watch Part 2</a>
                         </div>
                     </div>
                 </div>
@@ -158,13 +171,16 @@
             mainContent.classList.toggle('expanded');
         });
 
-        document.getElementById('seeMoreBtn').addEventListener('click', function() {
+        document.getElementById('seeMoreBtn').addEventListener('click', function () {
             const hiddenManuals = document.querySelectorAll('.hidden-manual');
             hiddenManuals.forEach(manual => {
                 manual.style.display = 'block';
             });
             this.style.display = 'none'; // Hide the button after clicking
         });
+
+    
     </script>
 </body>
+
 </html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Software Update - Church Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text">BETA - PVMC</span>
+            </div>
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </div>
+        <div class="header-center">
+            <span class="logo-text">Submit Software Updates</span>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">Navigation</div>
+        <nav class="sidebar-nav">
+            <a href="update.home.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Home</span>
+            </a>
+            <a href="submit.html" class="nav-item active">
+                <span class="nav-icon">➕</span>
+                <span class="nav-text">Submit Update</span>
+            </a>
+            <a href="search.html" class="nav-item">
+                <span class="nav-icon">🔍</span>
+                <span class="nav-text">Search Updates</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            PVMC Tech Department
+            <br>
+            V3.0.0 BETA
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="card">
+            <h2 class="card-title">Update Information</h2>
+            <form id="updateForm">
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Software Name *</label>
+                    <input type="text" id="softwareName" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Version Number *</label>
+                    <input type="text" id="version" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Update Date *</label>
+                    <input type="date" id="updateDate" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Updated By *</label>
+                    <input type="text" id="updatedBy" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Category *</label>
+                    <select id="category" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
+                        <option value="">Select a category</option>
+                        <option value="Audio/Video">Audio/Video</option>
+                        <option value="Presentation">Presentation</option>
+                        <option value="Streaming">Streaming</option>
+                        <option value="Control">Control</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Update Notes *</label>
+                    <placeholder style="color: gray;">Please include the building and campus where the update took place, along with any relevant details about the update process or changes made. Do not include any issues; those will be documented in the next field.</placeholder>
+                    <textarea id="notes" required rows="5" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem; resize: vertical;"></textarea>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Issues/Problems Resolved *</label>
+                    <placeholder style="color: gray; ">If None, Leave N/A.</placeholder>
+                    <textarea id="issues" rows="3" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem; resize: vertical;"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Submit Update</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Success Popup -->
+    <div id="popupOverlay" class="popup-overlay hidden">
+        <div class="popup">
+            <div class="popup-icon success" id="popupIcon">✓</div>
+            <h2 id="popupTitle">Success!</h2>
+            <p id="popupMessage">Your software update has been submitted successfully.</p>
+            <div class="popup-buttons">
+                <button class="popup-button" onclick="closePopup()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            sidebar.classList.toggle('hidden');
+            mainContent.classList.toggle('expanded');
+        }
+
+        // Set today's date as default
+        document.getElementById('updateDate').valueAsDate = new Date();
+
+        document.getElementById('updateForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                softwareName: document.getElementById('softwareName').value,
+                version: document.getElementById('version').value,
+                updateDate: document.getElementById('updateDate').value,
+                updatedBy: document.getElementById('updatedBy').value,
+                category: document.getElementById('category').value,
+                notes: document.getElementById('notes').value,
+                issues: document.getElementById('issues').value,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // Replace with your Google Apps Script Web App URL
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbzQK_ajqjD5CoFKfodbPfhC2OXquU3F4ew-GQ4ZoBQyL8n-VWkqyD9DWtyUW4v37Zau/exec';
+                
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Show success popup
+                showPopup('Success!', 'Your software update has been submitted successfully.', 'success');
+                
+                // Reset form
+                document.getElementById('updateForm').reset();
+                document.getElementById('updateDate').valueAsDate = new Date();
+                
+            } catch (error) {
+                showPopup('Error', 'There was a problem submitting your update. Please try again.', 'error');
+                console.error('Error:', error);
+            }
+        });
+
+        function showPopup(title, message, type) {
+            document.getElementById('popupTitle').textContent = title;
+            document.getElementById('popupMessage').textContent = message;
+            
+            const icon = document.getElementById('popupIcon');
+            icon.className = 'popup-icon ' + type;
+            icon.textContent = type === 'success' ? '✓' : '✕';
+            
+            document.getElementById('popupOverlay').classList.remove('hidden');
+            document.body.classList.add('popup-active');
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').classList.add('hidden');
+            document.body.classList.remove('popup-active');
+        }
+    </script>
+</body>
+</html>

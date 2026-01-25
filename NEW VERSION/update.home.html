@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projectors - PVMC Tech Dashboard</title>
+    <title>Update Home - PVMC Tech Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="Logo/PVMC-logo.png">
+    <link rel="icon" type="image/png" href="media/PVMC-logo.png">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
             <button class="menu-btn" id="menuBtn">☰</button>
         </div>
         <div class="header-center">
-            <span class="logo-text">Projector Controls</span>
+            <span class="logo-text">Update Home</span>
         </div>
     </header>
 
@@ -34,7 +34,7 @@
                 <span class="nav-icon">🌐</span>
                 <span class="nav-text">Church Website</span>
             </a>
-            <a href="projectors.html" class="nav-item active">
+            <a href="projectors.html" class="nav-item">
                 <span class="nav-icon">📽️</span>
                 <span class="nav-text">Projectors</span>
             </a>
@@ -46,7 +46,7 @@
                 <span class="nav-icon">📑</span>
                 <span class="nav-text">Helpful Docs</span>
             </a>
-            <a href="update.home.html" class="nav-item">
+            <a href="update.home.html" class="nav-item active">
                 <span class="nav-icon">⚙️</span>
                 <span class="nav-text">Updates - Home</span>
             </a>
@@ -61,28 +61,22 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="card" style="max-width: 900px; margin: 0 auto;">
-            <h2 class="card-title">Projector Management</h2>
+            <h2 class="card-title">Update Home Page</h2>
             <div class="announcement-item" style="margin-bottom: 2rem;">
-                <p>This is the projectors page. This is where you can get more information about the projectors, and you can also turn them on and off!</p>
+                <p>This Page is where you can find all the updates for all the tech at PVMC, or submit any.</p>
             </div>
 
-            <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="stat-item" style="cursor: pointer;" onclick="window.open('http://192.168.20.126:8002/emulator/7MyZQ0NQ5agSM_AezpJiq', '_blank')">
+            <div class="stats-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="stat-item" style="cursor: pointer;" href="submit.html" onclick="window.location.href='submit.html'">
                     <div class="stat-number" style="font-size: 3rem;">⚡</div>
-                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Power Control</div>
-                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Turn projectors on/off</p>
+                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Submit Update</div>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">This is where you submit updates</p>
                 </div>
 
-                <div class="stat-item" style="cursor: pointer;" onclick="window.open('http://192.168.20.126:8002/emulator/CsJQHlAKaZ0zYhpZlESEQ', '_blank')">
+                <div class="stat-item" style="cursor: pointer;" href="submit.html" onclick="window.location.href='search.html'">
                     <div class="stat-number" style="font-size: 3rem;">🔄</div>
-                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Input Sources</div>
-                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Change input sources</p>
-                </div>
-
-                <div class="stat-item" style="cursor: pointer;" onclick="window.location.href='404.html'">
-                    <div class="stat-number" style="font-size: 3rem;">📊</div>
-                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Live Status</div>
-                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">View projector information - NOT WORKING</p>
+                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Update Log</div>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Shows the update history</p>
                 </div>
             </div>
         </div>

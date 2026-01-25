@@ -283,6 +283,7 @@ body.popup-active {
     background: var(--bg-light);
     border-radius: 6px;
     border-left: 4px solid var(--accent-color);
+    color: var(--text-dark);
 }
 
 .announcement-item h3 {
@@ -295,6 +296,7 @@ body.popup-active {
     font-size: 0.9rem;
     color: var(--text-light);
     margin-bottom: 0.5rem;
+    color: var(--text-dark);
 }
 
 .announcement-date {
@@ -624,3 +626,5 @@ body.popup-active {
         .popup p a:hover {
             color: var(--secondary-color);
         }
+
+        
