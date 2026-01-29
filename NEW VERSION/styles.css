@@ -190,6 +190,66 @@ body.popup-active {
     font-size: 1.25rem;
 }
 
+.home-nav-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("Logo/Icons/icons8-home-64.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.website-nav-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("Logo/Icons/icons8-website-50.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.projectors-nav-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("Logo/Icons/icons8-projector-50.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.video-nav-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("Logo/Icons/icons8-video-64.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.update-nav-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("Logo/Icons/icons8-installing-updates-50.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.docs-nav-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("Logo/Icons/icons8-document-48.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .nav-text {
     font-size: 0.95rem;
 }
@@ -354,7 +414,7 @@ body.popup-active {
 /* Quick Links */
 .quick-links-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
 
@@ -409,6 +469,21 @@ body.popup-active {
 .PL-icon {
     background-color: #ffffff;
     background-image: url("Logo/pl.png");
+}
+
+.FB-icon {
+    background-color: #ffffff;
+    background-image: url("Logo/facebook-logo-facebook-icon-transparent-free-png.webp");
+}
+
+.YT-icon {
+    background-color: #ffffff;
+    background-image: url("Logo/Youtube_logo.png");
+}
+
+.Google-icon {
+    background-color: #ffffff;
+    background-image: url("Logo/colourful-google-logo-on-white-background-free-vector.jpg");
 }
 
 .quick-link-item:span {

@@ -22,21 +22,21 @@ const events = [
         month: 'FEB',
         title: 'Revival Night 2',
         time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: 'Speaker: Danny Johnson - Music: N/A '
+        description: 'Speaker: Danny Johnson - Music: Thursday Crew'
     },
     {
         day: '3',
         month: 'FEB',
         title: 'Revival Night 3',
         time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: 'Speaker: Brian Rogers - Music: N/A '
+        description: 'Speaker: Brian Rogers - Music: The Celebration Choir'
     },
     {
         day: '4',
         month: 'FEB',
         title: 'Revival Night 4',
         time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: 'Speaker: Andy Lambert - Music: N/A '
+        description: 'Speaker: Andy Lambert - Music: trudtion  '
     },
 ];
 
