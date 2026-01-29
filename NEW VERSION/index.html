@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,10 @@
     <link rel="stylesheet" href="testing.css">
     <link rel="icon" type="image/png" href="Logo/PVMC-logo.png">
 </head>
+
 <body>
-    
-     <div id="popup-overlay" class="popup-overlay hidden">
+
+    <div id="popup-overlay" class="popup-overlay hidden">
         <div class="popup">
             <div id="popup-icon" class="popup-icon"></div>
             <h2 id="popup-title"></h2>
@@ -119,57 +121,70 @@
                 <div class="card quick-links">
                     <h2 class="card-title">Quick Apps</h2>
                     <div class="quick-links-grid">
-                        <a class="quick-link-item" onclick="window.open('http://192.168.20.100:8000', '_blank')">
-                        <div class="quick-link-icon companion-icon"></div>
-                        <div class="quick-link-text">CR Companion</div>
+                        <!-- TIER 1: STREAM HEALTH -->
+                        <a class="quick-link-item"
+                            onclick="window.open('https://www.facebook.com/live/producer/v2/?target_id=100088841536644', '_blank')">
+                            <div class="quick-link-icon FB-icon"></div>
+                            <div class="quick-link-text">Facebook Producer</div>
                         </a>
-                            <a class="quick-link-item" onclick="window.open('http://192.168.20.126:8002', '_blank')">
-                                <div class="quick-link-icon companion-icon"></div>
-                                <div class="quick-link-text">FOH Companion</div>
-                            </a>
-                                <a class="quick-link-item" onclick="window.open('http://192.168.20.124', '_blank')">
-                                    <div class="quick-link-icon encoder-icon"></div>
-                                    <div class="quick-link-text">CR Encoder</div>
-                                </a>
-                                    <a class="quick-link-item" onclick="window.open('http://192.168.20.33/en/login.html', '_blank')">
-                                        <div class="quick-link-icon PTZ-icon"></div>
-                                        <div class="quick-link-text">CLC Cam 5</div>
-                                    </a>
-                                    </a>
-                                    <a class="quick-link-item"  onclick="window.open('http://192.168.20.32/en/login.html', '_blank')">
-                                        <div class="quick-link-icon PTZ-icon"></div>
-                                        <div class="quick-link-text">CLC Cam  4</div>
-                                    </a>
-                                    </a>
-                                    <a class="quick-link-item" href="#">
-                                        <div class="quick-link-icon PTZ-icon"></div>
-                                        <div class="quick-link-text">Sanctuary Cam 3</div>
-                                    </a>
-                                    </a>
-                                    <a class="quick-link-item" href="#">
-                                        <div class="quick-link-icon PTZ-icon"></div>
-                                        <div class="quick-link-text">Sanctuary Cam 4</div>
-                                    </a>
-                        
-                                <a class="quick-link-item"  onclick="window.open('https://home.planningcenteronline.com/', '_blank')">
-                                    <div class="quick-link-icon PL-icon"></div>
-                                    <div class="quick-link-text">Planing Center</div>
-                                </a>
 
-                                <a class="quick-link-item"  onclick="window.open('https://www.facebook.com/live/producer/v2/?target_id=100088841536644', '_blank')">
-                                    <div class="quick-link-icon FB-icon"></div>
-                                    <div class="quick-link-text">Facebook Producer</div>
-                                </a>
+                        <a class="quick-link-item"
+                            onclick="window.open('https://www.youtube.com/live_dashboard?o=U&ar=2', '_blank')">
+                            <div class="quick-link-icon YT-icon"></div>
+                            <div class="quick-link-text">YouTube Producer</div>
+                        </a>
 
-                                <a class="quick-link-item"  onclick="window.open('https://www.youtube.com/live_dashboard?o=U&ar=2', '_blank')">
-                                    <div class="quick-link-icon YT-icon"></div>
-                                    <div class="quick-link-text">youtube Producer</div>
-                                </a>
+                        <!-- TIER 2: LIVE CONTROL -->
+                        <a class="quick-link-item" onclick="window.open('http://192.168.20.100:8000', '_blank')">
+                            <div class="quick-link-icon companion-icon"></div>
+                            <div class="quick-link-text">CR Companion</div>
+                        </a>
 
-                                <a class="quick-link-item"  onclick="window.open('https://www.google.com/search', '_blank')">
-                                    <div class="quick-link-icon Google-icon"></div>
-                                    <div class="quick-link-text">Google Search</div>
-                                </a>
+                        <a class="quick-link-item" onclick="window.open('http://192.168.20.126:8002', '_blank')">
+                            <div class="quick-link-icon companion-icon"></div>
+                            <div class="quick-link-text">FOH Companion</div>
+                        </a>
+
+                        <a class="quick-link-item" onclick="window.open('http://192.168.20.124', '_blank')">
+                            <div class="quick-link-icon encoder-icon"></div>
+                            <div class="quick-link-text">CR Encoder</div>
+                        </a>
+
+                        <!-- TIER 3: CAMERAS -->
+                        <a class="quick-link-item"
+                            onclick="window.open('http://192.168.20.32/en/login.html', '_blank')">
+                            <div class="quick-link-icon PTZ-icon"></div>
+                            <div class="quick-link-text">CLC Cam 4</div>
+                        </a>
+
+                        <a class="quick-link-item"
+                            onclick="window.open('http://192.168.20.33/en/login.html', '_blank')">
+                            <div class="quick-link-icon PTZ-icon"></div>
+                            <div class="quick-link-text">CLC Cam 5</div>
+                        </a>
+
+                        <a class="quick-link-item" href="#">
+                            <div class="quick-link-icon PTZ-icon"></div>
+                            <div class="quick-link-text">Sanctuary Cam 3</div>
+                        </a>
+
+                        <a class="quick-link-item" href="#">
+                            <div class="quick-link-icon PTZ-icon"></div>
+                            <div class="quick-link-text">Sanctuary Cam 4</div>
+                        </a>
+
+                        <!-- TIER 4: PREP / UTILITY -->
+                        <a class="quick-link-item"
+                            onclick="window.open('https://home.planningcenteronline.com/', '_blank')">
+                            <div class="quick-link-icon PL-icon"></div>
+                            <div class="quick-link-text">Planning Center</div>
+                        </a>
+
+                        <a class="quick-link-item" onclick="window.open('https://www.google.com/search', '_blank')">
+                            <div class="quick-link-icon Google-icon"></div>
+                            <div class="quick-link-text">Google Search</div>
+                        </a>
+
                     </div>
                 </div>
 
@@ -178,66 +193,75 @@
                     <h2 class="card-title">Propresenter Information</h2>
                     <div class="prayer-list">
                         <div class="prayer-item">
-                            <p style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;"><strong>FOH Propresenter</strong></p>
+                            <p
+                                style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;">
+                                <strong>FOH Propresenter</strong></p>
                             <p style="text-align: left;">
-                            <strong>IP Address:</strong><em> 192.168.20.126</em>
+                                <strong>IP Address:</strong><em> 192.168.20.126</em>
                             </p>
                             <p style="text-align: left;">
-                            <strong>Password:</strong><em> 37Ship403</em>
+                                <strong>Password:</strong><em> 37Ship403</em>
                             </p>
                             <p style="text-align: left;">
-                            <strong>Port:</strong><em> 49226</em>
-                            </p>
-                        </div>
-
-
-                        <div class="prayer-item">
-                            <p style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;"><strong>CR Propresenter</strong></p>
-                            <p style="text-align: left;">
-                            <strong>IP Address:</strong><em> 192.168.20.117</em>
-                            </p>
-                            <p style="text-align: left;">
-                            <strong>Password:</strong><em> 37Ship403</em>
-                            </p>
-                            <p style="text-align: left;">
-                            <strong>Port:</strong><em> 58782</em>
-                            </p>
-                        </div>
-
-                        <div class="prayer-item">
-                            <p style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;"><strong>Sanctuary Propresenter</strong></p>
-                            <p style="text-align: left;">
-                            <strong>IP Address:</strong><em> 192.168.20.110</em>
-                            </p>
-                            <p style="text-align: left;">
-                            <strong>Password:</strong><em> 37Ship403</em>
-                            </p>
-                            <p style="text-align: left;">
-                            <strong>Port:</strong><em> 1025</em>
+                                <strong>Port:</strong><em> 49226</em>
                             </p>
                         </div>
 
 
                         <div class="prayer-item">
-                            <p style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;"><strong>Fellowship Propresenter</strong></p>
+                            <p
+                                style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;">
+                                <strong>CR Propresenter</strong></p>
                             <p style="text-align: left;">
-                            <strong>IP Address:</strong><em> 192.168.20.202</em>
+                                <strong>IP Address:</strong><em> 192.168.20.117</em>
                             </p>
                             <p style="text-align: left;">
-                            <strong>Password:</strong><em> 37Ship403</em>
+                                <strong>Password:</strong><em> 37Ship403</em>
                             </p>
                             <p style="text-align: left;">
-                            <strong>Port:</strong><em> 50001</em>
+                                <strong>Port:</strong><em> 58782</em>
                             </p>
                         </div>
-            </div>
-        </div>
+
+                        <div class="prayer-item">
+                            <p
+                                style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;">
+                                <strong>Sanctuary Propresenter</strong></p>
+                            <p style="text-align: left;">
+                                <strong>IP Address:</strong><em> 192.168.20.110</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Password:</strong><em> 37Ship403</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Port:</strong><em> 1025</em>
+                            </p>
+                        </div>
+
+
+                        <div class="prayer-item">
+                            <p
+                                style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;">
+                                <strong>Fellowship Propresenter</strong></p>
+                            <p style="text-align: left;">
+                                <strong>IP Address:</strong><em> 192.168.20.202</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Password:</strong><em> 37Ship403</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Port:</strong><em> 50001</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
     </main>
-           
+
     <script src="script.js"></script>
     <script src="sr-projector.js"></script>
     <script src="sl-projector.js"></script>
     <script src="cs-projector.js"></script>
     <script src="checkCampus.js"></script>
 </body>
+
 </html>
