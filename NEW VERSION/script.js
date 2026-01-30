@@ -11,32 +11,32 @@ menuBtn.addEventListener('click', () => {
 // Sample events data
 const events = [
     {
-        day: '1',
+        day: '2',
         month: 'FEB',
         title: 'Revival Night 1',
         time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: 'Speaker: Dr. Joy Greene - Music: IGNITE/The Bridge Band '
-    },
-    {
-        day: '2',
-        month: 'FEB',
-        title: 'Revival Night 2',
-        time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: 'Speaker: Danny Johnson - Music: Thursday Crew'
-    },
+        description: 'Speaker: Danny Johnson'
+    }, 
     {
         day: '3',
         month: 'FEB',
-        title: 'Revival Night 3',
+        title: 'Revival Night 2',
         time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: 'Speaker: Brian Rogers - Music: The Celebration Choir'
+        description: 'Speaker: Brian Rogers'
     },
     {
         day: '4',
         month: 'FEB',
+        title: 'Revival Night 3',
+        time: 'Dinner at 5:30 PM, Service at 6:30 PM',
+        description: ''
+    },
+    {
+        day: '5',
+        month: 'FEB',
         title: 'Revival Night 4',
         time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: 'Speaker: Andy Lambert - Music: trudtion  '
+        description: 'Speaker: Dr. Joy Greene'
     },
 ];
 
