@@ -29,7 +29,7 @@ const events = [
         month: 'FEB',
         title: 'Revival Night 3',
         time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: ''
+        description: 'Speaker: Andy Lambert'
     },
     {
         day: '5',
