@@ -250,6 +250,27 @@ body.popup-active {
     background-position: center;
 }
 
+.add-nav-icon {
+    display: inline-block;
+    
+    background-image: url("Logo/Icons/icons8-add-50.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    width: 2rem;
+    height: 2rem;
+}
+
+.search-nav-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("Logo/Icons/icons8-search-128.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .nav-text {
     font-size: 0.95rem;
 }
@@ -547,10 +568,12 @@ body.popup-active {
 }
 
 .stat-number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    background-image: url(Logo/Icons/icons8-update-48.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 4rem;
+    height: 4rem;
 }
 
 .stat-label {
