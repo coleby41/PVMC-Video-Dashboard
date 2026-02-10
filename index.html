@@ -2,209 +2,268 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#444">
-  <title>PVMC Tech Dashboard: Home</title>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/main2.css">
-  <link rel="stylesheet" href="styles/theme-switcher.css">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="media/PVMC-logo.png">
-
-  
-  <style>
-    /* Cookie Popup - Matches main popup style */
-    :root {
-      --primary-color: #0D47A1;
-      --secondary-color: #1976D2;
-      --accent-color: #42A5F5;
-      --text-dark: #212121;
-      --text-light: #757575;
-      --bg-light: #F5F5F5;
-      --white: #FFFFFF;
-      --border-color: #E0E0E0;
-      --success-color: #4CAF50;
-      --warning-color: #FF9800;
-      --danger-color: #F44336;
-      --sidebar-width: 220px;
-    }
-
-    body.cookie-popup-active {
-      overflow: hidden;
-    }
-
-    .cookie-popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .cookie-popup-overlay.hidden {
-      display: none;
-    }
-
-    .cookie-popup {
-      background: var(--white);
-      border-radius: 8px;
-      padding: 2rem;
-      max-width: 500px;
-      width: 90%;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-      text-align: center;
-      position: relative;
-    }
-
-    .cookie-popup h2 {
-      margin: 0 0 1rem 0;
-      color: var(--text-dark);
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-
-    .cookie-popup p {
-      margin: 0 0 1.5rem 0;
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    .cookie-popup-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .cookie-popup-button {
-      background: var(--primary-color);
-      color: var(--white);
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.95rem;
-      transition: background 0.3s;
-      font-weight: 500;
-    }
-
-    .cookie-popup-button:hover {
-      background: var(--secondary-color);
-    }
-
-    .cookie-popup-button.secondary {
-      background-color: var(--text-light);
-    }
-
-    .cookie-popup-button.secondary:hover {
-      background-color: #616161;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVMC Tech Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="testing.css">
+    <link rel="icon" type="image/png" href="Logo/PVMC-logo.png">
 </head>
 
 <body>
-  <div class="cookie-popup-overlay hidden" id="cookiePopup">
-    <div class="cookie-popup">
-      <h2>NEW DASHBOARD!</h2>
-      <p>The new PVMC TECH Dashboard is now live! You can continue to use the old dashboard or try the new one. NOTE:
-        The new dashboard is still in development and may not be fully functional, like mobile devices.</p>
 
-      <div class="cookie-popup-buttons">
-        <button class="cookie-popup-button" onclick="hideCookiePopup()">Continue To Old</button>
-        <button class="cookie-popup-button secondary" onclick="window.location.href='NEW VERSION/index.html'">Continue
-          To New</button>
-      </div>
+    <div id="popup-overlay" class="popup-overlay hidden">
+        <div class="popup">
+            <div id="popup-icon" class="popup-icon"></div>
+            <h2 id="popup-title"></h2>
+            <p id="popup-message"></p>
+            <div id="popup-buttons-container" class="popup-buttons"></div>
+        </div>
     </div>
-  </div> 
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text">PVMC</span>
+            </div>
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </div>
+        <div class="header-center">
+            <span class="logo-text">Welcome To The Tech Dashboard!</span>
+        </div>
+    </header>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Dashboard</a></li>
-      <li><a href="projectors.html">Projectors</a></li>
-      <li><a href="video-switch.html">Video Switching</a></li>
-      <li><a href="pro.html">Pro Information</a></li>
-      <li><a href="doc.html">Helpful Docs</a></li>
-    </ul>
-  </nav>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">Quick Links</div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">
+                <span class="home-nav-icon"></span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="https://pvmc.life" class="nav-item" target="_blank">
+                <span class="website-nav-icon"></span>
+                <span class="nav-text">Church Website</span>
+            </a>
+            <a href="projectors.html" class="nav-item">
+                <span class="projectors-nav-icon"></span>
+                <span class="nav-text">Projectors</span>
+            </a>
+            <a href="videoswitch.html" class="nav-item">
+                <span class="video-nav-icon"></span>
+                <span class="nav-text">Video Switching</span>
+            </a>
+            <a href="docs.html" class="nav-item">
+                <span class="docs-nav-icon"></span>
+                <span class="nav-text">Helpful Docs</span>
+            </a>
+            <a href="update.home.html" class="nav-item">
+                <span class="update-nav-icon"></span>
+                <span class="nav-text">Updates - Home</span>
+            </a>
 
-  <!-- Status Banner -->
-  <div id="network-banner" class="banner hidden"></div>
+        </nav>
+        <div class="sidebar-footer">
+            PVMC Tech Department
+            <br>
+            V3.0.1
+        </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1 class="hero-title">⚠️ NEW UPDATE! ⚠️</h1>
+                <p class="hero-subtitle">Cleaned up the dashboard layout and improved responsiveness.</p>
+            </div>
+        </section>
 
-  <!-- Main Content -->
-  <main>
-    <h1>Dashboard</h1>
-    <p>Welcome to the dashboard. This is where you can get to IP based GUI!</p>
+        <div class="content-grid">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Upcoming Events -->
+                <div class="card">
+                    <h2 class="card-title">Upcoming Special Events</h2>
+                    <div class="event-list" id="eventList">
+                        <!-- Events loaded by JavaScript -->
+                    </div>
+                </div>
+                <!-- Announcements Card -->
+                <div class="card">
+                    <h2 class="card-title">Projectors Summary</h2>
+                    <div>
+                        <div class="announcement-item">
+                            <h3>SR Projector</h3>
+                            <span class="status disconnected" id="srpowerStatus">--</span>
+                        </div>
+                        <br>
+                        <div class="announcement-item">
+                            <h3>CS Projector</h3>
+                            <span class="status disconnected" id="cspowerStatus">--</span>
+                        </div>
+                        <br>
+                        <div class="announcement-item">
+                            <h3>SL Projector</h3>
+                            <span class="status disconnected" id="slpowerStatus">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <hr>
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Quick Links -->
+                <div class="card quick-links">
+                    <h2 class="card-title">Quick Apps</h2>
+                    <div class="quick-links-grid">
+                        <!-- TIER 1: STREAM HEALTH -->
+                        <a class="quick-link-item"
+                            onclick="window.open('https://www.facebook.com/live/producer/v2/?target_id=100088841536644', '_blank')">
+                            <div class="quick-link-icon FB-icon"></div>
+                            <div class="quick-link-text">Facebook Producer</div>
+                        </a>
 
-    <h2 class="dashboard-links"> Dashboard Links:</h2>
-    <br>
+                        <a class="quick-link-item"
+                            onclick="window.open('https://www.youtube.com/live_dashboard?o=U&ar=2', '_blank')">
+                            <div class="quick-link-icon YT-icon"></div>
+                            <div class="quick-link-text">YouTube Producer</div>
+                        </a>
 
-    <div class="dashboard-container">
-      <button class="dashboard-button" onclick="window.open('http://192.168.20.100:8000', '_blank')">
-        Control Room Companion GUI
-      </button>
+                        <!-- TIER 2: LIVE CONTROL -->
+                        <a class="quick-link-item" onclick="window.open('http://192.168.20.100:8000', '_blank')">
+                            <div class="quick-link-icon companion-icon"></div>
+                            <div class="quick-link-text">CR Companion</div>
+                        </a>
 
-      <button class="dashboard-button" onclick="window.open('http://192.168.20.126:8002', '_blank')">
-        FOH Projection Companion GUI
-      </button>
+                        <a class="quick-link-item" onclick="window.open('http://192.168.20.126:8002', '_blank')">
+                            <div class="quick-link-icon companion-icon"></div>
+                            <div class="quick-link-text">FOH Companion</div>
+                        </a>
 
-      <button class="dashboard-button" onclick="window.open('http://192.168.20.124', '_blank')">
-        Control Room Encoder GUI
-      </button>
+                        <a class="quick-link-item" onclick="window.open('http://192.168.20.124', '_blank')">
+                            <div class="quick-link-icon encoder-icon"></div>
+                            <div class="quick-link-text">CR Encoder</div>
+                        </a>
 
-      <button class="dashboard-button" onclick="window.open('http://192.168.20.33/en/login.html', '_blank')">
-        CLC Camera 5 GUI
-      </button>
+                        <!-- TIER 3: CAMERAS -->
+                        <a class="quick-link-item"
+                            onclick="window.open('http://192.168.20.32/en/login.html', '_blank')">
+                            <div class="quick-link-icon PTZ-icon"></div>
+                            <div class="quick-link-text">CLC Cam 4</div>
+                        </a>
 
-      <button class="dashboard-button" onclick="window.open('http://192.168.20.32/en/login.html', '_blank')">
-        CLC Camera 4 GUI
-      </button>
-    </div>
-  </main>
+                        <a class="quick-link-item"
+                            onclick="window.open('http://192.168.20.33/en/login.html', '_blank')">
+                            <div class="quick-link-icon PTZ-icon"></div>
+                            <div class="quick-link-text">CLC Cam 5</div>
+                        </a>
 
-  <!-- Cookie Popup Script -->
-  <script>
-    function showCookiePopup() {
-      const popup = document.getElementById('cookiePopup');
-      popup.classList.remove('hidden');
-      document.body.classList.add('cookie-popup-active');
-    }
+                        <a class="quick-link-item" href="#">
+                            <div class="quick-link-icon PTZ-icon"></div>
+                            <div class="quick-link-text">Sanctuary Cam 3</div>
+                        </a>
 
-    function hideCookiePopup() {
-      const popup = document.getElementById('cookiePopup');
-      popup.classList.add('hidden');
-      document.body.classList.remove('cookie-popup-active');
-    }
+                        <a class="quick-link-item" href="#">
+                            <div class="quick-link-icon PTZ-icon"></div>
+                            <div class="quick-link-text">Sanctuary Cam 4</div>
+                        </a>
 
-    function acceptCookies() {
-      console.log('Cookies accepted!');
-      hideCookiePopup();
-    }
+                        <!-- TIER 4: PREP / UTILITY -->
+                        <a class="quick-link-item"
+                            onclick="window.open('https://home.planningcenteronline.com/', '_blank')">
+                            <div class="quick-link-icon PL-icon"></div>
+                            <div class="quick-link-text">Planning Center</div>
+                        </a>
 
-    function declineCookies() {
-      console.log('Cookies declined!');
-      hideCookiePopup();
-    }
+                        <a class="quick-link-item" onclick="window.open('https://www.google.com/search', '_blank')">
+                            <div class="quick-link-icon Google-icon"></div>
+                            <div class="quick-link-text">Google Search</div>
+                        </a>
 
-    // Show popup every time page loads
-    window.addEventListener('DOMContentLoaded', () => {
-      showCookiePopup();
-    });
-  </script>
+                        <a class="quick-link-item"
+                            onclick="window.open('https://www.youtube.com/', '_blank')">
+                            <div class="quick-link-icon YT-icon"></div>
+                            <div class="quick-link-text">YouTube Home</div>
+                        </a>
 
-  <!-- Backend Scripts -->
-  <script src="scripts/campus-check.js"></script>
-  <script src="scripts/theme-switcher.js"></script>
+                    </div>
+                </div>
+
+                <!-- Pro Information -->
+                <div class="card">
+                    <h2 class="card-title">Propresenter Information</h2>
+                    <div class="prayer-list">
+                        <div class="prayer-item">
+                            <p
+                                style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;">
+                                <strong>FOH Propresenter</strong></p>
+                            <p style="text-align: left;">
+                                <strong>IP Address:</strong><em> 192.168.20.126</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Password:</strong><em> 37Ship403</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Port:</strong><em> 49226</em>
+                            </p>
+                        </div>
+
+
+                        <div class="prayer-item">
+                            <p
+                                style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;">
+                                <strong>CR Propresenter</strong></p>
+                            <p style="text-align: left;">
+                                <strong>IP Address:</strong><em> 192.168.20.117</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Password:</strong><em> 37Ship403</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Port:</strong><em> 58782</em>
+                            </p>
+                        </div>
+
+                        <div class="prayer-item">
+                            <p
+                                style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;">
+                                <strong>Sanctuary Propresenter</strong></p>
+                            <p style="text-align: left;">
+                                <strong>IP Address:</strong><em> 192.168.20.110</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Password:</strong><em> 37Ship403</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Port:</strong><em> 1025</em>
+                            </p>
+                        </div>
+
+
+                        <div class="prayer-item">
+                            <p
+                                style="font-weight: bold; text-align: center;text-decoration: underline;font-size: 20px;">
+                                <strong>Fellowship Propresenter</strong></p>
+                            <p style="text-align: left;">
+                                <strong>IP Address:</strong><em> 192.168.20.202</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Password:</strong><em> 37Ship403</em>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>Port:</strong><em> 50001</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="sr-projector.js"></script>
+    <script src="sl-projector.js"></script>
+    <script src="cs-projector.js"></script>
+    <script src="checkCampus.js"></script>
 </body>
 
 </html>

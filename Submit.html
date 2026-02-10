@@ -12,7 +12,7 @@
     <header class="header">
         <div class="header-left">
             <div class="logo">
-                <span class="logo-text">BETA - PVMC</span>
+                <span class="logo-text">PVMC</span>
             </div>
             <button class="menu-btn" id="menuBtn">☰</button>
         </div>
@@ -37,11 +37,16 @@
                 <span class="search-nav-icon"></span>
                 <span class="nav-text">Search Updates</span>
             </a>
+
+            <a href="update.table.html" class="nav-item">
+                <span class="table-nav-icon"></span>
+                <span class="nav-text">Software Update Chart</span>
+            </a>
         </nav>
         <div class="sidebar-footer">
             PVMC Tech Department
             <br>
-            V3.0.0 BETA
+            V3.0.1
         </div>
     </aside>
 
@@ -84,13 +89,13 @@
 
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Update Notes *</label>
-                    <placeholder style="color: gray;">Please include the building and campus where the update took place, along with any relevant details about the update process or changes made. Do not include any issues; those will be documented in the next field.</placeholder>
+                    <p style="color: gray; font-size: 0.9rem; margin-bottom: 0.5rem;">Please include the building and campus where the update took place, along with any relevant details about the update process or changes made. Do not include any issues; those will be documented in the next field.</p>
                     <textarea id="notes" required rows="5" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem; resize: vertical;"></textarea>
                 </div>
 
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Issues/Problems Resolved *</label>
-                    <placeholder style="color: gray; ">If None, Leave N/A.</placeholder>
+                    <p style="color: gray; font-size: 0.9rem; margin-bottom: 0.5rem;">If None, Leave N/A.</p>
                     <textarea id="issues" rows="3" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem; resize: vertical;"></textarea>
                 </div>
 
@@ -99,31 +104,59 @@
         </div>
     </main>
 
-    <!-- Success Popup -->
+    <!-- Success/Error Popup -->
     <div id="popupOverlay" class="popup-overlay hidden">
         <div class="popup">
             <div class="popup-icon success" id="popupIcon">✓</div>
             <h2 id="popupTitle">Success!</h2>
             <p id="popupMessage">Your software update has been submitted successfully.</p>
             <div class="popup-buttons">
-                <button class="popup-button" onclick="closePopup()">OK</button>
+                <button class="popup-button" onclick="window.location.href='Submit.html'">
+                Submit Another One
+                </button>
+                <button class="popup-button" onclick="window.location.href='search.html'">
+                    View All Updates
+                </button>            
             </div>
         </div>
     </div>
 
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const mainContent = document.getElementById('mainContent');
-            sidebar.classList.toggle('hidden');
-            mainContent.classList.toggle('expanded');
+    <!-- Loading Spinner Popup -->
+    <div id="loadingOverlay" class="popup-overlay hidden">
+        <div class="popup">
+            <div class="spinner"></div>
+            <h2>Submitting Update...</h2>
+            <p>Please wait while we save your update.</p>
+        </div>
+    </div>
+
+    <style>
+        /* Loading Spinner */
+        .spinner {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1.5rem;
+            border: 5px solid var(--bg-light);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
 
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <script>
         // Set today's date as default
         document.getElementById('updateDate').valueAsDate = new Date();
 
         document.getElementById('updateForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            // Show loading spinner
+            showLoading();
             
             const formData = {
                 softwareName: document.getElementById('softwareName').value,
@@ -140,7 +173,12 @@
                 // Replace with your Google Apps Script Web App URL
                 const scriptURL = 'https://script.google.com/macros/s/AKfycbzQK_ajqjD5CoFKfodbPfhC2OXquU3F4ew-GQ4ZoBQyL8n-VWkqyD9DWtyUW4v37Zau/exec';
                 
-                const response = await fetch(scriptURL, {
+                // Set a timeout to detect if the request takes too long
+                const timeoutPromise = new Promise((_, reject) => 
+                    setTimeout(() => reject(new Error('Request timeout')), 10000)
+                );
+                
+                const fetchPromise = fetch(scriptURL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
@@ -149,6 +187,12 @@
                     body: JSON.stringify(formData)
                 });
 
+                // Race between fetch and timeout
+                await Promise.race([fetchPromise, timeoutPromise]);
+                
+                // Hide loading spinner
+                hideLoading();
+                
                 // Show success popup
                 showPopup('Success!', 'Your software update has been submitted successfully.', 'success');
                 
@@ -157,10 +201,31 @@
                 document.getElementById('updateDate').valueAsDate = new Date();
                 
             } catch (error) {
-                showPopup('Error', 'There was a problem submitting your update. Please try again.', 'error');
+                // Hide loading spinner
+                hideLoading();
+                
+                // If it's a timeout, we assume it went through (no-cors limitation)
+                if (error.message === 'Request timeout') {
+                    showPopup('Submitted!', 'Your update has been sent. If it doesn\'t appear in a few moments, please try again.', 'warning');
+                    // Reset form anyway
+                    document.getElementById('updateForm').reset();
+                    document.getElementById('updateDate').valueAsDate = new Date();
+                } else {
+                    showPopup('Error', 'There was a problem submitting your update. Please try again.', 'error');
+                }
                 console.error('Error:', error);
             }
         });
+
+        function showLoading() {
+            document.getElementById('loadingOverlay').classList.remove('hidden');
+            document.body.classList.add('popup-active');
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').classList.add('hidden');
+            document.body.classList.remove('popup-active');
+        }
 
         function showPopup(title, message, type) {
             document.getElementById('popupTitle').textContent = title;
@@ -168,7 +233,13 @@
             
             const icon = document.getElementById('popupIcon');
             icon.className = 'popup-icon ' + type;
-            icon.textContent = type === 'success' ? '✓' : '✕';
+            if (type === 'success') {
+                icon.textContent = '✓';
+            } else if (type === 'error') {
+                icon.textContent = '✕';
+            } else if (type === 'warning') {
+                icon.textContent = '⚠';
+            }
             
             document.getElementById('popupOverlay').classList.remove('hidden');
             document.body.classList.add('popup-active');
@@ -179,5 +250,6 @@
             document.body.classList.remove('popup-active');
         }
     </script>
+    <script src="script.js"></script>
 </body>
 </html>

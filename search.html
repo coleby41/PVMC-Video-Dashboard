@@ -11,38 +11,45 @@
     <header class="header">
         <div class="header-left">
             <div class="logo">
-                <span class="logo-text">BETA - PVMC</span>
+                <span class="logo-text">PVMC</span>
             </div>
             <button class="menu-btn" id="menuBtn">☰</button>
         </div>
         <div class="header-center">
-            <span class="logo-text">Submit Software Updates</span>
+            <span class="logo-text">Search Software Updates</span>
         </div>
-       <div class="header-right">
+        <div class="header-right">
             <input type="text" class="search-bar" id="searchInput" placeholder="Search for software updates...">
         </div>
     </header>
+    
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">Navigation</div>
         <nav class="sidebar-nav">
             <a href="update.home.html" class="nav-item">
-                <span class="nav-icon">🏠</span>
+                <span class="home-nav-icon"></span>
                 <span class="nav-text">Home</span>
             </a>
             <a href="submit.html" class="nav-item">
-                <span class="nav-icon">➕</span>
+                <span class="add-nav-icon"></span>
                 <span class="nav-text">Submit Update</span>
             </a>
             <a href="search.html" class="nav-item active">
-                <span class="nav-icon">🔍</span>
+                <span class="search-nav-icon"></span>
                 <span class="nav-text">Search Updates</span>
             </a>
+
+            <a href="update.table.html" class="nav-item">
+                <span class="table-nav-icon"></span>
+                <span class="nav-text">Software Update Chart</span>
+            </a>
+
         </nav>
         <div class="sidebar-footer">
             PVMC Tech Department
             <br>
-            V3.0.0 BETA
+            V3.0.1
         </div>
     </aside>
 
@@ -81,13 +88,6 @@
         let allUpdates = [];
         let currentCategory = 'all';
 
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const mainContent = document.getElementById('mainContent');
-            sidebar.classList.toggle('hidden');
-            mainContent.classList.toggle('expanded');
-        }
-
         // Load data on page load
         window.addEventListener('load', loadUpdates);
 
@@ -112,10 +112,13 @@
         }
 
         // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            performSearch(searchTerm);
-        });
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                performSearch(searchTerm);
+            });
+        }
 
         function performSearch(searchTerm) {
             let filtered = allUpdates;
@@ -150,8 +153,9 @@
                 }
             });
             
-            // Perform search with current search term
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            // Perform search with current search term (if search bar exists)
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
             performSearch(searchTerm);
         }
 
@@ -181,7 +185,8 @@
                             <h3 style="font-size: 1.2rem; color: var(--primary-color); margin-bottom: 0.25rem;">${update.softwareName}</h3>
                             <p style="color: var(--text-light); font-size: 0.9rem;">Version: ${update.version}</p>
                         </div>
-                        <span style="background: ${getCategoryColor(update.category)}; color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem;">${update.category}</span>                    </div>
+                        <span style="background: ${getCategoryColor(update.category)}; color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem;">${update.category}</span>
+                    </div>
                     
                     <div style="background: var(--white); padding: 1rem; border-radius: 6px; margin-bottom: 0.75rem;">
                         <p style="margin-bottom: 0.5rem;"><strong>Update Date:</strong> ${formatDate(update.updateDate)}</p>
@@ -217,7 +222,7 @@
             });
         }
 
-         function getCategoryColor(category) {
+        function getCategoryColor(category) {
             const colors = {
                 'Audio/Video': '#eb9234',    
                 'Presentation': '#34eb64',   
@@ -248,5 +253,6 @@
             opacity: 0.9;
         }
     </style>
+    <script src="script.js"></script>
 </body>
 </html>

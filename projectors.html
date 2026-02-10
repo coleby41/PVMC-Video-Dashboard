@@ -1,55 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#444">
-  <title>PVMC Tech Dashboard: Projectors</title>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/main2.css">
-  <link rel="stylesheet" href="styles/theme-switcher.css">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="media/PVMC-logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projectors - PVMC Tech Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Logo/PVMC-logo.png">
 </head>
 
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text">PVMC</span>
+            </div>
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </div>
+        <div class="header-center">
+            <span class="logo-text">Projector Controls</span>
+        </div>
+    </header>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="index.html">Dashboard</a></li>
-      <li><a href="projectors.html" class="active">Projectors</a></li>
-      <li><a href="video-switch.html">Video Switching</a></li>
-      <li><a href="pro.html">Pro Information</a></li>
-      <li><a href="doc.html">Helpful Docs</a></li>
-    </ul>
-  </nav>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">Quick Links</div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item">
+                <span class="home-nav-icon"></span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="https://pvmc.life" class="nav-item" target="_blank">
+                <span class="website-nav-icon"></span>
+                <span class="nav-text">Church Website</span>
+            </a>
+            <a href="projectors.html" class="nav-item active">
+                <span class="projectors-nav-icon"></span>
+                <span class="nav-text">Projectors</span>
+            </a>
+            <a href="videoswitch.html" class="nav-item">
+                <span class="video-nav-icon"></span>
+                <span class="nav-text">Video Switching</span>
+            </a>
+            <a href="docs.html" class="nav-item">
+                <span class="docs-nav-icon"></span>
+                <span class="nav-text">Helpful Docs</span>
+            </a>
+            <a href="update.home.html" class="nav-item">
+                <span class="update-nav-icon"></span>
+                <span class="nav-text">Updates - Home</span>
+            </a>
+            
+        </nav>
+        <div class="sidebar-footer">
+            PVMC Tech Department
+            <br>
+            V3.0.1
+        </div>
+    </aside>
 
-  <!-- Status Banner -->
-  <div id="network-banner" class="banner hidden"></div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="card" style="max-width: 900px; margin: 0 auto;">
+            <h2 class="card-title">Projector Management</h2>
+            <div class="announcement-item" style="margin-bottom: 2rem;">
+                <p>This is the projectors page. This is where you can get more information about the projectors, and you can also turn them on and off!</p>
+            </div>
 
-  <!-- Main Content -->
-  <main>
-    <h1>Projector Page:</h1>
-    <p>This is the projectors page. This is where you can get more information about the projectors, and you can also turn them on and off!</p>
-    <hr>
-    <h2 class="dashboard-links"> Projector Controls:</h2>
-    <br>
-        <div class="dashboard-container">
-    <button class="dashboard-button" onclick="window.open('http://192.168.20.126:8002/emulator/7MyZQ0NQ5agSM_AezpJiq', '_blank')">
-  Turn Off/On The Projectors Here!
-</button>
+            <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="stat-item" style="cursor: pointer;" onclick="window.open('http://192.168.20.126:8002/emulator/7MyZQ0NQ5agSM_AezpJiq', '_blank')">
+                    <div class="stat-number-power-projector"></div>
+                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Power Control</div>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Turn projectors on/off</p>
+                </div>
 
-<button class="dashboard-button" onclick="window.open('http://192.168.20.126:8002/emulator/CsJQHlAKaZ0zYhpZlESEQ', '_blank')">
-  Change Input Sources Here!
-</button>
+                <div class="stat-item" style="cursor: pointer;" onclick="window.open('http://192.168.20.126:8002/emulator/CsJQHlAKaZ0zYhpZlESEQ', '_blank')">
+                    <div class="stat-number-input-projector"></div>
+                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Input Sources</div>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Change input sources</p>
+                </div>
 
-<button class="dashboard-button" onclick="window.location.href='live-status.html'">
-  Get Live Projector Info Here!
-</button>
-  </main>
+                <div class="stat-item" style="cursor: pointer;" onclick="window.location.href='404.html'">
+                    <div class="stat-number-status-projector"></div>
+                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Live Status</div>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">View projector information - NOT WORKING</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/campus-check.js"></script>
+    <script src="scripts/theme-switcher.js"></script>
+    <script>
+        // Sidebar toggle functionality
+        const menuBtn = document.getElementById('menuBtn');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.querySelector('.main-content');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+            mainContent.classList.toggle('expanded');
+        });
+    </script>
 </body>
 </html>

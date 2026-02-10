@@ -4,28 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            font-size: 16px;
-        }
-
         body {
-            background-color: #ecdcc5;
-            font-family: Arial, sans-serif;
-            min-height: 100vh;
+            background-color: #fcfcfc;
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 100vh;
             padding: 20px;
         }
 
-        .container {
+        .error-container {
             max-width: 600px;
             width: 100%;
             text-align: center;
@@ -36,9 +26,20 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 40px 30px;
-            border-radius: 12px;
+            border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .error-code {
@@ -55,57 +56,25 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        h1 {
+        .error-title {
             font-size: 1.75rem;
             color: #1e293b;
             margin-bottom: 16px;
+            font-weight: 600;
         }
 
-        p {
+        .error-message {
             font-size: 1.1rem;
             color: #334155;
             margin-bottom: 30px;
         }
 
-        .dashboard-button {
-            background-color: #04AA6D;
-            color: white;
-            padding: 14px 24px;
-            border-radius: 123px;
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: bold;
-            width: 100%;
-            max-width: 300px;
-        }
-
-        .dashboard-button:hover {
-            background-color: #03915f;
-            transform: translateY(-2px);
-        }
-
         .verse-container {
-            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #954535;
+            border-radius: 6px;
+            border-left: 4px solid #ff2a00;
             margin: 30px 0;
             animation: fadeIn 1s ease-in;
         }
@@ -129,11 +98,11 @@
                 font-size: 5rem;
             }
 
-            h1 {
+            .error-title {
                 font-size: 1.5rem;
             }
 
-            p {
+            .error-message {
                 font-size: 1rem;
             }
 
@@ -143,20 +112,31 @@
         }
     </style>
 </head>
+<header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text">BETA - PVMC</span>
+            </div>
+        </div>
+        <div class="header-center">
+            <span class="logo-text">404</span>
+        </div>
+    </header>
 <body>
-    <div class="container">
+    <div class="error-container">
         <div class="error-card">
             <div class="icon">🕊️</div>
             <div class="error-code">404</div>
-            <h1>Page Not Found</h1>
-            <p>The page you're looking for seems to have wandered off. Don't worry, I'll help you find your way back.</p>
-            <div class="verse-container">
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-message">The page you're looking for seems to have wandered off. Don't worry, I'll help you find your way back.</p>
+            <div class="announcement-item">
                 <div class="verse">
                     "Serve wholeheartedly, as if you were serving the Lord, not people."
                 </div>
                 <div class="verse-reference">— Ephesians 6:7</div>
             </div>
-            <a href="/" class="dashboard-button">Return to Dashboard</a>
+            <br>
+            <a href="index.html" class="popup-button">Return to Dashboard</a>
         </div>
     </div>
 </body>

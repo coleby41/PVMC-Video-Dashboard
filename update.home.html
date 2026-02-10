@@ -14,7 +14,7 @@
     <header class="header">
         <div class="header-left">
             <div class="logo">
-                <span class="logo-text">BETA - PVMC</span>
+                <span class="logo-text">PVMC</span>
             </div>
             <button class="menu-btn" id="menuBtn">☰</button>
         </div>
@@ -25,7 +25,7 @@
 
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">Quick Apps</div>
+        <div class="sidebar-header">Quick Links</div>
         <nav class="sidebar-nav">
             <a href="index.html" class="nav-item">
                 <span class="home-nav-icon"></span>
@@ -51,17 +51,12 @@
                 <span class="update-nav-icon"></span>
                 <span class="nav-text">Updates - Home</span>
             </a>
-
-            <a href="/" class="nav-item">
-                <span class="home-nav-icon"></span>
-                <span class="nav-text">Old Dashboard</span>
-            </a>
             
         </nav>
         <div class="sidebar-footer">
             PVMC Tech Department
             <br>
-            V3.0.0 BETA
+            V3.0.1
         </div>
     </aside>
 
@@ -73,7 +68,7 @@
                 <p>This Page is where you can find all the updates for all the tech at PVMC, or submit any.</p>
             </div>
 
-            <div class="stats-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
                 <div class="stat-item" style="cursor: pointer;" href="submit.html" onclick="window.location.href='submit.html'">
                     <div class="stat-number-submit-update"></div>
                     <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Submit Update</div>
@@ -85,22 +80,18 @@
                     <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Update Log</div>
                     <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Shows the update history</p>
                 </div>
+
+                <div class="stat-item" style="cursor: pointer;" href="update.table.html" onclick="window.location.href='update.table.html'">
+                    <div class="stat-number-chart-update"></div>
+                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Update chart</div>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Shows everything that need's to be updated, on both campuses</p>
+                </div>
             </div>
         </div>
     </main>
 
     <script src="scripts/campus-check.js"></script>
     <script src="scripts/theme-switcher.js"></script>
-    <script>
-        // Sidebar toggle functionality
-        const menuBtn = document.getElementById('menuBtn');
-        const sidebar = document.getElementById('sidebar');
-        const mainContent = document.querySelector('.main-content');
-
-        menuBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('hidden');
-            mainContent.classList.toggle('expanded');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

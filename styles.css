@@ -86,16 +86,37 @@ body.popup-active {
     margin: 0 2rem;
 }
 
-.search-bar {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: none;
-    border-radius: 24px;
-    font-size: 0.95rem;
-    outline: none;
+.header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin-left: 2rem;
 }
 
+.search-bar {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border: 2px solid var(--border-color);
+    border-radius: 30px;
+    font-size: 0.95rem;
+    outline: none;
+    background: var(--white);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
 
+.search-bar:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(13, 71, 161, 0.15);
+    background: var(--white);
+}
+
+.search-bar::placeholder {
+    color: var(--text-light);
+    opacity: 0.7;
+}
 
 .notification-btn {
     background: transparent;
@@ -266,6 +287,16 @@ body.popup-active {
     width: 2rem;
     height: 2rem;
     background-image: url("Logo/Icons/icons8-search-128.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.table-nav-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("Logo/Icons/icons8-table-properties-50.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -637,6 +668,16 @@ body.popup-active {
     margin: 0 auto 1rem auto;
 }
 
+.stat-number-chart-update {
+    background-image: url(Logo/Icons/icons8-table-64.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1rem auto;
+}
+
 .stat-label {
     font-size: 0.85rem;
     color: var(--text-light);
@@ -658,9 +699,10 @@ body.popup-active {
 
 .btn-doc {
     background: var(--primary-color);
-    color: rgb(250, 250, 250);
+    color: var(--white);
+    border: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 12px;
+    border-radius: 6px;
     font-size: 0.95rem;
     cursor: pointer;
     width: 100%;
@@ -891,4 +933,43 @@ body.popup-active {
         width: 100%;
     }
 }
-        
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .header-right {
+        flex: 1;
+        margin-left: 1rem;
+        max-width: 100%;
+    }
+    
+    .search-bar {
+        padding: 0.75rem 1rem;
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        border-radius: 24px;
+    }
+    
+    .header-center {
+        display: none; /* Hide title on mobile to give search bar more room */
+    }
+}
+
+@media (max-width: 480px) {
+    .header-right {
+        margin-left: 0.5rem;
+    }
+    
+    .search-bar {
+        padding: 0.65rem 0.875rem;
+        font-size: 16px;
+    }
+}
+
+/* Tablet Optimization */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .header-right {
+        max-width: 400px;
+    }
+    
+    .search-bar {
+        padding: 0.8rem 1.125rem;
+    }
+}
