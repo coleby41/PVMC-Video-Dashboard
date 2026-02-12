@@ -11,32 +11,32 @@ menuBtn.addEventListener('click', () => {
 // Sample events data
 const events = [
     {
-        day: '2',
+        day: '18',
         month: 'FEB',
-        title: 'Revival Night 1',
-        time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: 'Speaker: Danny Johnson'
+        title: 'Ash Wednesday Service',
+        time: 'Service at 6:30 PM',
+        description: 'It will be in the CLC'
     }, 
     {
-        day: '3',
+        day: '23',
         month: 'FEB',
-        title: 'Revival Night 2',
-        time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: 'Speaker: Brian Rogers'
+        title: 'IGNITE Show Practice 1',
+        time: 'Starts 6 PM',
+        description: 'This is the first practice for the IGNITE show.'
     },
     {
-        day: '4',
+        day: '28',
         month: 'FEB',
-        title: 'Revival Night 3',
-        time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: 'Speaker: Andy Lambert'
+        title: 'IGNITE Show Practice 2',
+        time: 'Starts 10 AM',
+        description: 'This is the last practice for the IGNITE show. TAKE PICS FOR INTERMISSION SLIDES!'
     },
     {
-        day: '5',
+        day: '28',
         month: 'FEB',
-        title: 'Revival Night 4',
-        time: 'Dinner at 5:30 PM, Service at 6:30 PM',
-        description: 'Speaker: Dr. Joy Greene'
+        title: 'IGNITE Show',
+        time: 'Show starts at 4 PM',
+        description: 'Only 1 show this year!'
     },
 ];
 
