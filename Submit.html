@@ -51,18 +51,25 @@
     </aside>
 
     <!-- Main Content -->
+    
     <main class="main-content" id="mainContent">
+        <section class="index-banner">
+            <div>
+                <div class="hero-title">⚠️ NOTICE! ⚠️</div>
+                <p class="hero-subtitle">We have max out of our V-Mix Updates. V-Mix will NOT have any update.</p>
+            </div>
+        </section>
         <div class="card">
             <h2 class="card-title">Update Information</h2>
             <form id="updateForm">
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Software Name *</label>
-                    <input type="text" id="softwareName" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
+                    <input placeholder="Loaction - Software.. e.g. FOH - Companion" type="text" id="softwareName" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
                 </div>
 
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Version Number *</label>
-                    <input type="text" id="version" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
+                    <input placeholder="Current Version - New Version" type="text" id="version" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
                 </div>
 
                 <div style="margin-bottom: 1.5rem;">
@@ -72,8 +79,10 @@
 
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Updated By *</label>
-                    <input type="text" id="updatedBy" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
+                    <input placeholder="First and Last" type="text" id="updatedBy" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
                 </div>
+
+                
 
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Category *</label>
@@ -89,7 +98,7 @@
 
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Update Notes *</label>
-                    <p style="color: gray; font-size: 0.9rem; margin-bottom: 0.5rem;">Please include the building and campus where the update took place, along with any relevant details about the update process or changes made. Do not include any issues; those will be documented in the next field.</p>
+                    <p style="color: gray; font-size: 0.9rem; margin-bottom: 0.5rem;">Please include the building and campus where the update took place, along with any relevant details about the update process or changes made. Do not include any current issues; those will be documented in the next field. If Possible, please include the link to the patch notes.</p>
                     <textarea id="notes" required rows="5" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem; resize: vertical;"></textarea>
                 </div>
 
@@ -97,6 +106,16 @@
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Issues/Problems Resolved *</label>
                     <p style="color: gray; font-size: 0.9rem; margin-bottom: 0.5rem;">If None, Leave N/A.</p>
                     <textarea id="issues" rows="3" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem; resize: vertical;"></textarea>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Testing Confirmation *</label>
+                    <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 6px; transition: border-color 0.2s;">
+                        <input type="checkbox"  required style="margin-top: 3px; accent-color: var(--primary-color); width: 16px; height: 16px; flex-shrink: 0;"/>
+                        <span style="font-size: 0.9rem; color: var(--text-dark); line-height: 1.5;">
+                            By checking this box, I confirm that I have tested all aspects of this application and have reported any and all issues found to the appropriate person, and included it in this report.
+                        </span>
+                    </label>
                 </div>
 
                 <button type="submit" class="btn-primary">Submit Update</button>

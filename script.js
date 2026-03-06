@@ -11,32 +11,34 @@ menuBtn.addEventListener('click', () => {
 // Sample events data
 const events = [
     {
-        day: '18',
-        month: 'FEB',
-        title: 'Ash Wednesday Service',
-        time: 'Service at 6:30 PM',
-        description: 'It will be in the CLC'
+        day: '29',
+        month: 'MARCH',
+        title: 'Palm Sunday',
+        time: 'All day Sunday - Nothing  Special',
+        description: 'Its Palm Sunday!'
     }, 
     {
-        day: '23',
-        month: 'FEB',
-        title: 'IGNITE Show Practice 1',
-        time: 'Starts 6 PM',
-        description: 'This is the first practice for the IGNITE show.'
+        day: '2',
+        month: 'APRIL',
+        title: 'Maundy Thursday',
+        time: 'Start at 6:15',
+        description: 'Maunday Thursday'
     },
+   
     {
-        day: '28',
-        month: 'FEB',
-        title: 'IGNITE Show Practice 2',
-        time: 'Starts 10 AM',
-        description: 'This is the last practice for the IGNITE show. TAKE PICS FOR INTERMISSION SLIDES!'
+        day: '4',
+        month: 'APRIL',
+        title: 'ESATER JAM!!',
+        time: 'Show starts at 10',
+        description: 'See Coleby for Tech script'
     },
+
     {
-        day: '28',
-        month: 'FEB',
-        title: 'IGNITE Show',
-        time: 'Show starts at 4 PM',
-        description: 'Only 1 show this year!'
+        day: '5',
+        month: 'APRIL',
+        title: 'ESATER Service',
+        time: '6:30AM, 8:00AM, 9:00, 10:15AM, And 11:30',
+        description: 'Need to find out if 9AM'
     },
 ];
 
