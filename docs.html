@@ -6,6 +6,7 @@
   <title>Helpful Docs - PVMC Tech Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/png" href="Logo/PVMC-logo.png">
+  
   <style>
     :root {
       --bg: #f4f6f9;
@@ -252,6 +253,33 @@
       #globalSearch:focus { width: 170px; }
       .topnav { padding: 0 16px; gap: 8px; }
     }
+
+    .index-banner {
+    background: #fffbeb;
+    color: #92400e;
+    border: 1px solid #fde68a;
+    border-left: 4px solid #f59e0b;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(245, 158, 11, 0.1);
+    width: 100%;
+    text-align: center;
+}
+
+.index-banner .hero-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    color: #92400e;
+}
+
+.index-banner .hero-subtitle {
+    font-size: 0.9rem;
+    color: #b45309;
+    line-height: 1.6;
+    margin: 0;
+}
   </style>
 </head>
 <body>
@@ -270,6 +298,12 @@
 </nav>
 
 <main>
+  <section class="index-banner">
+    <div>
+        <div class="hero-title">📑 UPDATED! 📑</div>
+        <p class="hero-subtitle">New documentation is now available! Check it out below! Can't find what you are looking for? Use the search bar, located at the top right!</p>
+    </div>
+</section>
 
   <div class="page-hero">
     <h1>Documentation Hub</h1>
@@ -277,9 +311,9 @@
   </div>
 
   <div class="stats-bar">
-    <div class="stat-chip"><span class="num">5</span><span class="label">Equipment Manuals</span></div>
-    <div class="stat-chip"><span class="num">7</span><span class="label">PVMC Guides</span></div>
-    <div class="stat-chip"><span class="num">2</span><span class="label">Training Videos</span></div>
+    <div class="stat-chip"><span class="num">6</span><span class="label">Equipment Manuals</span></div>
+    <div class="stat-chip"><span class="num">13</span><span class="label">PVMC Guides</span></div>
+    <div class="stat-chip"><span class="num">3</span><span class="label">Training Videos</span></div>
     <div class="stats-break"></div>
     <div class="stat-chip"><span class="num">1</span><span class="label">Leland Campus Documentation</span></div>
     <div class="stat-chip"><span class="num">10</span><span class="label">Wilmington Campus Documentation</span></div>
@@ -291,7 +325,7 @@
     <div class="doc-section-header">
       <span class="section-icon">🔧</span>
       <h2>Official Equipment Manuals</h2>
-      <span class="badge badge-blue">5 Docs Available</span>
+      <span class="badge badge-blue">6 Docs Available</span>
     </div>
     <div class="card-grid">
 
@@ -301,7 +335,7 @@
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
           <div class="card-identity">
             <div class="card-emoji">📘</div>
-            <div class="card-title">CR Encoder Manual</div>
+            <div class="card-title">MageWell Encoder Manual</div>
           </div>
           <div class="card-desc">Complete guide for operating and maintaining the CR encoder.</div>
         </div>
@@ -370,22 +404,21 @@
         </div>
       </div>
 
-      <div class="doc-card green coming-soon" data-search="manual coming soon placeholder">
+      <div class="doc-card blue" data-search="V-Mix User Guide vmix">
         <div class="card-bar"></div>
         <div class="card-body">
-          <div class="card-tag-row">
-            <span class="coming-tag">Coming Soon</span>
-          </div>
+          <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
           <div class="card-identity">
-            <div class="card-emoji">📄</div>
-            <div class="card-title">Micro BM Video Switch</div>
+            <div class="card-emoji">📓</div>
+            <div class="card-title">Lumens PTZ Controler Manual</div>
           </div>
-          <div class="card-desc">Coming soon....</div>
+          <div class="card-desc">A Manual for the control room PTZ controler.</div>
         </div>
         <div class="card-footer">
-          <a class="btn btn-primary">⬇ Download PDF</a>
+          <a class="btn btn-primary" href="docs/VS-KB30-Installation Manual-English-2020-0113.pdf">⬇ Download PDF</a>
         </div>
       </div>
+
   </section>
 
   <!-- PVMC MANUALS -->
@@ -536,7 +569,73 @@
         </div>
       </div>
 
+      <div class="doc-card green coming-soon" data-search="manual coming soon placeholder">
+        <div class="card-bar"></div>
+        <div class="card-body">
+          <div class="card-tag-row">
+            <span class="coming-tag">Coming Soon</span>
+          </div>
+      <div class="card-identity">
+        <div class="card-emoji">📄</div>
+        <div class="card-title">V-Mix Stream Key Help Guide</div>
+      </div>
+      <div class="card-desc">Coming soon....</div>
     </div>
+    <div class="card-footer">
+      <a class="btn btn-green">⬇ Download PDF</a>
+    </div>
+  </div>
+
+  <div class="doc-card green coming-soon" data-search="manual coming soon placeholder">
+    <div class="card-bar"></div>
+    <div class="card-body">
+      <div class="card-tag-row">
+        <span class="coming-tag">Coming Soon</span>
+      </div>
+  <div class="card-identity">
+    <div class="card-emoji">📄</div>
+    <div class="card-title">Magewell Stream Key Help Guide</div>
+  </div>
+  <div class="card-desc">Coming soon....</div>
+</div>
+<div class="card-footer">
+  <a class="btn btn-green">⬇ Download PDF</a>
+</div>
+</div>
+
+<div class="doc-card green coming-soon" data-search="manual coming soon placeholder">
+  <div class="card-bar"></div>
+  <div class="card-body">
+    <div class="card-tag-row">
+      <span class="coming-tag">Coming Soon</span>
+    </div>
+<div class="card-identity">
+  <div class="card-emoji">📄</div>
+  <div class="card-title">Micro Video Switch Board Help Guide</div>
+</div>
+<div class="card-desc">Coming soon....</div>
+</div>
+<div class="card-footer">
+<a class="btn btn-green">⬇ Download PDF</a>
+</div>
+</div>
+
+<div class="doc-card green coming-soon" data-search="manual coming soon placeholder">
+  <div class="card-bar"></div>
+  <div class="card-body">
+    <div class="card-tag-row">
+      <span class="coming-tag">Coming Soon</span>
+    </div>
+<div class="card-identity">
+  <div class="card-emoji">📄</div>
+  <div class="card-title">Magewell Recording Storage Guide</div>
+</div>
+<div class="card-desc">Coming soon....</div>
+</div>
+<div class="card-footer">
+<a class="btn btn-green">⬇ Download PDF</a>
+</div>
+</div>
   </section>
 
   <!-- VIDEOS -->
@@ -544,7 +643,7 @@
     <div class="doc-section-header">
       <span class="section-icon">🎥</span>
       <h2>Helpful Videos</h2>
-      <span class="badge badge-orange">2 Videos Available</span>
+      <span class="badge badge-orange">3 Videos Available</span>
     </div>
     <div class="video-list">
 
@@ -578,6 +677,23 @@
             <div class="btn-row">
               <a class="btn btn-orange" href="https://www.youtube.com/watch?v=rttNAt2S5Ns" target="_blank">▶ Watch Part 1</a>
               <a class="btn btn-orange" href="https://www.youtube.com/watch?v=sHPU2E_RrA0" target="_blank">▶ Watch Part 2</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-card" data-search="ProPresenter Remote Walkthrough control setup usage">
+        <div class="video-bar"></div>
+        <div class="video-inner">
+          <div class="video-thumb">🎥</div>
+          <div class="video-content">
+            <div class="video-top-row">
+              <div class="video-title">ProPresenter- 5 Essential Tools for Volunteers</div>
+              <span class="campus-tag both">📍 Both Campuses</span>
+            </div>
+            <div class="video-desc">Complete walkthrough of 5 Essential Tools for Volunteers</div>
+            <div class="btn-row">
+              <a class="btn btn-orange" href="https://www.youtube.com/watch?v=hwlELGBT8Lw" target="_blank">▶ Watch Video</a>
             </div>
           </div>
         </div>

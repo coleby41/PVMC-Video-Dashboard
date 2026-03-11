@@ -19,6 +19,26 @@
     --sidebar-width: 220px;
 }
 
+.print-bn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1.1rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: 1.5px solid var(--primary-color);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.print-bn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--primary-color);
@@ -30,7 +50,8 @@ body.popup-active {
     overflow: hidden;
 }
 
-/* Header */
+/* Header */ 
+
 .header {
     background: var(--primary-color);
     color: var(--white);

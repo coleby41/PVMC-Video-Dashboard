@@ -53,14 +53,13 @@
     <!-- Main Content -->
     
     <main class="main-content" id="mainContent">
-        <section class="index-banner">
-            <div>
-                <div class="hero-title">⚠️ NOTICE! ⚠️</div>
-                <p class="hero-subtitle">We have max out of our V-Mix Updates. V-Mix will NOT have any update.</p>
-            </div>
-        </section>
         <div class="card">
-            <h2 class="card-title">Update Information</h2>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+                <h2 class="card-title" style="margin-bottom: 0;">Update Information</h2>
+                <!-- <button onclick="printForm()" class="print-bn">
+                    🖨️ Print
+                </button> -->
+            </div>
             <form id="updateForm">
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Software Name *</label>
@@ -165,6 +164,22 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        @media print {
+            .header, .sidebar { display: none; }
+            .main-content { margin: 0 !important; padding: 0 !important; }
+            .btn-primary { display: none; }
+
+            input::placeholder,
+            textarea::placeholder { color: transparent; }
+
+            select {
+        appearance: none;
+        -webkit-appearance: none;
+        border: 1px solid #ccc;
+        background: white;
+    }
+        }
     </style>
 
     <script>
@@ -267,6 +282,10 @@
         function closePopup() {
             document.getElementById('popupOverlay').classList.add('hidden');
             document.body.classList.remove('popup-active');
+        }
+
+        function printForm() {
+            window.print();
         }
     </script>
     <script src="script.js"></script>
