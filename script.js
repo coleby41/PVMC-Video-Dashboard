@@ -28,7 +28,7 @@ const events = [
     {
         day: '4',
         month: 'APRIL',
-        title: 'ESATER JAM!!',
+        title: 'EASTER JAM!!',
         time: 'Show starts at 10',
         description: 'See Coleby for Tech script'
     },
@@ -36,7 +36,7 @@ const events = [
     {
         day: '5',
         month: 'APRIL',
-        title: 'ESATER Service',
+        title: 'Easter Service',
         time: '6:30AM, 8:00AM, 9:00, 10:15AM, And 11:30',
         description: 'Need to find out if 9AM'
     },
