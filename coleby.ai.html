@@ -485,36 +485,38 @@ body {
 <body>
 
 <!-- ── Header ── -->
-<div class="header">
-  <div class="header-left">
-    <a href="index.html" class="menu-btn" title="Back to Dashboard">&#8592;</a>
-    <div class="logo">
-      <span class="logo-text">ILM Dashboard</span>
+<header class="header">
+    <div class="header-left">
+        <div class="logo">
+            <span class="logo-text">PVMC</span>
+        </div>
+        <button class="menu-btn" id="menuBtn">☰</button>
     </div>
-  </div>
-  <div class="header-center">
-    <input class="search-bar" type="text" placeholder="Ask a question about your AV docs…"
-      onkeydown="if(event.key==='Enter'&&this.value.trim()){document.getElementById('msgInput').value=this.value;this.value='';sendMessage()}">
-  </div>
+    <div class="header-center">
+    </div>
   <div class="user-profile">
-    <span class="user-name">AV Assistant</span>
+    <span class="user-name">AI Coleby</span>
     <div class="user-avatar">🎛️</div>
   </div>
 </div>
+</header>
 
 <!-- ── Sidebar ── -->
 <div class="sidebar">
   <nav class="sidebar-nav">
     <a href="index.html" class="nav-item">
       <span class="nav-icon">🏠</span>
-      <span class="nav-text">Home</span>
+      <span class="nav-text">Back to Docs Page</span>
     </a>
-    <a href="av-assistant.html" class="nav-item active">
+    <a href="" class="nav-item active">
       <span class="nav-icon">🎛️</span>
-      <span class="nav-text">AV Assistant</span>
+      <span class="nav-text">Chat - Current</span>
     </a>
-  </nav>
-  <div class="sidebar-footer">ILM Tech Dashboard</div>
+    <div class="sidebar-footer">
+        PVMC Tech Department
+        <br>
+        V3.0.1
+    </div>
 </div>
 
 <!-- ── Main ── -->
@@ -523,14 +525,11 @@ body {
   <!-- Page header -->
   <div class="page-header">
     <div class="page-header-info">
-      <h1>🎛️ AV Docs Assistant</h1>
-      <p>Answers sourced exclusively from your uploaded documentation</p>
+      <h1>🎛️ AI Coleby</h1>
+      <p>Answers sourced exclusively from PVMC tech dashboard</p>
     </div>
     <span class="doc-count-badge">13 Documents Loaded</span>
   </div>
-
-  <!-- Doc pills -->
-  <div class="doc-pills-strip" id="docPills"></div>
 
   <!-- Chat body -->
   <div class="chat-body" id="chatBody">
@@ -538,8 +537,8 @@ body {
     <div class="welcome-wrap" id="welcomeWrap">
       <div class="welcome-icon">🎛️</div>
       <div class="welcome-card">
-        <h2>Ask me anything about your AV setup</h2>
-        <p>I have access to all your uploaded documents — mixer routing, wireless units, ATEM switchers, floor boxes, lighting gear, and more. I'll only answer using what's in those docs.</p>
+        <h2>Ask me anything about PVMC AV setup, Wilmington and Leland!</h2>
+        <p>I have access to all docs that have been upload to the docs page.</p>
         <div class="suggestions-label">Try asking…</div>
         <div class="suggestions">
           <button class="suggestion" onclick="suggest(this)">What inputs are on the Midas sanctuary mixer?</button>
@@ -564,9 +563,10 @@ body {
       &#9658; Send
     </button>
   </div>
-
+<p style="background-color: #ffffff; text-align: center; color: #757575; margin: 10px;;" >Anything that is said in this converstion will not be saved. Please double-check responses.</p>
 </div>
 
 <script src="ai.chat.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
