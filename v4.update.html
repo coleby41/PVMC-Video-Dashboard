@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PVMC Dashboard Update - Version 4</title>
+<link rel="icon" type="image/png" href="media/PVMC-logo.png">
+<style>
+:root {
+    --primary-color: #0D47A1;
+    --secondary-color: #1976D2;
+    --accent-color: #10B981;
+    --accent-gradient: linear-gradient(135deg, #10B981, #42A5F5);
+    --bg-light: #F5F5F5;
+    --bg-card: #ffffff;
+    --text-dark: #212121;
+    --text-light: #555;
+    --shadow-color: rgba(16, 185, 129, 0.15);
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-light);
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.header .logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-center .logo-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.main-content {
+    margin: 2rem auto;
+    max-width: 1000px;
+    padding: 0 1rem;
+}
+
+.card {
+    background: var(--bg-card);
+    border-left: 6px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(16,185,129,0.25);
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.highlight-box {
+    background: #e6f5ed;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 1.2rem 1.4rem;
+    margin: 1rem 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    margin-top: 1rem;
+    background: var(--accent-gradient);
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(16,185,129,0.25);
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(16,185,129,0.4);
+}
+
+@media (max-width: 600px){
+    .card-title { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <div class="logo"><span class="logo-text">PVMC</span></div>
+    <div class="header-center"><span class="logo-text">Dashboard - Version 4 Update</span></div>
+</header>
+
+<main class="main-content">
+
+    <!-- Welcome -->
+    <div class="card">
+        <h2 class="card-title">Welcome to Version 4 (V4)</h2>
+        <div class="highlight-box">
+            PVMC Dashboard has reached Version 4. This update introduces several major enhancements designed to support the tech team’s daily workflow. While the dashboard is actively used by the entire PVMC Tech Team, all updates and maintenance continue to be managed by a single administrator. These improvements aim to streamline communication, provide smarter assistance, and make it easier to keep the team informed and productive.
+        </div>
+    </div>
+
+    <!-- AI Chat Box -->
+    <div class="card">
+        <h2 class="card-title">🤖 AI Chat Box</h2>
+        <div class="highlight-box">
+            A new AI assistant has been integrated into the dashboard to help the PVMC Tech Team quickly find solutions to technical issues. The AI draws exclusively from the internal documentation maintained by the administrator, ensuring consistent and accurate guidance. It does not have access to any external knowledge or sources. Chat conversations are not saved, so there is no history, and even the dashboard administrator cannot view previous chats. This means that you will not be able to go back on any converstion. This tool is intended strictly for technical support and will politely respond “I don’t know how to help with that” to unrelated questions. The AI uses the Gemini API for processing, but no data is sent externally. As this feature is in beta, any issues or inconsistencies should be reported to the administrator. Feedback is wanted!
+        </div>
+    </div>
+
+    <!-- Update Log Emails -->
+    <div class="card">
+        <h2 class="card-title">📧 Update Log Emails</h2>
+        <div class="highlight-box">
+            Version 4 introduces the ability to send update logs via email. This feature allows the tech team to quickly notify colleagues of completed tasks or important changes without needing repeated explanations. Also when each time a form is submitted, selected team members receive automatic email notifications of that form. Team members who wish to receive these notifications can contact the dashboard administrator to be added to the list. Even if you are not on the list, you may still send the update to somone using the little share icon. This improvement reduces back-and-forth communication and keeps the team synchronized.
+        </div>
+    </div>
+
+    <!-- Dashboard Support Pages -->
+    <div class="card">
+        <h2 class="card-title">📊 Dashboard Support Pages</h2>
+        <div class="highlight-box">
+            Support pages are now available! This will help the PVMC Tech Team navigate the dashboard more effectively. These pages provide guidance, explanations, and context for various sections of the dashboard, making it easier to understand and operate. Currently, the support pages can be accessed from the Home Page under Projector Status, and additional pages will be added over time as new functionality or features are introduced. This resource ensures that team members have quick access to relevant information when performing their tasks.
+        </div>
+    </div>
+
+    <!-- Documentation -->
+    <div class="card">
+        <h2 class="card-title">📝 Documentation</h2>
+        <div class="highlight-box">
+            Documentation is continuously maintained and updated weekly by the dashboard administrator. This ensures that all procedures, guides, and technical information remain current and accurate for the PVMC Tech Team. If team members notice missing documentation or outdated information, they are encouraged to let the dashboard administrator know. Keeping documentation up to date is essential for the smooth operation of the dashboard and efficient resolution of technical issues.
+        </div>
+    </div>
+
+    <a href="index.html" class="btn-primary">Back to Dashboard</a>
+</main>
+
+</body>
+</html>

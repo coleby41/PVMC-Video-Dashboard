@@ -864,6 +864,39 @@ body.popup-active {
     margin: 0;
 }
 
+
+
+
+
+
+.index-banner-new-update {
+    background: #ecfdf5;           /* light green background */
+    color: #065f46;                /* dark green text */
+    border: 1.5px solid #6ee7b7;     /* light green border */
+    border-left: 4px solid #10b981;/* darker green accent */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(16, 185, 129, 0.1); /* subtle green shadow */
+    width: 100%;
+    text-align: center;
+}
+
+.index-banner-new-update .hero-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    color: #065f46; /* match dark green */
+}
+
+.index-banner-new-update .hero-subtitle {
+    font-size: 0.9rem;
+    color: #047857; /* medium green for subtitle */
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* Tablet and below */
 @media (max-width: 968px) {
     .content-grid {

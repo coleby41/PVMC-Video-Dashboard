@@ -11,10 +11,10 @@ menuBtn.addEventListener('click', () => {
 // Sample events data
 const events = [
     {
-        day: '29',
+        day: '29/26',
         month: 'MARCH',
-        title: 'Palm Sunday',
-        time: 'All day Sunday - Nothing  Special',
+        title: 'Palm Thursday/Sunday',
+        time: 'Same time on Thursday - All day Sunday - Nothing  Special',
         description: 'Its Palm Sunday!'
     }, 
     {

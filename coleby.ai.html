@@ -418,7 +418,6 @@ body {
 /* ── Input Bar ── */
 .input-bar {
     background: var(--white);
-    border-top: 2px solid var(--border-color);
     padding: 1rem 1.5rem;
     display: flex;
     gap: 0.75rem;
@@ -480,9 +479,120 @@ body {
     .welcome-card { padding: 1.5rem; }
     .input-bar { padding: 0.75rem 1rem; }
 }
+
+.chat-box {
+    background: var(--white);
+    border-top: 3px solid var(--border-color);
+    padding: 0.5rem;
+}
+
+/* ── Beta Popup Styles ── */
+.beta-popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+.beta-popup-content {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+  animation: popupFade 0.3s ease;
+}
+
+.beta-popup-content h2 {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.beta-popup-content p {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.beta-popup-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.popup-btn {
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-btn {
+  background: var(--danger-color);
+  color: var(--white);
+}
+
+.close-btn:hover { background: #d32f2f; }
+
+.dashboard-btn {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.dashboard-btn:hover { background: var(--secondary-color); }
+
+.learn-more {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@keyframes popupFade {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .beta-popup-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .popup-btn {
+    font-size: 0.9rem;
+  }
+
+  .learn-more { font-size: 0.8rem; }
+}
 </style>
 </head>
 <body>
+    <div id="betaPopup" class="beta-popup">
+        <div class="beta-popup-content">
+          <h2>⚠️ Beta Feature</h2>
+          <p>This AI chat is currently in <strong>beta</strong>. Once you close this conversation, it cannot be retrieved. All chats are <strong>temporary</strong> and not saved anywhere.</p>
+          
+          <div class="beta-popup-buttons">
+            <button class="popup-btn dashboard-btn" onclick="continueDashboard()">Continue to AI Chat</button>
+            <button class="popup-btn close-btn" onclick="closeConversation()">Close Conversation</button>
+          </div>
+      
+          <a href="http://127.0.0.1:5500/v4.update.html#:~:text=informed%20and%20productive.-,%F0%9F%A4%96%20AI%20Chat%20Box,-A%20new%20AI" class="learn-more">Learn more about this beta →</a>
+        </div>
+      </div>
 
 <!-- ── Header ── -->
 <header class="header">
@@ -495,7 +605,7 @@ body {
     <div class="header-center">
     </div>
   <div class="user-profile">
-    <span class="user-name">AI Coleby</span>
+    <span class="user-name">PV AI</span>
     <div class="user-avatar">🎛️</div>
   </div>
 </div>
@@ -525,10 +635,10 @@ body {
   <!-- Page header -->
   <div class="page-header">
     <div class="page-header-info">
-      <h1>🎛️ AI Coleby</h1>
+      <h1>🎛️ PV AI</h1>
       <p>Answers sourced exclusively from PVMC tech dashboard</p>
     </div>
-    <span class="doc-count-badge">13 Documents Loaded</span>
+    <span class="doc-count-badge">Searching Across 13 Documents</span>
   </div>
 
   <!-- Chat body -->
@@ -537,7 +647,7 @@ body {
     <div class="welcome-wrap" id="welcomeWrap">
       <div class="welcome-icon">🎛️</div>
       <div class="welcome-card">
-        <h2>Ask me anything about PVMC AV setup, Wilmington and Leland!</h2>
+        <h2>Ask me anything about the PVMC AV setup, Wilmington and Leland!</h2>
         <p>I have access to all docs that have been upload to the docs page.</p>
         <div class="suggestions-label">Try asking…</div>
         <div class="suggestions">
@@ -556,17 +666,45 @@ body {
   </div>
 
   <!-- Input bar -->
-  <div class="input-bar">
-    <textarea id="msgInput" rows="1" placeholder="Ask about your AV documentation…"
-      oninput="autoResize(this)" onkeydown="handleKey(event)"></textarea>
-    <button class="send-btn" id="sendBtn" onclick="sendMessage()">
-      &#9658; Send
-    </button>
+  <div class="chat-box">
+    <div class="input-bar">
+      <textarea id="msgInput" rows="1" placeholder="Ask about your AV documentation…"
+        oninput="autoResize(this)" onkeydown="handleKey(event)"></textarea>
+      <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+        &#9658; Send
+      </button>
+    </div>
+  
+    <p style="background-color: #ffffff; text-align: center; color: #757575; margin: 10px;">
+      Anything that is said in this conversation will not be saved. Please double-check responses.
+    </p>
   </div>
-<p style="background-color: #ffffff; text-align: center; color: #757575; margin: 10px;;" >Anything that is said in this converstion will not be saved. Please double-check responses.</p>
-</div>
+
 
 <script src="ai.chat.js"></script>
 <script src="script.js"></script>
+
+<script>
+    // Function definitions
+    function closeConversation() {
+        // Redirect to dashboard home
+        window.location.href = "index.html";
+    }
+    
+    function continueDashboard() {
+        const popup = document.getElementById('betaPopup');
+        if (popup) popup.style.display = 'none';
+    }
+    
+    function learnMore() {
+        window.open("https://dashboard.pvmc.local/beta-info", "_blank");
+    }
+    
+    // Show popup after page fully loads
+    window.addEventListener('load', function() {
+        const popup = document.getElementById('betaPopup');
+        if (popup) popup.style.display = 'flex';
+    });
+    </script>
 </body>
 </html>

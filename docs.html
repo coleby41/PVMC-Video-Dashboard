@@ -280,6 +280,51 @@
     line-height: 1.6;
     margin: 0;
 }
+
+.ai-button {
+    display: inline-block;
+    padding: 0.5rem 1.4rem; /* smaller padding */
+    font-size: 0.95rem;      /* smaller font */
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #10B981, #42A5F5);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Neon glow effect */
+.ai-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #10B981, #42A5F5, #10B981);
+    animation: rotateGlowSmall 4s linear infinite;
+    filter: blur(25px); /* smaller blur for compact size */
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.ai-button:hover::before {
+    opacity: 0.8;
+}
+
+@keyframes rotateGlowSmall {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.ai-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(16,185,129,0.45);
+}
   </style>
 </head>
 <body>
@@ -289,7 +334,7 @@
   <a href="index.html" class="logo">PVMC/TECH</a>
   <div class="divider"></div>
   <div class="spacer"></div>
-  <a href="coleby.ai.html" class="popup-button">Ask Coleby AI</a>
+  <!-- <a href="coleby.ai.html" class="ai-button">BETA - Ask PV AI</a> -->
   <div class="search-wrap">
     <svg class="search-icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
       <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -547,7 +592,7 @@
           <div class="card-desc">A spreadsheet of the SLink Mapping.</div>
         </div>
         <div class="card-footer">
-          <a class="btn btn-green" href="docs/SLink 2023_Locals - Typical Set-Up.pdf">⬇ Download PDF</a>
+          <a class="btn btn-green" href="docs/SLink 2023_Locals - Typical Set-Up (1).pdf">⬇ Download PDF</a>
         </div>
       </div>
 
