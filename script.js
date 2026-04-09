@@ -11,34 +11,42 @@ menuBtn.addEventListener('click', () => {
 // Sample events data
 const events = [
     {
-        day: '29/26',
-        month: 'MARCH',
-        title: 'Palm Thursday/Sunday',
-        time: 'Same time on Thursday - All day Sunday - Nothing  Special',
-        description: 'Its Palm Sunday!'
+        day: '20',
+        month: 'APRIL',
+        title: 'Kidz Choir Rehearsal',
+        time: 'Starts at 5:00PM',
+        description: 'This is the First Rehearsal!'
     }, 
     {
-        day: '2',
+        day: '22',
         month: 'APRIL',
-        title: 'Maundy Thursday',
-        time: 'Start at 6:15',
-        description: 'Maunday Thursday'
+        title: 'Kidz Choir Rehearsal',
+        time: 'Starts at 5:00PM',
+        description: 'This is the Second/last Rehearsal!'
     },
    
     {
-        day: '4',
+        day: '25',
         month: 'APRIL',
-        title: 'EASTER JAM!!',
-        time: 'Show starts at 10',
-        description: 'See Coleby for Tech script'
+        title: 'Kidz Choir Performance',
+        time: 'Show starts at 5:00PM',
+        description: 'This is the First Performance!'
     },
 
     {
-        day: '5',
+        day: '26',
         month: 'APRIL',
-        title: 'Easter Service',
-        time: '6:30AM, 8:00AM, 9:00, 10:15AM, And 11:30',
-        description: 'Need to find out if 9AM'
+        title: 'Kidz Choir Performance',
+        time: 'Show Starts at 3:00PM',
+        description: 'This is the Second/last Performance!'
+    },
+
+     {
+        day: '7',
+        month: 'May',
+        title: 'One Night Revival!',
+        time: 'Starts at 6:30PM',
+        description: 'One Night Revival! Pastor Danny Johnson.'
     },
 ];
 
