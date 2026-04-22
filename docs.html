@@ -33,6 +33,137 @@
       min-height: 100vh;
     }
 
+    body.popup-active { overflow: hidden; }
+
+    /* ── POPUP ── */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      animation: fadeInOverlay 0.25s ease;
+    }
+
+    .popup-overlay.hidden { display: none; }
+
+    @keyframes fadeInOverlay {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .popup {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.25rem 2rem 2rem;
+      max-width: 440px;
+      width: 92%;
+      box-shadow: 0 20px 60px rgba(15,23,42,0.18), 0 4px 16px rgba(15,23,42,0.08);
+      text-align: center;
+      animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .popup-top-bar {
+      height: 4px;
+      background: var(--accent);
+      border-radius: 999px;
+      width: 48px;
+      margin: 0 auto 1.5rem;
+      opacity: 0.6;
+    }
+
+    .popup-icon-wrap {
+      width: 64px;
+      height: 64px;
+      background: var(--accent-light);
+      border: 1.5px solid #c5d8f8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 28px;
+    }
+
+    .popup h2 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .popup p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .popup-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid #c5d8f8;
+      border-radius: 999px;
+      padding: 3px 10px;
+      margin-bottom: 1.25rem;
+    }
+
+    .popup-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      padding: 0.7rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(21,101,192,0.25);
+    }
+
+    .popup-button:hover {
+      background: #1976d2;
+      box-shadow: 0 4px 14px rgba(21,101,192,0.35);
+      transform: translateY(-1px);
+    }
+
+    .popup-button:active {
+      transform: scale(0.97);
+    }
+
+    .popup-footer-note {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
     /* ── TOP NAV ── */
     .topnav {
       position: sticky; top: 0; z-index: 100;
@@ -49,7 +180,6 @@
       color: var(--accent); letter-spacing: .04em;
       text-decoration: none; white-space: nowrap;
     }
-    
     .stats-break { width: 100%; }
     .topnav .divider { width: 1px; height: 20px; background: var(--border); }
     .topnav .spacer { flex: 1; }
@@ -89,7 +219,6 @@
     .stat-chip .num { font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 600; color: var(--accent); }
     .stat-chip .label { color: var(--text-muted); font-size: 12px; }
 
-    /* ── SECTIONS ── */
     .doc-section { margin-bottom: 48px; }
     .doc-section-header {
       display: flex; align-items: center; gap: 10px;
@@ -102,13 +231,7 @@
       font-family: 'IBM Plex Mono', monospace; font-size: 10px;
       padding: 2px 9px; border-radius: 12px; margin-left: auto; font-weight: 600;
     }
-
-    /* ── COMING SOON ── */
-    .doc-card.coming-soon {
-      opacity: .5;
-      pointer-events: none;
-    }
-
+    .doc-card.coming-soon { opacity: .5; pointer-events: none; }
     .coming-tag {
       display: inline-block; font-size: 10px; font-family: 'IBM Plex Mono', monospace;
       background: var(--surface2); color: var(--text-dim);
@@ -118,7 +241,6 @@
     .badge-green  { background: var(--accent2-light); color: var(--accent2); }
     .badge-orange { background: var(--accent3-light); color: var(--accent3); }
 
-    /* ── CAMPUS TAGS ── */
     .campus-tag {
       display: inline-flex; align-items: center; gap: 4px;
       font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600;
@@ -129,14 +251,11 @@
     .campus-tag.leland     { background: #e0f7fa; color: #00695c; border-color: #b2dfdb; }
     .campus-tag.both       { background: #fce4ec; color: #880e4f; border-color: #f8bbd0; }
 
-    /* ── DOC CARDS ── */
     .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
 
     .doc-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
       display: flex; flex-direction: column;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
       transition: box-shadow .2s, transform .15s, border-color .2s;
@@ -144,7 +263,6 @@
     }
     .doc-card:not(.coming-soon):hover { box-shadow: 0 6px 20px rgba(21,101,192,.1); transform: translateY(-2px); border-color: #c5cfe8; }
 
-    /* coloured top bar — hidden until hover */
     .card-bar { height: 4px; width: 100%; flex-shrink: 0; opacity: 0; transition: opacity .2s; }
     .doc-card.blue  .card-bar { background: var(--accent); }
     .doc-card.green .card-bar { background: var(--accent2); }
@@ -153,38 +271,14 @@
     .video-bar { height: 4px; background: var(--accent3); opacity: 0; transition: opacity .2s; }
     .video-card:hover .video-bar { opacity: 1; }
 
-    .card-body {
-      padding: 16px 16px 0;
-      display: flex; flex-direction: column; gap: 10px;
-      flex: 1;
-    }
+    .card-body { padding: 16px 16px 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .card-tag-row { display: flex; justify-content: flex-end; }
+    .card-identity { display: flex; align-items: center; gap: 10px; }
+    .card-emoji { font-size: 26px; line-height: 1; flex-shrink: 0; }
+    .card-title { font-size: 14px; font-weight: 600; line-height: 1.3; color: var(--text); }
+    .card-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+    .card-footer { padding: 12px 16px 16px; margin-top: auto; }
 
-    /* tag row — sits above everything */
-    .card-tag-row {
-      display: flex; justify-content: flex-end;
-    }
-
-    /* emoji + title row */
-    .card-identity {
-      display: flex; align-items: center; gap: 10px;
-    }
-    .card-emoji {
-      font-size: 26px; line-height: 1; flex-shrink: 0;
-    }
-    .card-title {
-      font-size: 14px; font-weight: 600; line-height: 1.3; color: var(--text);
-    }
-
-    .card-desc {
-      font-size: 12px; color: var(--text-muted); line-height: 1.6;
-    }
-
-    .card-footer {
-      padding: 12px 16px 16px;
-      margin-top: auto;
-    }
-
-    /* ── BUTTONS ── */
     .btn {
       display: inline-flex; align-items: center; gap: 5px;
       font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; font-weight: 500;
@@ -200,7 +294,6 @@
     .btn-orange:hover { background: #fde5c0; box-shadow: 0 2px 6px rgba(230,81,0,.15); }
     .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
 
-    /* ── VIDEO CARDS ── */
     .video-list { display: flex; flex-direction: column; gap: 14px; }
     .video-card {
       background: var(--surface); border: 1px solid var(--border);
@@ -209,24 +302,17 @@
       transition: box-shadow .2s, transform .15s, border-color .2s;
     }
     .video-card:hover { box-shadow: 0 6px 20px rgba(230,81,0,.1); transform: translateY(-2px); border-color: #ffd5b0; }
-    .video-inner {
-      padding: 16px;
-      display: flex; align-items: flex-start; gap: 14px;
-    }
+    .video-inner { padding: 16px; display: flex; align-items: flex-start; gap: 14px; }
     .video-thumb {
       width: 48px; height: 48px; flex-shrink: 0;
       background: var(--accent3-light); border: 1px solid #ffe0b2;
       border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px;
     }
     .video-content { flex: 1; min-width: 0; }
-    .video-top-row {
-      display: flex; align-items: center; justify-content: space-between; gap: 10px;
-      margin-bottom: 4px;
-    }
+    .video-top-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
     .video-title { font-size: 14px; font-weight: 600; color: var(--text); }
     .video-desc  { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
 
-    /* ── NO RESULTS ── */
     .no-results {
       display: none; text-align: center; padding: 60px 20px;
       color: var(--text-muted); background: var(--surface);
@@ -247,94 +333,62 @@
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
+    .index-banner {
+      background: #fffbeb; color: #92400e;
+      border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+      border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(245,158,11,0.1); width: 100%; text-align: center;
+    }
+    .index-banner .hero-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem; color: #92400e; }
+    .index-banner .hero-subtitle { font-size: 0.9rem; color: #b45309; line-height: 1.6; margin: 0; }
+
+    .ai-button {
+      display: inline-block; padding: 0.5rem 1.4rem; font-size: 0.95rem; font-weight: 700;
+      color: white; background: linear-gradient(135deg, #10B981, #42A5F5);
+      border: none; border-radius: 10px; box-shadow: 0 3px 10px rgba(16,185,129,0.3);
+      text-decoration: none; position: relative; overflow: hidden; transition: all 0.3s ease;
+    }
+    .ai-button::before {
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: linear-gradient(45deg, #10B981, #42A5F5, #10B981);
+      animation: rotateGlowSmall 4s linear infinite;
+      filter: blur(25px); opacity: 0.5; transition: opacity 0.3s;
+    }
+    .ai-button:hover::before { opacity: 0.8; }
+    @keyframes rotateGlowSmall { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .ai-button:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 5px 15px rgba(16,185,129,0.45); }
+
     @media (max-width: 768px) {
       main { padding: 24px 16px; }
       #globalSearch { width: 130px; }
       #globalSearch:focus { width: 170px; }
       .topnav { padding: 0 16px; gap: 8px; }
+      .popup { padding: 1.75rem 1.25rem 1.5rem; }
     }
-
-    .index-banner {
-    background: #fffbeb;
-    color: #92400e;
-    border: 1px solid #fde68a;
-    border-left: 4px solid #f59e0b;
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 1px 3px rgba(245, 158, 11, 0.1);
-    width: 100%;
-    text-align: center;
-}
-
-.index-banner .hero-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.2rem;
-    color: #92400e;
-}
-
-.index-banner .hero-subtitle {
-    font-size: 0.9rem;
-    color: #b45309;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.ai-button {
-    display: inline-block;
-    padding: 0.5rem 1.4rem; /* smaller padding */
-    font-size: 0.95rem;      /* smaller font */
-    font-weight: 700;
-    color: white;
-    background: linear-gradient(135deg, #10B981, #42A5F5);
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-/* Neon glow effect */
-.ai-button::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, #10B981, #42A5F5, #10B981);
-    animation: rotateGlowSmall 4s linear infinite;
-    filter: blur(25px); /* smaller blur for compact size */
-    opacity: 0.5;
-    transition: opacity 0.3s;
-}
-
-.ai-button:hover::before {
-    opacity: 0.8;
-}
-
-@keyframes rotateGlowSmall {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.ai-button:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 5px 15px rgba(16,185,129,0.45);
-}
   </style>
 </head>
-<body>
+<body class="popup-active">
+
+<!-- ── POPUP ── -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup">
+    <div class="popup-top-bar"></div>
+    <div class="popup-icon-wrap">📄</div>
+    <h2>Support Document Submission Guidelines</h2>
+    <p>When submitting support documents, please include the last revision date somewhere in your document. This helps keep track of when it was last updated.</p>
+    <button class="popup-button" id="continueBtn">
+      Continue
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</div>
 
 <!-- TOP NAV -->
 <nav class="topnav">
   <a href="index.html" class="logo">PVMC/TECH</a>
   <div class="divider"></div>
   <div class="spacer"></div>
-  <!-- <a href="coleby.ai.html" class="ai-button">BETA - Ask PV AI</a> -->
   <div class="search-wrap">
     <svg class="search-icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
       <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -346,10 +400,10 @@
 <main>
   <section class="index-banner">
     <div>
-        <div class="hero-title">📑 UPDATED! 📑</div>
-        <p class="hero-subtitle">New documentation is now available! Check it out below! Can't find what you are looking for? Use the search bar, located at the top right!</p>
+      <div class="hero-title">📑 UPDATED! 📑</div>
+      <p class="hero-subtitle">New documentation is now available! Check it out below! Can't find what you are looking for? Use the search bar, located at the top right!</p>
     </div>
-</section>
+  </section>
 
   <div class="page-hero">
     <h1>Documentation Hub</h1>
@@ -366,7 +420,7 @@
     <div class="stat-chip"><span class="num">4</span><span class="label">Both Campuses Documentation</span></div>
   </div>
 
-  <!-- PVMC EQUIPMENT MANUALS -->
+  <!-- EQUIPMENT MANUALS -->
   <section class="doc-section" id="equipment">
     <div class="doc-section-header">
       <span class="section-icon">🔧</span>
@@ -379,122 +433,83 @@
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📘</div>
-            <div class="card-title">MageWell Encoder Manual</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📘</div><div class="card-title">MageWell Encoder Manual</div></div>
           <div class="card-desc">Complete guide for operating and maintaining the CR encoder.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-primary" href="docs/UltraEncodeAIO-UserManual_en_US.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-primary" href="docs/UltraEncodeAIO-UserManual_en_US.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card blue" data-search="BM Video Switcher Manual ATEM Constellation blackmagic">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📗</div>
-            <div class="card-title">BM Video Switcher Manual</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📗</div><div class="card-title">BM Video Switcher Manual</div></div>
           <div class="card-desc">Complete guide for operating and maintaining the BM video switcher.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-primary" href="docs/Wilmington Campus Wireless Frequencies - Sheet1.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-primary" href="docs/Wilmington Campus Wireless Frequencies - Sheet1.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card blue" data-search="Echo Express SE I thunderbolt chassis expansion">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📙</div>
-            <div class="card-title">Echo Express SE I Manual</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📙</div><div class="card-title">Echo Express SE I Manual</div></div>
           <div class="card-desc">Complete guide for operating and maintaining the Echo Express SE I.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-primary" href="docs/echo_express_se_i_tb3_ug.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-primary" href="docs/echo_express_se_i_tb3_ug.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card blue" data-search="Decklink Quad 2 Mapping SDI port blackmagic">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📕</div>
-            <div class="card-title">Decklink Quad 2 Mapping Manual</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📕</div><div class="card-title">Decklink Quad 2 Mapping Manual</div></div>
           <div class="card-desc">8 SDI port mapping for the Decklink Quad 2 card.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-primary" href="docs/8 SDI Port Mapping.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-primary" href="docs/8 SDI Port Mapping.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card blue" data-search="V-Mix User Guide vmix">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag both">📍 Both Campuses</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📓</div>
-            <div class="card-title">V-Mix User Guide</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📓</div><div class="card-title">V-Mix User Guide</div></div>
           <div class="card-desc">Complete guide for V-Mix.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-primary" href="docs/vmix-guide.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-primary" href="docs/vmix-guide.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card blue" data-search="Lumens PTZ Controler Manual">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📓</div>
-            <div class="card-title">Lumens PTZ Controler Manual</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📓</div><div class="card-title">Lumens PTZ Controler Manual</div></div>
           <div class="card-desc">A Manual for the control room PTZ controler.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-primary" href="docs/VS-KB30-Installation Manual-English-2020-0113.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-primary" href="docs/VS-KB30-Installation Manual-English-2020-0113.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card blue" data-search="Presonus Sound Board Manual">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag leland">📍 Leland Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📕</div>
-            <div class="card-title"> Presonus Sound Board Manual</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📕</div><div class="card-title">Presonus Sound Board Manual</div></div>
           <div class="card-desc">A Manual for the Leland sound board.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-primary" href="docs/_home_httpd_data_media-data_f_StudioLive_Series_III_QSG-.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-primary" href="docs/_home_httpd_data_media-data_f_StudioLive_Series_III_QSG-.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card blue" data-search="Elation Stage Setter 8 Manual">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag leland">📍 Leland Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📗</div>
-            <div class="card-title"> Elation Stage Setter 8 Manual</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📗</div><div class="card-title">Elation Stage Setter 8 Manual</div></div>
           <div class="card-desc">A Manual for the Leland lighting board.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-primary" href="docs/_home_httpd_data_media-data_f_StudioLive_Series_III_QSG-.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-primary" href="docs/_home_httpd_data_media-data_f_StudioLive_Series_III_QSG-.pdf">⬇ Download PDF</a></div>
       </div>
 
+    </div>
   </section>
 
   <!-- PVMC MADE MANUALS -->
@@ -510,251 +525,164 @@
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag leland">📍 Leland Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">🔊</div>
-            <div class="card-title">Leland Sound Instructions</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">🔊</div><div class="card-title">Leland Sound Instructions</div></div>
           <div class="card-desc">Here's the document with the Leland sound details.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Leland.sound.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Leland.sound.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green" data-search="Un-Installed Lights CLC spreadsheet">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">💡</div>
-            <div class="card-title">Un-Installed Lights</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">💡</div><div class="card-title">Un-Installed Lights</div></div>
           <div class="card-desc">A spreadsheet of all of the CLC un-installed lights.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Un-Installed Lights ILM plus serialized lighting gear.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Un-Installed Lights ILM plus serialized lighting gear.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green" data-search="CLC Booth Snake inputs">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">🐍</div>
-            <div class="card-title">CLC Booth Snake</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">🐍</div><div class="card-title">CLC Booth Snake</div></div>
           <div class="card-desc">A spreadsheet of the inputs of the booth Snake.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Booth Snake - Sheet1 (1).pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Booth Snake - Sheet1 (1).pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green" data-search="Wireless Units campus spreadsheet">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">🛜</div>
-            <div class="card-title">Wireless Units</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">🛜</div><div class="card-title">Wireless Units</div></div>
           <div class="card-desc">A spreadsheet of the wireless units on campus.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Wireless Units at Wilmington Campus - Sheet1.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Wireless Units at Wilmington Campus - Sheet1.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green" data-search="Midas Inputs spreadsheet sanctuary">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📑</div>
-            <div class="card-title">Midas Inputs</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📑</div><div class="card-title">Midas Inputs</div></div>
           <div class="card-desc">A spreadsheet of the midas inputs.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Midas (Santuary) Inputs - Sheet1.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Midas (Santuary) Inputs - Sheet1.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green" data-search="wireless frequencies spreadsheet">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📘</div>
-            <div class="card-title">Wireless Frequencies</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📘</div><div class="card-title">Wireless Frequencies</div></div>
           <div class="card-desc">A spreadsheet of the wireless frequencies.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Midas (Santuary) Inputs - Sheet1.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Midas (Santuary) Inputs - Sheet1.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green" data-search="SLink Local Mapping spreadsheet">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">🔗</div>
-            <div class="card-title">SLink Local Mapping</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">🔗</div><div class="card-title">SLink Local Mapping</div></div>
           <div class="card-desc">A spreadsheet of the SLink Mapping.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/SLink 2023_Locals - Typical Set-Up (1).pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/SLink 2023_Locals - Typical Set-Up (1).pdf">⬇ Download PDF</a></div>
       </div>
 
-      <div class="doc-card green" data-search="SLink Local Mapping spreadsheet">
+      <div class="doc-card green" data-search="Floor Boxes CLC Stage spreadsheet">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📦</div>
-            <div class="card-title">Floor Boxes CLC Stage</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📦</div><div class="card-title">Floor Boxes CLC Stage</div></div>
           <div class="card-desc">A spreadsheet of the SLink Mapping.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Floor Boxes 2023 - Sheet1.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Floor Boxes 2023 - Sheet1.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green" data-search="CLC Projector Guild">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📽️</div>
-            <div class="card-title">CLC Projector Guild</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📽️</div><div class="card-title">CLC Projector Guild</div></div>
           <div class="card-desc">A Projector Guild for the CLC Stage.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/PVMC Projector Information PDF.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/PVMC Projector Information PDF.pdf">⬇ Download PDF</a></div>
       </div>
 
-      <div class="doc-card green" data-search="SLink Local Mapping spreadsheet">
+      <div class="doc-card green" data-search="Leland Patch Sheet spreadsheet">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag leland">📍 Leland Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">📦</div>
-            <div class="card-title">Leland Patch Sheet</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">📦</div><div class="card-title">Leland Patch Sheet</div></div>
           <div class="card-desc">A spreadsheet of Leland patch sheet.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Leland Presonus I_O Routing - Sheet1 (1).pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Leland Presonus I_O Routing - Sheet1 (1).pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green" data-search="Micro Video Switch Board Help Guide">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">🕹️</div>
-            <div class="card-title">Micro Video Switch Board Help Guide</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">🕹️</div><div class="card-title">Micro Video Switch Board Help Guide</div></div>
           <div class="card-desc">A help guide for the Micro Video Switch Board.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Micro Video Switch Board Help Guide.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Micro Video Switch Board Help Guide.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green" data-search="Raspberry Pi Setup Guide">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">🥧</div>
-            <div class="card-title">Raspberry Pi Setup Guide</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">🥧</div><div class="card-title">Raspberry Pi Setup Guide</div></div>
           <div class="card-desc">A setup guide for the Raspberry Pi.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Rasbarry PI Setup.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Rasbarry PI Setup.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green" data-search="MageWell Recording Storage Guide">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">⏺️</div>
-            <div class="card-title">MageWell Recording Storage Guide</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">⏺️</div><div class="card-title">MageWell Recording Storage Guide</div></div>
           <div class="card-desc">A guide for storing recordings for the MageWell.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Magewell Recording Storage Guide.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Magewell Recording Storage Guide.pdf">⬇ Download PDF</a></div>
       </div>
 
-      <div class="doc-card green" data-search="A guide for setting up a laptop on the CLC stage">
+      <div class="doc-card green" data-search="Setting Up a Laptop On The CLC Stage">
         <div class="card-bar"></div>
         <div class="card-body">
           <div class="card-tag-row"><span class="campus-tag wilmington">📍 Wilmington Campus</span></div>
-          <div class="card-identity">
-            <div class="card-emoji">💻</div>
-            <div class="card-title">Setting Up a Laptop On The CLC Stage</div>
-          </div>
+          <div class="card-identity"><div class="card-emoji">💻</div><div class="card-title">Setting Up a Laptop On The CLC Stage</div></div>
           <div class="card-desc">A guide for setting up a laptop on the CLC stage.</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green" href="docs/Setting Up a Laptop On CLC Stage.pdf">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green" href="docs/Setting Up a Laptop On CLC Stage.pdf">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green coming-soon" data-search="manual coming soon placeholder">
         <div class="card-bar"></div>
         <div class="card-body">
-          <div class="card-tag-row">
-            <span class="coming-tag">Coming Soon</span>
-          </div>
-          <div class="card-identity">
-            <div class="card-emoji">📄</div>
-            <div class="card-title">Camera Operator Guide</div>
-          </div>
+          <div class="card-tag-row"><span class="coming-tag">Coming Soon</span></div>
+          <div class="card-identity"><div class="card-emoji">📄</div><div class="card-title">Camera Operator Guide</div></div>
           <div class="card-desc">Coming soon....</div>
         </div>
-        <div class="card-footer">
-          <a class="btn btn-green">⬇ Download PDF</a>
-        </div>
+        <div class="card-footer"><a class="btn btn-green">⬇ Download PDF</a></div>
       </div>
 
       <div class="doc-card green coming-soon" data-search="manual coming soon placeholder">
         <div class="card-bar"></div>
         <div class="card-body">
-          <div class="card-tag-row">
-            <span class="coming-tag">Coming Soon</span>
-          </div>
-      <div class="card-identity">
-        <div class="card-emoji">📄</div>
-        <div class="card-title">V-Mix Stream Key Help Guide</div>
+          <div class="card-tag-row"><span class="coming-tag">Coming Soon</span></div>
+          <div class="card-identity"><div class="card-emoji">📄</div><div class="card-title">V-Mix Stream Key Help Guide</div></div>
+          <div class="card-desc">Coming soon....</div>
+        </div>
+        <div class="card-footer"><a class="btn btn-green">⬇ Download PDF</a></div>
       </div>
-      <div class="card-desc">Coming soon....</div>
-    </div>
-    <div class="card-footer">
-      <a class="btn btn-green">⬇ Download PDF</a>
-    </div>
-  </div>
 
     </div>
   </section>
-  
-
-
 
   <!-- VIDEOS -->
   <section class="doc-section" id="videos">
@@ -775,9 +703,7 @@
               <span class="campus-tag both">📍 Both Campuses</span>
             </div>
             <div class="video-desc">Introduction to using ProPresenter for worship services.</div>
-            <div class="btn-row">
-              <a class="btn btn-orange" href="https://www.youtube.com/watch?v=g2aJU3uLQio" target="_blank">▶ Watch Video</a>
-            </div>
+            <div class="btn-row"><a class="btn btn-orange" href="https://www.youtube.com/watch?v=g2aJU3uLQio" target="_blank">▶ Watch Video</a></div>
           </div>
         </div>
       </div>
@@ -800,7 +726,7 @@
         </div>
       </div>
 
-      <div class="video-card" data-search="ProPresenter Remote Walkthrough control setup usage">
+      <div class="video-card" data-search="ProPresenter 5 Essential Tools Volunteers">
         <div class="video-bar"></div>
         <div class="video-inner">
           <div class="video-thumb">🎥</div>
@@ -810,9 +736,7 @@
               <span class="campus-tag both">📍 Both Campuses</span>
             </div>
             <div class="video-desc">Complete walkthrough of 5 Essential Tools for Volunteers</div>
-            <div class="btn-row">
-              <a class="btn btn-orange" href="https://www.youtube.com/watch?v=hwlELGBT8Lw" target="_blank">▶ Watch Video</a>
-            </div>
+            <div class="btn-row"><a class="btn btn-orange" href="https://www.youtube.com/watch?v=hwlELGBT8Lw" target="_blank">▶ Watch Video</a></div>
           </div>
         </div>
       </div>
@@ -829,6 +753,15 @@
 </main>
 
 <script>
+  // Popup
+  const overlay = document.getElementById('popupOverlay');
+  const continueBtn = document.getElementById('continueBtn');
+  continueBtn.addEventListener('click', () => {
+    overlay.classList.add('hidden');
+    document.body.classList.remove('popup-active');
+  });
+
+  // Search
   const searchInput = document.getElementById('globalSearch');
   const allCards = document.querySelectorAll('[data-search]');
   const sectionEls = document.querySelectorAll('.doc-section[id]');
