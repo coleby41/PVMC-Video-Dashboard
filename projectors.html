@@ -61,6 +61,12 @@
 
     <!-- Main Content -->
     <main class="main-content">
+        <section class="index-banner-new-update">
+            <div>
+                <div class="hero-title">New Update!</div>
+                <p class="hero-subtitle"><strong>🎉 Live Updates Are Back!</strong> Check out the Projector Updates here! This feature was temporarily removed with the new dashboard, but it’s now back. You can also access the projector logs anytime.</p>
+            </div>
+        </section> 
         <div class="card" style="max-width: 900px; margin: 0 auto;">
             <h2 class="card-title">Projector Management</h2>
             <div class="announcement-item" style="margin-bottom: 2rem;">
@@ -70,24 +76,24 @@
             <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
                 <div class="stat-item" style="cursor: pointer;" onclick="window.open('http://192.168.20.126:8002/emulator/7MyZQ0NQ5agSM_AezpJiq', '_blank')">
                     <div class="stat-number-power-projector"></div>
-                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Power Control</div>
+                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Power Control**</div>
                     <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Turn projectors on/off</p>
                 </div>
 
                 <div class="stat-item" style="cursor: pointer;" onclick="window.open('http://192.168.20.126:8002/emulator/CsJQHlAKaZ0zYhpZlESEQ', '_blank')">
                     <div class="stat-number-input-projector"></div>
-                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Input Sources</div>
+                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Input Sources**</div>
                     <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Change input sources</p>
                 </div>
 
                 <div class="stat-item" style="cursor: pointer;" onclick="window.location.href='live-status.html'">
                     <div class="stat-number-status-projector"></div>
-                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">Live Status</div>
-                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">View projector information - NOT WORKING</p>
+                    <div class="stat-label" style="font-size: 1rem; font-weight: 600; color: var(--text-dark);">NEW - Live Status**</div>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">View live projector information</p>
                 </div>
             </div>
         </div>
-    </main>
+        
 
     <script src="scripts/campus-check.js"></script>
     <script src="scripts/theme-switcher.js"></script>
@@ -102,5 +108,9 @@
             mainContent.classList.toggle('expanded');
         });
     </script>
+   
 </body>
+<p style="text-align: center; background-color: var(--bg-light); color: var(--text-light);padding: 20px;">
+  ** Indicates that you must be on campus to access these features.
+</p>
 </html>

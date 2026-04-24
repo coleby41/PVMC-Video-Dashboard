@@ -1011,6 +1011,18 @@ body.popup-active {
     }
 }
 
+.footer {
+  background: var(--bg-light);
+  color: var(--text-light);
+  text-align: center;
+  padding: 1.25rem 2rem;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+
+  margin-left: 260px;              /* match sidebar width */
+  width: calc(100% - 260px);      /* fill remaining space */
+}
+
 /* Small mobile devices */
 @media (max-width: 480px) {
     .quick-links-grid {
@@ -1064,3 +1076,5 @@ body.popup-active {
         padding: 0.8rem 1.125rem;
     }
 }
+
+

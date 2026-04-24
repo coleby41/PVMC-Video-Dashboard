@@ -6,176 +6,463 @@
     <title>Church Dashboard - Testing Page</title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/theme-switcher.css">
-    <link rel="stylesheet" href="styles/testing.css">
+    <link rel="stylesheet" href="styles.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="media/PVMC-logo.png">
+
+    <style>
+        /* Page-specific styles that extend main.css */
+        body {
+            background-color: var(--primary-color);
+        }
+
+        .page-wrapper {
+            background-color: var(--bg-light);
+            border-top-left-radius: 20px;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        /* Dashboard wrapper matches the card style */
+        .dashboard-wrapper {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: box-shadow 0.3s;
+        }
+
+        .dashboard-wrapper:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .dashboard-wrapper h1 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Individual stat cards inside the dashboard */
+        .dashboard-container .card {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0;
+            box-shadow: none;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dashboard-container .card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .dashboard-container .card-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .card-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            word-break: break-word;
+        }
+
+        .card-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 0.25rem;
+        }
+
+        /* Status badges */
+        .status {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .status.connected {
+            background-color: #e8f5e9;
+            color: var(--success-color);
+            border: 1px solid #c8e6c9;
+        }
+
+        .status.disconnected {
+            background-color: #ffebee;
+            color: var(--danger-color);
+            border: 1px solid #ffcdd2;
+        }
+
+        .card-note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 0.75rem;
+            text-align: center;
+        }
+
+        /* IP badge */
+        .ip-badge {
+            display: inline-block;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.78rem;
+            color: var(--text-light);
+            font-family: monospace;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Log link */
+        .log-link {
+            display: block;
+            text-align: center;
+            padding-top: 0.75rem;
+            margin-top: 0.5rem;
+            color: var(--secondary-color);
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-top: 1px solid var(--border-color);
+            transition: color 0.2s;
+        }
+
+        .log-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Back button */
+        .dashboard-button {
+            display: block;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            margin: 1.5rem auto 0;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+
+        .dashboard-button:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Network banner */
+        .banner2 {
+            background: #fff3cd;
+            color: #856404;
+            border-bottom: 1px solid #ffc107;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .banner2.hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 1rem;
+                border-top-left-radius: 0;
+            }
+
+            .dashboard-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .page-title {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+ <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text">PVMC</span>
+            </div>
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </div>
+    </header>
 
-    <!-- Network Banner -->
-    <div id="network-banner" class="banner2 hidden"></div>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">Quick Links</div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item">
+                <span class="home-nav-icon"></span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="https://pvmc.life" class="nav-item" target="_blank">
+                <span class="website-nav-icon"></span>
+                <span class="nav-text">Church Website</span>
+            </a>
+            <a href="projectors.html" class="nav-item active">
+                <span class="projectors-nav-icon"></span>
+                <span class="nav-text">Projectors</span>
+            </a>
+            <a href="videoswitch.html" class="nav-item">
+                <span class="video-nav-icon"></span>
+                <span class="nav-text">Video Switching</span>
+            </a>
+            <a href="docs.html" class="nav-item">
+                <span class="docs-nav-icon"></span>
+                <span class="nav-text">Helpful Docs</span>
+            </a>
+            <a href="update.home.html" class="nav-item">
+                <span class="update-nav-icon"></span>
+                <span class="nav-text">Updates - Home</span>
+            </a>
 
-    <div class="container">
-        <h1>Live Status Monitor</h1>
+        </nav>
+        <div class="sidebar-footer">
+            PVMC Tech Department
+            <br>
+            V3.0.1
+        </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Banner -->
+       <!-- <section class="index-banner">
+            <div>
+                <div class="hero-title">⚠️ Reminder! ⚠️</div>
+                <p class="hero-subtitle">Please submit an update form when doing updates! This helps us track updates!</p>
+            </div>
+        </section> 
+
+        <section class="index-banner-new-update">
+            <div>
+                <div class="hero-title">New Update!</div>
+                <p class="hero-subtitle"><strong>🎉 V4 is now live!</strong> Explore all the new changes and updates. Have questions or run into issues? Reach out to the Dashboard Admin. View the changes here!</p>
+            </div>
+        </section> -->
+
+        
+    <div class="page-wrapper">
+        
+        <h1 class="page-title">Live Status Monitor</h1>
 
         <!-- ================= SR PROJECTOR ================= -->
         <div class="dashboard-wrapper">
-            <h1 style="text-align:center;">SR Projector Status</h1>
-            <p class="card-label">IP ADDRESS: 192.168.20.127</p>
+            <h1>SR Projector Status</h1>
+            <div class="ip-badge">IP: 192.168.20.127</div>
 
             <div class="dashboard-container">
                 <div class="card">
-                    <div class="card-title">INPUT STATUS</div>
+                    <div class="card-title">Input</div>
                     <div class="card-value" id="srprojectorInput">--</div>
                     <div class="card-label">SR INPUT STATUS</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">POWER STATUS</div>
+                    <div class="card-title">Power</div>
                     <span class="status disconnected" id="srpowerStatus">--</span>
                     <div class="card-label">SR POWER STATUS</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">LIGHTBULB HOURS</div>
+                    <div class="card-title">Lamp Hours</div>
                     <div class="card-value" id="srlamp1Hrs">--</div>
                     <div class="card-label">SR LIGHTBULB HOURS</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">MUTE STATUS</div>
+                    <div class="card-title">Mute</div>
                     <div class="card-value" id="srmuteState" style="text-transform: uppercase;">--</div>
                     <div class="card-label">SR MUTE STATUS</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">PROJECTOR NAME</div>
+                    <div class="card-title">Name</div>
                     <div class="card-value" id="srprojectorName">--</div>
                     <div class="card-label">SR PROJECTOR NAME</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">PROJECTOR MODEL</div>
+                    <div class="card-title">Model</div>
                     <div class="card-value" id="srprojectorModel">--</div>
                     <div class="card-label">SR PROJECTOR MODEL</div>
                 </div>
-                <br>
             </div>
-            <p class="card-note">Note: 'Stage Right' refers to the stage Right (the performer's POV), not the audience's.</p>
-            <a href="sr-projector-logs.html" style="display: block; text-align: center; padding-top: 10px;">
-                View SR Projector Log
-            </a>
+
+            <p class="card-note">Note: 'Stage Right' refers to the performer's POV, not the audience's.</p>
+            <a href="sr-projector-logs.html" class="log-link">View SR Projector Log →</a>
         </div>
 
         <!-- ================= CS PROJECTOR ================= -->
         <div class="dashboard-wrapper">
-            <h1 style="text-align:center;">CS Projector Status</h1>
-            <p class="card-label">IP ADDRESS: 192.168.20.125</p>
+            <h1>CS Projector Status</h1>
+            <div class="ip-badge">IP: 192.168.20.125</div>
 
             <div class="dashboard-container">
                 <div class="card">
-                    <div class="card-title">INPUT STATUS</div>
+                    <div class="card-title">Input</div>
                     <div class="card-value" id="csprojectorInput">--</div>
                     <div class="card-label">CS INPUT STATUS</div>
-
                 </div>
 
                 <div class="card">
-                    <div class="card-title">POWER STATUS</div>
+                    <div class="card-title">Power</div>
                     <span class="status disconnected" id="cspowerStatus">--</span>
                     <div class="card-label">CS POWER STATUS</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">LIGHTBULB HOURS</div>
+                    <div class="card-title">Lamp Hours</div>
                     <div class="card-value" id="cslamp1Hrs">--</div>
                     <div class="card-label">CS LIGHTBULB HOURS</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">MUTE STATUS</div>
+                    <div class="card-title">Mute</div>
                     <div class="card-value" id="csmuteState" style="text-transform: uppercase;">--</div>
                     <div class="card-label">CS MUTE STATUS</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">PROJECTOR NAME</div>
+                    <div class="card-title">Name</div>
                     <div class="card-value" id="csprojectorName">--</div>
                     <div class="card-label">CS PROJECTOR NAME</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">PROJECTOR MODEL</div>
+                    <div class="card-title">Model</div>
                     <div class="card-value" id="csprojectorModel">--</div>
                     <div class="card-label">CS PROJECTOR MODEL</div>
                 </div>
-                <br>
             </div>
-            <p class="card-note">Note: 'Center Stage' refers to center stage (the performer's POV), not the audience's.</p>
-            <a href="cs-projector-logs.html" style="display: block; text-align: center; padding-top: 10px;">
-                View CS Projector Log
-            </a>
+
+            <p class="card-note">Note: 'Center Stage' refers to the performer's POV, not the audience's.</p>
+            <a href="cs-projector-logs.html" class="log-link">View CS Projector Log →</a>
         </div>
 
         <!-- ================= SL PROJECTOR ================= -->
- 
         <div class="dashboard-wrapper">
-            <h1 style="text-align:center;">SL Projector Status</h1>
-            <p class="card-label">IP ADDRESS: 192.168.20.41</p>
+            <h1>SL Projector Status</h1>
+            <div class="ip-badge">IP: 192.168.20.41</div>
 
             <div class="dashboard-container">
                 <div class="card">
-                    <div class="card-title">INPUT STATUS</div>
+                    <div class="card-title">Input</div>
                     <div class="card-value" id="slInputStatus">--</div>
                     <div class="card-label">SL INPUT STATUS</div>
-
                 </div>
 
                 <div class="card">
-                    <div class="card-title">POWER STATUS</div>
+                    <div class="card-title">Power</div>
                     <span class="status disconnected" id="slpowerStatus">--</span>
                     <div class="card-label">SL POWER STATUS</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">LIGHTBULB HOURS</div>
+                    <div class="card-title">Lamp Hours</div>
                     <div class="card-value" id="slLampHrs">--</div>
                     <div class="card-label">SL LIGHTBULB HOURS</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">MUTE STATUS</div>
+                    <div class="card-title">Mute</div>
                     <div class="card-value" id="slMuteStatus" style="text-transform: uppercase;">--</div>
                     <div class="card-label">SL MUTE STATUS</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">PROJECTOR NAME</div>
+                    <div class="card-title">Name</div>
                     <div class="card-value" id="slProjectorName">--</div>
                     <div class="card-label">SL PROJECTOR NAME</div>
                 </div>
 
                 <div class="card">
-                    <div class="card-title">PROJECTOR MODEL</div>
+                    <div class="card-title">Model</div>
                     <div class="card-value" id="slProjectorModel">--</div>
                     <div class="card-label">SL PROJECTOR MODEL</div>
                 </div>
-                <br>
             </div>
-            <p class="card-note">Note: 'Stage Left' refers to the stage Left (the performer's POV), not the audience's.</p>
-            <a href="sl-projector-logs.html" style="display: block; text-align: center; padding-top: 10px;">
-                View SL Projector Log
-            </a>
+
+            <p class="card-note">Note: 'Stage Left' refers to the performer's POV, not the audience's.</p>
+            <a href="sl-projector-logs.html" class="log-link">View SL Projector Log →</a>
         </div>
 
         <button class="dashboard-button" onclick="window.location.href='projectors.html'">
-            Go Back
+            ← Go Back
         </button>
     </div>
 
     <!-- Scripts -->
+     <script>
+        // Sidebar toggle functionality
+        const menuBtn = document.getElementById('menuBtn');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.querySelector('.main-content');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+            mainContent.classList.toggle('expanded');
+        });
+
+        document.getElementById('seeMoreBtn').addEventListener('click', function () {
+            const hiddenManuals = document.querySelectorAll('.hidden-manual');
+            hiddenManuals.forEach(manual => {
+                manual.style.display = 'block';
+            });
+            this.style.display = 'none'; // Hide the button after clicking
+        });
+
+    
+    </script>
     <script src="Live Status Monitor/sl-projector.js"></script>
     <script src="sr-projector.js"></script>
     <script src="sl-projector.js"></script>
