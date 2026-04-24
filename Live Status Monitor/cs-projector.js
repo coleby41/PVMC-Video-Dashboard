@@ -1,6 +1,6 @@
-const SL_BASE_URL = 'http://192.168.20.100:8000/api/variable/CS_Projector';
+const CS_BASE_URL = 'http://192.168.20.100:8000/api/variable/CS_Projector';
 
-async function fetchSLProjectorData() {
+async function fetchCSProjectorData() {
     const variables = [
         { key: 'powerState',      elementId: 'cspowerStatus' },
         { key: 'projectorInput',  elementId: 'csInputStatus' },
@@ -48,7 +48,7 @@ async function fetchSLProjectorData() {
         });
 
     } catch (error) {
-        console.error('SL Projector error:', error);
+        console.error('CS Projector error:', error);
 
         variables.forEach(({ elementId }) => {
             const el = document.getElementById(elementId);
