@@ -60,5 +60,5 @@ async function fetchCSProjectorData() {
     }
 }
 
-fetchSLProjectorData();
-setInterval(fetchSLProjectorData, 5000);
+fetchCSProjectorData();
+setInterval(fetchCSProjectorData, 5000);
