@@ -2,12 +2,12 @@ const SL_BASE_URL = 'http://192.168.20.100:8000/api/variable/CS_Projector';
 
 async function fetchSLProjectorData() {
     const variables = [
-        { key: 'powerState',      elementId: 'CSpowerStatus' },
-        { key: 'projectorInput',  elementId: 'CSInputStatus' },
-        { key: 'lamp1Hrs',        elementId: 'CSLampHrs' },
-        { key: 'muteState',       elementId: 'CSMuteStatus' },
-        { key: 'projectorName',   elementId: 'CSProjectorName' },
-        { key: 'projectorModel',  elementId: 'CSProjectorModel' },
+        { key: 'powerState',      elementId: 'cspowerStatus' },
+        { key: 'projectorInput',  elementId: 'csInputStatus' },
+        { key: 'lamp1Hrs',        elementId: 'csLampHrs' },
+        { key: 'muteState',       elementId: 'csMuteStatus' },
+        { key: 'projectorName',   elementId: 'csProjectorName' },
+        { key: 'projectorModel',  elementId: 'csProjectorModel' },
     ];
 
     try {
