@@ -34,16 +34,16 @@ async function fetchSLProjectorData() {
                 el.className = isMuted ? 'status disconnected' : 'status connected';
 
             } else if (key === 'lamp1Hrs') {
-                el.textContent = `LAMP HRS = ${value ?? 'N/A'}`;
+                el.textContent = `${value ?? 'N/A'}`;
 
             } else if (key === 'projectorInput') {
-                el.textContent = `INPUT = ${value ?? 'N/A'}`;
+                el.textContent = `${value ?? 'N/A'}`;
 
             } else if (key === 'projectorName') {
-                el.textContent = `NAME = ${value ?? 'N/A'}`;
+                el.textContent = `${value ?? 'N/A'}`;
 
             } else if (key === 'projectorModel') {
-                el.textContent = `MODEL = ${value ?? 'N/A'}`;
+                el.textContent = `${value ?? 'N/A'}`;
             }
         });
 
