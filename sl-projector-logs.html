@@ -3,23 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SR Projector Error Log</title>
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/theme-switcher.css">
-    <link rel="stylesheet" href="styles/projector-log.css">
-    <link rel="stylesheet" href="styles/testing.css">
+    <title>CS Projector Error Log</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Logo/PVMC-logo.png">
+    <style>
+        .log-sheet {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="media/PVMC-logo.png">
+        .log-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .log-header h2 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .log-info {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-dark);
+        }
+
+        .error-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .error-table thead tr {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .error-table th {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .error-table td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-dark);
+            vertical-align: middle;
+        }
+
+        .error-table tbody tr:hover {
+            background: var(--bg-light);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .status-dot.ok      { background: var(--success-color); }
+        .status-dot.error   { background: var(--danger-color); }
+        .status-dot.unknown { background: #9E9E9E; }
+
+        .status-text.ok      { color: var(--success-color); font-weight: 500; }
+        .status-text.error   { color: var(--danger-color); font-weight: 500; }
+        .status-text.unknown { color: #9E9E9E; }
+
+        .dashboard-button {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+            margin-bottom: 1.5rem;
+        }
+
+        .dashboard-button:hover {
+            background: var(--secondary-color);
+        }
+
+        .log-footer {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            line-height: 1.8;
+        }
+
+        .log-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .log-footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .error-table thead { display: none; }
+
+            .error-table tr {
+                display: block;
+                margin-bottom: 1rem;
+                border: 1px solid var(--border-color);
+                border-radius: 6px;
+                padding: 0.5rem;
+            }
+
+            .error-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid var(--border-color);
+                padding: 0.6rem 0.75rem;
+            }
+
+            .error-table td:last-child { border-bottom: none; }
+
+            .error-table td::before {
+                content: attr(data-label);
+                font-weight: 500;
+                color: var(--text-light);
+                font-size: 0.8rem;
+                min-width: 80px;
+            }
+
+            .log-info {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="network-banner" class="banner2 hidden"></div>
-    
+
+    <!-- Popup (matches index.html) -->
+    <div id="popup-overlay" class="popup-overlay hidden">
+        <div class="popup">
+            <div id="popup-icon" class="popup-icon"></div>
+            <h2 id="popup-title"></h2>
+            <p id="popup-message"></p>
+            <div id="popup-buttons-container" class="popup-buttons"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-text">PVMC</span>
+            </div>
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </div>
+        <div class="header-center">
+            <span class="logo-text">Welcome To The Tech Dashboard!</span>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">Quick Links</div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item">
+                <span class="home-nav-icon"></span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="https://pvmc.life" class="nav-item" target="_blank">
+                <span class="website-nav-icon"></span>
+                <span class="nav-text">Church Website</span>
+            </a>
+            <a href="projectors.html" class="nav-item active">
+                <span class="projectors-nav-icon"></span>
+                <span class="nav-text">Projectors</span>
+            </a>
+            <a href="videoswitch.html" class="nav-item">
+                <span class="video-nav-icon"></span>
+                <span class="nav-text">Video Switching</span>
+            </a>
+            <a href="docs.html" class="nav-item">
+                <span class="docs-nav-icon"></span>
+                <span class="nav-text">Helpful Docs</span>
+            </a>
+            <a href="update.home.html" class="nav-item">
+                <span class="update-nav-icon"></span>
+                <span class="nav-text">Updates - Home</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            PVMC Tech Department
+            <br>
+            V3.10.1
+        </div>
+    </aside>
+
     <!-- Main Content -->
-    <div class="container">
-        <h1>📋 SL Projector Error Log</h1>
-        
-        <div class="hr-pro"></div>
+    <main class="main-content">
 
         <div class="log-sheet">
             <div class="log-header">
@@ -29,7 +230,7 @@
                     <div><strong>IP Address:</strong> 192.168.20.41</div>
                 </div>
                 <div class="log-info">
-                    <div><strong>Last Updated:</strong> <span id="lastUpdate">Never</span></div>
+                    <div><strong>Last Updated:</strong> <span id="lastUpdate">NO DATA</span></div>
                 </div>
             </div>
 
@@ -95,22 +296,20 @@
                 </tbody>
             </table>
 
-            <button class="dashboard-button" onclick="fetchErrorData()">🔄 Refresh Log</button>
+            <button class="dashboard-button" onclick="fetchErrorData()">Refresh Log</button>
 
             <div class="log-footer">
-                <strong>Legend:</strong> 🟢 Green = No Error Detected | 🔴 Red = Error Present | ⚪ Gray = Unknown/Connecting
+                <strong>Legend:</strong> Green = No Error Detected &nbsp;|&nbsp; Red = Error Present &nbsp;|&nbsp; Gray = Unknown/Connecting
                 <br><br>
                 <em>Note: This log updates automatically every 5 minutes. Manual refresh available above.</em>
                 <br><br>
-                <a href="live-status.html">Go Back to Live Status Monitor</a> 
+                <a href="live-status.html">Go Back to Live Status Monitor</a>
             </div>
         </div>
-    </div>
 
-    <!-- Scripts -->
-    <script src="scripts/testing.js"></script>
-    <script src="scripts/campus-check2.js"></script>
-    <script src="scripts/theme-switcher.js"></script>
-    <script src="scripts/projectors/Logs/sl-projector-logs.js"></script>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="Live Status Monitor/Logs/sl-projector-logs.js"></script>
 </body>
 </html>
