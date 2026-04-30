@@ -11,43 +11,44 @@ menuBtn.addEventListener('click', () => {
 // Sample events data
 const events = [
     {
-        day: '20',
-        month: 'APRIL',
-        title: 'Kidz Choir Rehearsal',
-        time: 'Starts at 5:00PM',
-        description: 'This is the First Rehearsal!'
-    }, 
-    {
-        day: '22',
-        month: 'APRIL',
-        title: 'Kidz Choir Rehearsal',
-        time: 'Starts at 5:00PM',
-        description: 'This is the Second/last Rehearsal!'
-    },
-   
-    {
-        day: '25',
-        month: 'APRIL',
-        title: 'Kidz Choir Performance',
-        time: 'Show starts at 5:00PM',
-        description: 'This is the First Performance!'
-    },
-
-    {
-        day: '26',
-        month: 'APRIL',
-        title: 'Kidz Choir Performance',
-        time: 'Show Starts at 3:00PM',
-        description: 'This is the Second/last Performance!'
-    },
-
-     {
         day: '7',
         month: 'May',
         title: 'One Night Revival!',
         time: 'Starts at 6:30PM',
         description: 'One Night Revival! Pastor Danny Johnson.'
+    }, 
+    {
+        day: '24',
+        month: 'MAY',
+        title: 'Pentecost In The Park',
+        time: 'Starts at 10:00AM',
+        description: 'This is not being Live Streamed but will be recorded. More info to come.'
     },
+
+    {
+        day: '31',
+        month: 'MAY',
+        title: 'Graduation Sunday',
+        time: 'Only during 9:00AM Service',
+        description: 'The only difference for that Sunday is the announcing of the graduates during the 9:00 AM service, as well as receiving their Bibles. There will be a list of all the graduates.'
+    }, 
+    
+    {
+        day: '7',
+        month: 'JUNE',
+        title: 'Ignite Sunday',
+        time: 'Only during 9:00AM Service',
+        description: 'More Details To Come.'
+    },  
+
+    {
+        day: '7',
+        month: 'JUNE',
+        title: 'Special Guest Speaker',
+        time: 'Only during 10:15AM Service',
+        description: 'More Details To Come.'
+    }
+    
 ];
 
 // Render events
