@@ -10,27 +10,13 @@ menuBtn.addEventListener('click', () => {
 
 // Sample events data
 const events = [
-    {
-        day: '7',
-        month: 'May',
-        title: 'One Night Revival!',
-        time: 'Starts at 6:30PM',
-        description: 'One Night Revival! Pastor Danny Johnson.'
-    }, 
-    {
-        day: '24',
-        month: 'MAY',
-        title: 'Pentecost In The Park',
-        time: 'Starts at 10:00AM',
-        description: 'This is not being Live Streamed but will be recorded. More info to come.'
-    },
 
     {
         day: '31',
         month: 'MAY',
         title: 'Graduation Sunday',
         time: 'Only during 9:00AM Service',
-        description: 'The only difference for that Sunday is the announcing of the graduates during the 9:00 AM service, as well as receiving their Bibles. There will be a list of all the graduates.'
+        description: 'The service will be live streamed. We will start the livestream ASAP after the 8:00AM service ends, or at the end of the 9:00AM announcements. We will stay live for the entire 9:00AM service.'
     }, 
     
     {
@@ -38,7 +24,7 @@ const events = [
         month: 'JUNE',
         title: 'Ignite Sunday',
         time: 'Only during 9:00AM Service',
-        description: 'More Details To Come.'
+        description: 'The service will be live streamed. We will start the livestream ASAP after the 8:00AM service ends. Look for order of the service....'
     },  
 
     {
@@ -46,7 +32,7 @@ const events = [
         month: 'JUNE',
         title: 'Special Guest Speaker',
         time: 'Only during 10:15AM Service',
-        description: 'More Details To Come.'
+        description: 'More details to come.'
     }
     
 ];
